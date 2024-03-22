@@ -13,4 +13,5 @@ export class AppComponent {
   name= "doha";
   id=1;
   name2="mera";
+  name3="samy";
 }
