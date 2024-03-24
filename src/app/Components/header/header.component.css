@@ -41,11 +41,9 @@
     transform: translate3d(0px, 0px, 15px) perspective(180px) rotateX(-35deg) translateY(2px);
     border-radius: 50%;
   }
-  /* <reset-style> ============================ */
 a {
     text-decoration: none;
   }
-  /* <main-style> ============================ */
   .menu__link {
     color: #fff;
     line-height: 2;
@@ -71,8 +69,8 @@ a {
     left: 0;
   }
   .icon {
-    width: 35px; /* Set the desired width */
-    height: 35px; /* Set the desired height */
+    width: 35px; 
+    height: 35px; 
     padding-bottom: 6px;
   }
   a{
