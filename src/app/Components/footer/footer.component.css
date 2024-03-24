@@ -1,0 +1,399 @@
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+    .footer {
+      background-color: black; /* Change this to your desired background color */
+      padding: 20px 0; 
+      width: 100%;
+    }
+
+
+    .main {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5em;
+    }
+    
+    .up {
+      display: flex;
+      flex-direction: row;
+      gap: 0.5em;
+    }
+    
+    .down {
+      display: flex;
+      flex-direction: row;
+      gap: 0.5em;
+    }
+    
+    .card1 {
+      width: 90px;
+      height: 90px;
+      outline: none;
+      border: none;
+      background: white;
+      border-radius: 90px 5px 5px 5px;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+      transition: .2s ease-in-out;
+    }
+    
+    .instagram {
+      margin-top: 1.5em;
+      margin-left: 1.2em;
+      fill: #cc39a4;
+    }
+    
+    .card2 {
+      width: 90px;
+      height: 90px;
+      outline: none;
+      border: none;
+      background: white;
+      border-radius: 5px 90px 5px 5px;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+      transition: .2s ease-in-out;
+    }
+    
+    .facebook {
+      margin-top: 1.5em;
+      margin-left: -.9em;
+      fill: #03A9F4;
+    }
+    
+    .card3 {
+      width: 90px;
+      height: 90px;
+      outline: none;
+      border: none;
+      background: white;
+      border-radius: 5px 5px 5px 90px;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+      transition: .2s ease-in-out;
+    }
+    
+    .whatsapp {
+      margin-top: -.6em;
+      margin-left: 1.2em;
+      fill: #00ff00;
+    }
+    
+    .card4 {
+      width: 90px;
+      height: 90px;
+      outline: none;
+      border: none;
+      background: white;
+      border-radius: 5px 5px 90px 5px;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+      transition: .2s ease-in-out;
+    }
+    
+    .gmail {
+      margin-top: -.9em;
+      margin-left: -1.2em;
+      fill: #f14336;
+    }
+    
+    .card1:hover {
+      cursor: pointer;
+      scale: 1.1;
+      background-color: #cc39a4;
+    }
+    
+    .card1:hover .instagram {
+      fill: white;
+    }
+    
+    .card2:hover {
+      cursor: pointer;
+      scale: 1.1;
+      background-color: #1877f2;
+    }
+    
+    .card2:hover .facebook {
+      fill: white;
+    }
+    
+    .card3:hover {
+      cursor: pointer;
+      scale: 1.1;
+      background-color: #00ff00;
+    }
+    
+    .card3:hover .whatsapp {
+      fill: white;
+    }
+    
+    .card4:hover {
+      cursor: pointer;
+      scale: 1.1;
+      background-color: #FF0004;
+    }
+    
+    .card4:hover .gmail {
+      fill: white;
+    }
+
+    .img {
+      width: 50px; /* Set the desired width */
+      height: 50px; /* Set the desired height */
+      padding-bottom: 15px;
+    }
+    a{
+      font-size: 30px ;
+      font-family: bold;
+    }
+    h5{
+      font-size: 1.90rem;
+    }
+
+    .button {
+      position: relative;
+      padding: 13px 35px;
+      background: black;
+      font-size: 17px;
+      font-weight: 900;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 2px 2px 5px inset 2px 2px 10px #ffffffb0;
+      transition: all .3s ease-in-out;
+    }
+    
+    .icon-1 {
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translate(-50%, 0);
+      width: 0px;
+      height: auto;
+      transition: all .5s ease-in-out;
+      z-index: -1;
+    }
+    
+    .icon-2 {
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translate(-50%, 0);
+      width: 0px;
+      height: auto;
+      transition: all .5s ease-in-out;
+      z-index: -2;
+    }
+    
+    .icon-3 {
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translate(-50%, 0);
+      width: 0px;
+      height: auto;
+      transition: all .5s ease-in-out;
+      z-index: -2;
+    }
+    
+    .icon-4 {
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translate(-50%, 0);
+      width: 0px;
+      height: auto;
+      transition: all .5s ease-in-out;
+      z-index: -2;
+    }
+    
+    .icon-5 {
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translate(-50%, 0);
+      width: 0px;
+      height: auto;
+      transition: all .5s ease-in-out;
+      z-index: -2;
+    }
+    
+    .button:hover {
+      padding: 13px 25px;
+      border-radius: 8px 8px 24px 24px;
+    }
+    
+    .button:hover .icon-1 {
+      top: -250%;
+      left: 50%;
+      transform: translate(-50%, 0);
+      width: 50px;
+      height: auto;
+      animation: inIcon1 1s ease .45s forwards;
+    }
+    
+    @keyframes inIcon1 {
+      0% {
+        transform-origin: 0 100%;
+        transform: translate(-50%, 0) rotate(0deg);
+      }
+    
+      25% {
+        transform-origin: 0 100%;
+        transform: translate(-50%, 0) rotate(5deg);
+      }
+    
+      50% {
+        transform-origin: 0 100%;
+        transform: translate(-50%, 0) rotate(1deg);
+      }
+    
+      65% {
+        transform-origin: 0 100%;
+        transform: translate(-50%, 0) rotate(3deg);
+      }
+    
+      100% {
+        transform-origin: 0 100%;
+        transform: translate(-50%, 0) rotate(0deg);
+      }
+    }
+    
+    .button:hover .icon-2 {
+      position: absolute;
+      top: -200%;
+      left: 90%;
+      transform: translate(-50%, 0);
+      width: 75px;
+      height: auto;
+      animation: inIcon2 1s ease .45s forwards;
+    }
+    
+    @keyframes inIcon2 {
+      0% {
+        transform-origin: 0 100%;
+        transform: translate(-50%, 0) rotate(0deg);
+      }
+    
+      35% {
+        transform-origin: 0 100%;
+        transform: translate(-50%, 0) rotate(10deg);
+      }
+    
+      50% {
+        transform-origin: 0 100%;
+        transform: translate(-50%, 0) rotate(4deg);
+      }
+    
+      80% {
+        transform-origin: 0 100%;
+        transform: translate(-50%, 0) rotate(5deg);
+      }
+    
+      100% {
+        transform-origin: 0 100%;
+        transform: translate(-50%, 0) rotate(0deg);
+      }
+    }
+    
+    .button:hover .icon-3 {
+      position: absolute;
+      top: -130%;
+      left: 20%;
+      transform: translate(-50%, 0);
+      width: 60px;
+      height: auto;
+      animation: inIcon3 1s ease .45s forwards;
+    }
+    
+    @keyframes inIcon3 {
+      0% {
+        transform-origin: 0 100%;
+        transform: translate(-50%, 0) rotate(0deg);
+      }
+    
+      35% {
+        transform-origin: 0 100%;
+        transform: translate(-50%, 0) rotate(-2deg);
+      }
+    
+      100% {
+        transform-origin: 0 100%;
+        transform: translate(-50%, 0) rotate(0deg);
+      }
+    }
+    
+    .button:hover .icon-4 {
+      position: absolute;
+      top: -300%;
+      left: 10%;
+      transform: translate(-50%, 0);
+      width: 85px;
+      height: auto;
+      animation: inIcon4 1s ease .45s forwards;
+    }
+    
+    @keyframes inIcon4 {
+      0% {
+        transform-origin: 0 100%;
+        transform: translate(-50%, 0) rotate(0deg);
+      }
+    
+      40% {
+        transform-origin: 0 100%;
+        transform: translate(-50%, 0) rotate(-3deg);
+      }
+    
+      100% {
+        transform-origin: 0 100%;
+        transform: translate(-50%, 0) rotate(0deg);
+      }
+    }
+    
+    button:hover .icon-5 {
+      position: absolute;
+      top: -350%;
+      left: 90%;
+      transform: translate(-50%, 0);
+      width: 85px;
+      height: auto;
+      animation: inIcon5 1s ease .45s forwards;
+    }
+    
+    @keyframes inIcon5 {
+      0% {
+        transform-origin: 0 100%;
+        transform: translate(-50%, 0) rotate(0deg);
+      }
+    
+      35% {
+        transform-origin: 0 100%;
+        transform: translate(-50%, 0) rotate(-3deg);
+      }
+    
+      100% {
+        transform-origin: 0 100%;
+        transform: translate(-50%, 0) rotate(0deg);
+      }
+    }
+    
+    .fil-leaf-1 {
+      fill: #7B9B3A
+    }
+    
+    .fil-leaf-2 {
+      fill: #556729;
+      fill-rule: nonzero
+    }
+    
+    .fil-leaf-3 {
+      fill: #556729
+    }
+    
+    .fil-leaf-4 {
+      fill: #3C4819
+    }
+    
+    .fil-leaf-5 {
+      fill: #3C4819
+    }
