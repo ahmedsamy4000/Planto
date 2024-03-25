@@ -1,14 +1,12 @@
 <div class="my-5 w-25 text-center m-auto">
     <h1 class="text-white roboto-light">Our Plants</h1>
-    <p class="text-white roboto-light fs-5 mt-4">Welcome to a world where plants not only beautify our surroundings but also have the power to nourish our souls.</p>
+    <p class="text-white roboto-light fs-5 mt-4">Welcome to a world where plants not only beautify our surroundings but
+        also have the power to nourish our souls.</p>
 </div>
-<!-- <div class="d-flex flex-wrap" *ngFor="let _ of [0, 1, 2, 3, 4]">
-    <app-one-product></app-one-product>
-</div> -->
 
-<div class="d-flex flex-wrap justify-content-center mt-5">
+<div class="d-flex flex-wrap justify-content-center mt-5 gap-5">
     @for(p of products; track p)
     {
-        <app-one-product></app-one-product>
+    <app-one-product [name]="p"></app-one-product>
     }
 </div>
