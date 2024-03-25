@@ -15,4 +15,5 @@ export class HeaderComponent {
   goToCart(){
     this.router.navigate(['/cartItems']);
   }
+  
 }

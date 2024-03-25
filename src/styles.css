@@ -4,6 +4,8 @@
 body {
     /* background-image:url('../src/assets/flower2.jpeg');  */
     background-color: rgb(74, 74, 74);
+    background-size: cover;
+    background-position: center;
 }
 
 .roboto-light {

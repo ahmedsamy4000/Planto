@@ -5,8 +5,10 @@ import { CartItemsComponent } from './Components/cart-items/cart-items.component
 import { CartEmptyComponent } from './Components/cart-empty/cart-empty.component';
 import { ProductComponent } from './Components/Shop/product/product.component';
 import { ContactComponent } from './Components/contact/contact.component';
+import { WelcomeComponent } from './Components/welcome/welcome.component';
 
 export const routes: Routes = [
+    {path: "welcome" ,component:WelcomeComponent},
     {path: "shop", component: ProductsComponent},
     {path: "ourStory", component: OurStoryComponent},
     {path: "cartItems", component: CartItemsComponent},
