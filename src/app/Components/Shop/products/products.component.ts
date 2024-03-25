@@ -10,5 +10,5 @@ import { CommonModule } from '@angular/common';
   styleUrl: './products.component.css'
 })
 export class ProductsComponent {
-  products: any = ['Lily', 'Fern', 'Snake', 'Orchid', 'Maiden Hair', 'Alocasia', 'Pencil Plant'];
+  products: any = ['Palm', 'Snake', 'Orchid', 'Maiden Hair', 'Alocasia', 'Pencil Plant', 'Pink Calathea'];
 }
