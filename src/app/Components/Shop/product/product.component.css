@@ -1,18 +1,4 @@
 .imgCard{
     width: 100%;
     height: auto;
-    transition: opacity 0.3s ease; 
 }
-
-.imgCard.ng-fade {
-    animation: fade 0.5s ease both;
-  }
-  
-@keyframes fade {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }

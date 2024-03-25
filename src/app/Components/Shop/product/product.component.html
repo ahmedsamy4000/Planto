@@ -1,25 +1,31 @@
 <div class="container">
-    <div class="row">
-        <div class="col col-6">
-            <div class="d-flex gap-2 my-5">
-                <a class="roboto-light nav-link text-white" routerLink="/shop">Shop</a>
-                <p class="roboto-light">></p>
-                <p class="roboto-light">{{name}}</p>
-            </div>
-            <div class="d-flex">
-                <div class="position-relative">
-                    <img src="assets/Images/{{name}}/{{i}}.jpg" class="imgCard">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-chevron-compact-right nav-link link-light text-secondary position-absolute top-50 end-0" viewBox="0 0 16 16" (click)="next()">
-                        <path fill-rule="evenodd" d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671"/>
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-chevron-compact-left nav-link link-light text-secondary position-absolute top-50 start-0" viewBox="0 0 16 16" (click)="previous()">
-                        <path fill-rule="evenodd" d="M9.224 1.553a.5.5 0 0 1 .223.67L6.56 8l2.888 5.776a.5.5 0 1 1-.894.448l-3-6a.5.5 0 0 1 0-.448l3-6a.5.5 0 0 1 .67-.223"/>
-                    </svg>
-                </div>
+    <div class="d-none d-md-block">
+        <div class="d-flex gap-2 my-5">
+            <a class="roboto-light nav-link text-white fw-semibold" routerLink="/shop">Shop</a>
+            <p class="roboto-light fw-semibold">></p>
+            <p class="roboto-light fw-semibold">{{name}}</p>
+        </div>
+    </div>
+    <div class="row m-5">
+        <div class="col col-md-6 col-12">
+            <div class="position-relative">
+                <img src="assets/Images/{{name}}/{{i}}.jpg" class="imgCard">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor"
+                    class="bi bi-chevron-compact-right nav-link link-light text-secondary position-absolute top-50 end-0"
+                    viewBox="0 0 16 16" (click)="next()">
+                    <path fill-rule="evenodd"
+                        d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor"
+                    class="bi bi-chevron-compact-left nav-link link-light text-secondary position-absolute top-50 start-0"
+                    viewBox="0 0 16 16" (click)="previous()">
+                    <path fill-rule="evenodd"
+                        d="M9.224 1.553a.5.5 0 0 1 .223.67L6.56 8l2.888 5.776a.5.5 0 1 1-.894.448l-3-6a.5.5 0 0 1 0-.448l3-6a.5.5 0 0 1 .67-.223" />
+                </svg>
             </div>
         </div>
-        <div class="col col-6 d-flex gap-2 my-5">
-            <h1>hello</h1>
+        <div class="col col-6 d-flex gap-2 my-5 m-auto">
+            <p class="roboto-light fs-1">{{name}}</p>
         </div>
     </div>
 </div>
