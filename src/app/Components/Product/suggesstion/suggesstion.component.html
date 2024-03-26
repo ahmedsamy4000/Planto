@@ -1,0 +1,16 @@
+<div class="d-flex justify-content-center mt-5 gap-5 products">
+    <div class="row mx-5">
+        @for(p of products; track p)
+        {
+        <div class="col col-sm-6 col-md-3 col-6">
+            <div class="text-center fs-5 mb-5">
+                <a href="/shop/{{p}}" class="nav-link">
+                    <img src="assets/Images/{{p}}/{{i}}.jpg" class="prd-img">
+                    <p class="roboto-light mt-3">{{p}}</p>
+                    <p class="roboto-light">from $20.00</p>
+                </a>
+            </div>
+        </div>
+        }
+    </div>
+</div>

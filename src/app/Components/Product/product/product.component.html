@@ -1,0 +1,25 @@
+<div style="margin-top: 200px;">
+
+    <div class="container">
+        <div class="d-none d-md-block m-5">
+            <div class="d-flex gap-2 my-5">
+                <a class="roboto-light nav-link text-white" routerLink="/shop">Shop</a>
+                <p class="roboto-light">></p>
+                <p class="roboto-light">{{name}}</p>
+            </div>
+        </div>
+        <div class="row m-5">
+            <div class="col col-md-6 col-12">
+                <app-product-photo></app-product-photo>
+            </div>
+            <div class="col-1"></div>
+            <div class="col col-md-5 my-5 m-auto col-11">
+                <app-product-details></app-product-details>
+            </div>
+        </div>
+        <div>
+            <p class="roboto-light fs-1 ms-5 mb-5">You Might Also Like</p>
+        </div>
+        <app-suggesstion></app-suggesstion>
+    </div>
+</div>
