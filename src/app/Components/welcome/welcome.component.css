@@ -1,3 +1,316 @@
-.mydiv{
+.body {
+    background-image: url('../../../assets/Welcome.jpg');
+    /* Specify the path to your background image */
+    background-size: cover;
+    /* Cover the entire viewport with the background image */
+    background-position: center;
+    /* Center the background image */
+    color: white;
+    /* Text color */
+}
+
+.body2 {
+    background-image: url('../../../assets/Welcome2.jpg');
+    /* Specify the path to your background image */
+    background-size: cover;
+    /* Cover the entire viewport with the background image */
+    background-position: center;
+    /* Center the background image */
+    color: white;
+    /* Text color */
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
+    /* Make the container take the full height of the viewport */
+    flex-direction: column;
+    /* Stack the elements vertically */
+}
+
+.phrase-container {
+    padding: 20px;
+    /* Add padding for spacing */
+    border-radius: 10px;
+    /* Rounded corners */
+    text-align: center;
+    /* Center-align text */
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    /* Semi-transparent background color for better readability */
+}
+
+.phrase-text {
+    font-size: 50px;
+    /* Adjust font size */
+    font-weight: bold;
+    /* Make text bold */
+    margin-bottom: 10px;
+    /* Add space below the text */
+}
+
+.phrase-subtext {
+    font-size: 50px;
+    /* Adjust font size */
+}
+
+.phrase-subtext2 {
+    font-size: 30px;
+    /* Adjust font size */
+}
+
+.phrase-container-gift {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Add padding for spacing */
+}
+
+.phrase-text-gift {
+    font-size: 30px;
+    /* Adjust font size */
+    font-weight: bold;
+    /* Make text bold */
+    margin-bottom: 10px;
+    /* Add space below the text */
+}
+
+.phrase-subtext-gift {
+    font-size: 20px;
+    /* Adjust font size */
+}
+
+.prd-img {
+    width: 100%;
+    height: auto;
+}
+
+.button1 {
+    position: relative;
+    padding: 15px 35px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #2F5C2F;
+    background-color: transparent;
+    border: 3px solid #2F5C2F;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.button1::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 10px;
+    left: 10px;
+    background-color: #D5A084;
+    border-radius: 8px;
+    z-index: -1;
+    transition: all 0.5s;
+}
+
+.button1:hover::after {
+    top: 0;
+    left: 0;
+}
+
+.icon-1 {
+    position: absolute;
+    width: 15%;
+    top: 10px;
+    right: 15px;
+    color: #2F5C2F;
+    transform-origin: 100% 100%;
+    transform: rotate(-25deg) translateX(120%) translateY(20%);
+    z-index: -1;
+    transition: all 0.5s;
+}
+
+.button1:hover .icon-1 {
+    width: 25%;
+    transform: rotate(10deg) translateX(110%) translateY(-40%);
+}
+
+.icon-2 {
+    position: absolute;
+    width: 15%;
+    top: 20px;
+    left: 10px;
+    color: #2F5C2F;
+    transform-origin: 100% 100%;
+    z-index: -1;
+    transition: all 0.5s;
+}
+
+.button1:hover .icon-2 {
+    width: 50%;
+    top: -40px;
+    left: -80px;
+    transform: rotate(90deg);
+    z-index: 1;
+}
+
+.sizes {
+    background-color: transparent;
+    color: #E0CCBE;
+    border: 1px solid white;
+    font-weight: 500;
+}
+
+.sizes:hover {
+    background-color: #E0CCBE;
+    color: black;
+}
+
+.gift {
+    position: relative;
+    padding: 12px 35px;
+    background: #fec195;
+    font-size: 17px;
+    font-weight: 500;
+    color: #181818;
+    border: 3px solid #fec195;
+    border-radius: 8px;
+    box-shadow: 0 0 0 #fec1958c;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.star-1 {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    width: 25px;
+    height: auto;
+    filter: drop-shadow(0 0 0 #fffdef);
+    z-index: -5;
+    transition: all 1s cubic-bezier(0.05, 0.83, 0.43, 0.96);
+}
+
+.star-2 {
+    position: absolute;
+    top: 45%;
+    left: 45%;
+    width: 15px;
+    height: auto;
+    filter: drop-shadow(0 0 0 #fffdef);
+    z-index: -5;
+    transition: all 1s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.star-3 {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    width: 5px;
+    height: auto;
+    filter: drop-shadow(0 0 0 #fffdef);
+    z-index: -5;
+    transition: all 1s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.star-4 {
+    position: absolute;
+    top: 20%;
+    left: 40%;
+    width: 8px;
+    height: auto;
+    filter: drop-shadow(0 0 0 #fffdef);
+    z-index: -5;
+    transition: all 0.8s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.star-5 {
+    position: absolute;
+    top: 25%;
+    left: 45%;
+    width: 15px;
+    height: auto;
+    filter: drop-shadow(0 0 0 #fffdef);
+    z-index: -5;
+    transition: all 0.6s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.star-6 {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    width: 5px;
+    height: auto;
+    filter: drop-shadow(0 0 0 #fffdef);
+    z-index: -5;
+    transition: all 0.8s ease;
+}
+
+.gift:hover {
+    background: transparent;
+    color: #fec195;
+    box-shadow: 0 0 25px #fec1958c;
+}
+
+.gift:hover .star-1 {
+    position: absolute;
+    top: -80%;
+    left: -30%;
+    width: 25px;
+    height: auto;
+    filter: drop-shadow(0 0 10px #fffdef);
+    z-index: 2;
+}
+
+.gift:hover .star-2 {
+    position: absolute;
+    top: -25%;
+    left: 10%;
+    width: 15px;
+    height: auto;
+    filter: drop-shadow(0 0 10px #fffdef);
+    z-index: 2;
+}
+
+.gift:hover .star-3 {
+    position: absolute;
+    top: 55%;
+    left: 25%;
+    width: 5px;
+    height: auto;
+    filter: drop-shadow(0 0 10px #fffdef);
+    z-index: 2;
+}
+
+.gift:hover .star-4 {
+    position: absolute;
+    top: 30%;
+    left: 80%;
+    width: 8px;
+    height: auto;
+    filter: drop-shadow(0 0 10px #fffdef);
+    z-index: 2;
+}
+
+.gift:hover .star-5 {
+    position: absolute;
+    top: 25%;
+    left: 115%;
+    width: 15px;
+    height: auto;
+    filter: drop-shadow(0 0 10px #fffdef);
+    z-index: 2;
+}
+
+.gift:hover .star-6 {
+    position: absolute;
+    top: 5%;
+    left: 60%;
+    width: 5px;
+    height: auto;
+    filter: drop-shadow(0 0 10px #fffdef);
+    z-index: 2;
+}
+
+.fil0 {
+    fill: #fffdef;
 }
