@@ -106,7 +106,7 @@
     height: 100%;
     top: 10px;
     left: 10px;
-    background-color: #D5A084;
+    background-color: #E1CCBE;
     border-radius: 8px;
     z-index: -1;
     transition: all 0.5s;
@@ -168,11 +168,11 @@
 .gift {
     position: relative;
     padding: 12px 35px;
-    background: #fec195;
+    background: #E1CCBE;
     font-size: 17px;
     font-weight: 500;
     color: #181818;
-    border: 3px solid #fec195;
+    border: 3px solid #E1CCBE;
     border-radius: 8px;
     box-shadow: 0 0 0 #fec1958c;
     transition: all 0.3s ease-in-out;
@@ -247,8 +247,8 @@
 
 .gift:hover {
     background: transparent;
-    color: #fec195;
-    box-shadow: 0 0 25px #fec1958c;
+    color: #E1CCBE;
+    box-shadow: 0 0 25px #E1CCBE;
 }
 
 .gift:hover .star-1 {
