@@ -11,6 +11,7 @@ import { DashboardComponent } from './Components/dashboard/dashboard.component';
 import { SearchResultComponent } from './Components/search-result/search-result.component';
 import { CartItemsComponent } from './Components/Card/cart-items/cart-items.component';
 import { CartEmptyComponent } from './Components/Card/cart-empty/cart-empty.component';
+import { PaymentComponent } from './Components/payment/payment.component';
 
 export const routes: Routes = [
     {path: "" ,component:WelcomeComponent},
@@ -23,5 +24,5 @@ export const routes: Routes = [
     {path: "profile",component:ProfileComponent},
     {path: "dashboard",component:DashboardComponent},
     {path: "searchResults",component:SearchResultComponent},
-
+    {path: "payment",component:PaymentComponent},
 ];
