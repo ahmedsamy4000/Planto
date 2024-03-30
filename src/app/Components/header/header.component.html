@@ -31,7 +31,7 @@
         </div>
         
         <div class="ml-auto">
-            <button class="new">
+            <button class="new" (click)="toggleLoginForm()">
                 <span class="text">Login</span>
                  <span class="icon" style="font-size: 20px;"> 
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
@@ -41,5 +41,9 @@
                 
             </button>
         </div>
+        @if(loginFormVisible)
+        {
+            <app-login (closeForm)="toggleLoginForm()"></app-login>
+        }
     </header>
 </div>

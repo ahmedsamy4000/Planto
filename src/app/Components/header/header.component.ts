@@ -1,14 +1,16 @@
 import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, LoginComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+  loginFormVisible = false;
   constructor(private router:Router){
 
   }
@@ -17,6 +19,8 @@ export class HeaderComponent {
   }
   GoToSearch(){
     this.router.navigate(['/searchResults']);
-    //this.router.navigate(['/cartItems']);
+  }
+  toggleLoginForm() {
+    this.loginFormVisible = !this.loginFormVisible;
   }
 }
