@@ -16,3 +16,12 @@
 .dropdown-menu {
     z-index: 1000; /* Set a high z-index value */
   }
+.color{
+    background-color: white;
+    color: black;
+  }
+.wid{
+    min-width: 100px;
+    width: 11vw;
+}
+ 
