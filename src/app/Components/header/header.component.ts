@@ -15,5 +15,7 @@ export class HeaderComponent {
   goToCart(){
     this.router.navigate(['/cartItems']);
   }
-  
+  GoToSearch(){
+    this.router.navigate(['/searchResults']);
+  }
 }

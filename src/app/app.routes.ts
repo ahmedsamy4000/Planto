@@ -8,6 +8,7 @@ import { WelcomeComponent } from './Components/welcome/welcome.component';
 import { ProductComponent } from './Components/Product/product/product.component';
 import { ProfileComponent } from './Components/profile/profile.component';
 import { DashboardComponent } from './Components/dashboard/dashboard.component';
+import { SearchResultComponent } from './Components/search-result/search-result.component';
 
 export const routes: Routes = [
     {path: "" ,component:WelcomeComponent},
@@ -18,5 +19,7 @@ export const routes: Routes = [
     {path: "shop/:name", component: ProductComponent},
     {path: "contact",component:ContactComponent},
     {path: "profile",component:ProfileComponent},
-    {path: "dashboard",component:DashboardComponent}
+    {path: "dashboard",component:DashboardComponent},
+    {path: "searchResults",component:SearchResultComponent},
+
 ];

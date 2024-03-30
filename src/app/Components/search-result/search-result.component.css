@@ -1,0 +1,18 @@
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.products {
+    font-size: 3em;
+    animation: fadeInAnimation ease 2s;
+}
+.dropdown-menu {
+    z-index: 1000; /* Set a high z-index value */
+  }
