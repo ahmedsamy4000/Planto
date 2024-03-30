@@ -37,8 +37,11 @@ p{
   font-family: 'Times New Roman', Times, serif;
 }
 .form-container {
+  height: 90vh;
   display: none;
+  z-index: 1000;
   position: fixed;
+  overflow: auto;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -85,5 +88,29 @@ p{
     color: black;
   }
   
+  #contactform{
+    z-index: 0;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 991px) {
+
+    #contactlabel{
+      display: none;
+      font-size: 30px;
+      text-align: start;
+    }
+
+  }
+
+  @media screen and (max-width: 767px) {
+    .form-container {
+      overflow-y: auto; /* Adjust the height for small screens */
+    }
+    #contactlabel{
+      display: none;
+      font-size: 30px;
+      text-align: start;
+    }
+  }
 
   
