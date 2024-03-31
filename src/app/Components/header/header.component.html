@@ -1,26 +1,20 @@
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
 <div id="ex" class="justify-content-center d-flex">
-    <header class="navbar navbar-expand-lg header w-100 ">
+    <header class="navbar navbar-expand-lg header w-100">
         <a routerLink="/" class="navbar-brand">
             PLANTO
             <img src="../../../assets/plant-svgrepo-com.svg" alt="Your SVG Image" class="icon ml-2">
         </a>
-
-        <form class="form-inline search-form">
-            <div class="row align-items-center">
-                <input type="checkbox" id="chk" name="checkbox" hidden="" (click)="GoToSearch()">
-                <label for="chk" id="close"></label>
-                <input type="text" id="btn" name="Search">
-            </div>
-        </form>
+        <form class="search-form">
+            <input type="text" required="" placeholder="Search....">
+            <button type="submit"><i class="searchbtn fas fa-search"></i></button>
+         </form>
 
         <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
             <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
                     <a routerLink="/shop" class="menu__link">Shop</a>
                 </li>
-                <!-- <li class="nav-item">
-                    <a routerLink="/ourStory" class="menu__link">Our Story</a>
-                </li> -->
                 <li class="nav-item">
                     <a routerLink="/contact" class="menu__link">Contact</a>
                 </li>
@@ -29,16 +23,14 @@
                 </li>
             </ul>
         </div>
-        
-        <div class="ml-auto">
+        <div class="ml-auto login-button">
             <button class="new" (click)="toggleLoginForm()">
                 <span class="text">Login</span>
-                 <span class="icon" style="font-size: 20px;"> 
+                <span class="icon" style="font-size: 20px;"> 
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
                         <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2"/>
                     </svg>
                 </span>
-                
             </button>
         </div>
         @if(loginFormVisible)

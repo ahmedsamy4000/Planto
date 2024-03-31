@@ -1,32 +1,3 @@
-.parent {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-
-.child {
-  width: 50px;
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transform-style: preserve-3d;
-  transition: all 0.5s ease-in-out;
-  border-radius: 50%;
-  margin: 0 5px;
-}
-
-.child:hover {
-  background-color: white;
-  background-position: -100px 100px, -100px 100px;
-  transform: rotate3d(0.5, 1, 0, 30deg);
-  transform: perspective(180px) rotateX(60deg) translateY(2px);
-  box-shadow: 0px 10px 10px rgb(1, 49, 182);
-}
-
 button {
   border: none;
   background-color: transparent;
@@ -80,7 +51,6 @@ a {
 .icon {
   width: 35px;
   height: 35px;
-  padding-bottom: 6px;
 }
 
 a {
@@ -91,36 +61,17 @@ a {
 .header{
   position: absolute;
   top: 0%;
+  padding-right: 20px; 
+
 }
 
-
-
+.login-button {
+  margin-left: auto;
+}
 
 .navbar-brand {
   padding: 10px 20px;
   color: white;
-}
-
-.icon {
-  height: 30px;
-}
-
-.search-form {
-  margin-right: 20px;
-}
-
-.search-input {
-  border-radius: 15px; 
-  border: 1px solid #ced4da;
-  
-  padding: 5px 10px; 
-  width: 150px; 
-}
-
-.search-button {
-  border-radius: 15px; 
-  color: white;
-
 }
 
 .navbar-nav .menu__link {
@@ -139,14 +90,8 @@ a {
   color: white; 
   border-color: white; 
   margin-left: 10px;
+  padding-right: 10px;
 }
-
-
-
-
-
-
-
 .new {
   width: 150px;
   height: 50px;
@@ -180,7 +125,7 @@ a {
 }
 
 .new:hover .icon {
-  width: 175px;
+  width: 160px;
 }
 
 .new:hover .text {
@@ -202,95 +147,72 @@ a {
   max-width: 300px; 
 }
 
-.row {
+
+.search-form {
+  position: relative;
   display: flex;
   align-items: center;
+  margin-left: auto;
+  height: 40px; 
 }
 
-#btn {
-  width: 30px;
-  height: 30px;
-  color: #fff;
-  background: #fec1958c;
+.search-form input {
+  background: transparent;
+  border: none;
+  height: 100%;
+  width: calc(100% - 40px);
   box-sizing: border-box;
-  border: 4px solid #fff;
-  border-radius: 50%;
-  font-size: 16px;
-  font-weight: 400;
-  outline: none;
-  transition: width 0.4s ease-in-out, border-radius 0.8s ease-in-out;
-}
-
-#close {
-  position: absolute;
-  top: 75%;
-  left: -15px;
-  transform: translateY(-50%);
-  height: 50px;
-  width: 50px;
-  border-radius: 100%;
-  transition: 0.4s ease-in-out;
-  transition-delay: 0.4s;
-  cursor: pointer;
-  z-index: 100;
-}
-
-#close:before {
-  content: '';
-  position: absolute;
-  width: 20px;
-  height: 4px;
-  background: #fff;
-  margin: 26px 0 0 17px;
-  transform: rotate(45deg);
-  transition: 0.2s ease-in-out;
-}
-
-#chk:checked ~ #close:before {
-  content: '';
-  position: absolute;
-  width: 27px;
-  height: 7px;
-  background: #fff;
-  margin: -1px 0 0 -12px; 
-  bottom: -8px; 
-  transform: rotate(45deg);
-  transition: 0.2s ease-in-out;
-}
-
-#chk:checked ~ #close:after {
-  content: '';
-  position: absolute;
-  width: 27px;
-  height: 8px;
-  background: #fff;
-  margin: -1px 0 0 -12px; 
-  bottom: -10px; 
-  transform: rotate(-45deg);
-  transition: 0.2s ease-in-out;
-}
-
-
-#chk:checked ~ #btn {
-  width: calc(100% - 80px);
-  height: 50px;
   color: #fff;
-  margin-top: 35px;
-  font-size: 18px;
-  padding: 0 40px 0 10px;
-  border: 4px solid #fff;
-  border-radius: 0;
-  transition: width 0.4s ease-in-out, border-radius 0.4s ease-in-out, padding 0.2s;
-  transition-delay: 0.4s, 0s, 0.4s;
+  border: 2px solid #fff;
+  border-radius: 3px;
 }
 
-.navbar-brand {
-  display: flex;
-  align-items: center;
+input[type="text"]::placeholder {
+  padding-left: 10px;
+  color: #e8e8e8;
+  transition: 0.5s ease-in-out;
 }
 
-.icon {
+input[type="text"]:focus {
+  outline: none;
+}
+
+input[type="text"]:focus::placeholder {
+  padding-left: 100%;
+  color: transparent;
+}
+
+.searchbtn {
+  height: 100%;
   width: 30px;
-  height: 30px;
-  margin-left: 5px;
+  background: transparent;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.searchbtn:focus {
+  outline: none;
+}
+
+.searchbtn i {
+  color: #fff;
+  transition: 0.2s ease-in-out;
+}
+
+.searchbtn:hover i {
+  color: #000;
+}
+
+
+.navbar-nav {
+    margin-left: 0;
+  margin-right: auto;
+}
+@media (max-width: 991px) {
+  .header .navbar-brand,
+  .login-button {
+      margin: 0 auto;
+      display: block;
+  }
 }
