@@ -6,30 +6,19 @@ import { HttpClientModule } from '@angular/common/http';
   selector: 'app-register',
   standalone: true,
   imports: [HttpClientModule],
-  providers:[RegisterService],
+  providers: [RegisterService],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
 export class RegisterComponent {
-  constructor(private register:RegisterService){}
-user={
-  name:"Doha",
-  password:"ABC12345",
-  email:"mera@gmail.com",
-  gender:"F",
-  age:22,
-  address:{
-      street:"aaa",
-      city:"Minya"
-  }
-}
+  constructor(private register: RegisterService) { }
 
-onRegister(){
-  this.register.register(this.user).subscribe({
-    next:(data)=>{console.log(data)},
-    error:(err)=>{console.log(err)}
-  });
-}
+  onRegister(name: any, email: any, age: any, password: any) {
+    this.register.register({ name, password, email, gender: "F", age, address: { street: "aaa", city: "Minya" } }).subscribe({
+      next: (data) => { console.log(data) },
+      error: (err) => { console.log(err) }
+    });
+  }
 
 
 }

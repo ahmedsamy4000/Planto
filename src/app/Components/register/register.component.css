@@ -1,22 +1,13 @@
-.form-container {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: 1px solid #ccc;
-    background-color: #f2f2f2;
-    padding: 20px;
-    animation: fadeIn 0.5s ease forwards;
-    border-radius: 15px;
+
+  .basicColor{
+    color: #2F5C2F;
   }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translate(-50%, -50%) scale(0.5);
-    }
-    to {
-      opacity: 1;
-      transform: translate(-50%, -50%) scale(1);
-    }
+
+  .checkColor:checked{
+    background-color: #2F5C2F;
+  }
+
+  .btnSign{
+    color: white;
+    background-color: #2F5C2F;
   }

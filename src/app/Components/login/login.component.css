@@ -1,13 +1,10 @@
-.form-container {
+.parent {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: 1px solid #ccc;
-    background-color: #f2f2f2;
-    padding: 20px;
     animation: fadeIn 0.5s ease forwards;
-    border-radius: 15px;
+    backdrop-filter: blur(6px);
   }
   
   @keyframes fadeIn {
@@ -19,4 +16,27 @@
       opacity: 1;
       transform: translate(-50%, -50%) scale(1);
     }
+  }
+
+  .form-container{
+    position: relative;
+    top: 20%;
+    background-color: #E1CCBE;
+    border-radius: 15px;
+    padding: 20px;
+    overflow: auto;
+    height: 550px;
+  }
+
+  .btnSign{
+    color: white;
+    background-color: #2F5C2F;
+  }
+
+  .basicColor{
+    color: #2F5C2F;
+  }
+  
+  .checkColor:checked{
+    background-color: #2F5C2F;
   }

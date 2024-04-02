@@ -1,23 +1,15 @@
 .body {
     background-image: url('../../../assets/Welcome.jpg');
-    /* Specify the path to your background image */
     background-size: cover;
-    /* Cover the entire viewport with the background image */
     background-position: center;
-    /* Center the background image */
     color: white;
-    /* Text color */
 }
 
 .body2 {
     background-image: url('../../../assets/Welcome2.jpg');
-    /* Specify the path to your background image */
     background-size: cover;
-    /* Cover the entire viewport with the background image */
     background-position: center;
-    /* Center the background image */
     color: white;
-    /* Text color */
 }
 
 .container {
@@ -25,60 +17,43 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    /* Make the container take the full height of the viewport */
     flex-direction: column;
-    /* Stack the elements vertically */
 }
 
 .phrase-container {
     padding: 20px;
-    /* Add padding for spacing */
     border-radius: 10px;
-    /* Rounded corners */
     text-align: center;
-    /* Center-align text */
-    /* background-color: rgba(0, 0, 0, 0.5); */
-    /* Semi-transparent background color for better readability */
 }
 
 .phrase-text {
     font-size: 50px;
-    /* Adjust font size */
     font-weight: bold;
-    /* Make text bold */
     margin-bottom: 10px;
-    /* Add space below the text */
 }
 
 .phrase-subtext {
     font-size: 50px;
-    /* Adjust font size */
 }
 
 .phrase-subtext2 {
     font-size: 30px;
-    /* Adjust font size */
 }
 
 .phrase-container-gift {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* Add padding for spacing */
 }
 
 .phrase-text-gift {
     font-size: 30px;
-    /* Adjust font size */
     font-weight: bold;
-    /* Make text bold */
     margin-bottom: 10px;
-    /* Add space below the text */
 }
 
 .phrase-subtext-gift {
     font-size: 20px;
-    /* Adjust font size */
 }
 
 .prd-img {
