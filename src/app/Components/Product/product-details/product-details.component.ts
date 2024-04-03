@@ -1,16 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-product-details',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.css'
 })
 export class ProductDetailsComponent {
-  name = "";
+  @Input() name = "";
+  @Input() description = "";
+  @Input() price = "";
+  @Input() category = "";
+
+
+
+  
   constructor(private myActivated: ActivatedRoute) {
-    this.name = this.myActivated.snapshot.params['name'];
   }
+
 }

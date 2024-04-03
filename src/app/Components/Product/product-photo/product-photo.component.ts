@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -9,19 +9,21 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './product-photo.component.css'
 })
 export class ProductPhotoComponent {
-  name = "";
-  i = 1;
-  constructor(private myActivated: ActivatedRoute) {
-    this.name = this.myActivated.snapshot.params['name'];
+  @Input() imgs="";
+  current=""
+  constructor() {
+   
+
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    this.current = this.imgs[0];
   }
 
   next() {
-    if (this.i == 1)
-      this.i++;
+    this.current=this.imgs[1]
   }
 
   previous() {
-    if (this.i == 2)
-      this.i--;
+    this.current=this.imgs[0]
   }
 }

@@ -1,7 +1,7 @@
 <div class="text-center fs-5 mb-5">
     <a routerLink="/shop/{{name}}" class="nav-link">
-        <img [src]="imgSrc" class="prd-img" (mouseover)="onMouseOver()" (mouseout)="onMouseOut()">
+        <img [src]="currentimg" class="prd-img" (mouseover)="onMouseOver()" (mouseout)="onMouseOut()">
         <p class="roboto-light mt-3">{{name}}</p>
-        <p class="roboto-light">from $20.00</p>
+        <p class="roboto-light">{{ price | currency:'EGP'}}</p>
     </a>
 </div>

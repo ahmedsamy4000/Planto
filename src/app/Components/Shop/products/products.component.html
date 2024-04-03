@@ -11,7 +11,7 @@
         @for(p of products; track p)
         {
         <div class="col col-sm-6 col-md-3 col-6">
-            <app-one-product [name]="p"></app-one-product>
+            <app-one-product [imgSrc]=p.images [price]=p.price [name]=p.name></app-one-product>
         </div>
         }
     </div>
