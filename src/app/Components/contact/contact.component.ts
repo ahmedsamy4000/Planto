@@ -14,12 +14,17 @@ export class ContactComponent {
 constructor(private feedbackhttp:FeedBackService){}
 addFeedback(userid:any,body:any){
 this.feedbackhttp.addFeedback({userID:userid,body:body}).subscribe({
-  next:(value)=>{console.log(value);},
+  next:(value)=>{console.log(value);this.closeForm();this.openAlert();},
   error:(error)=>{console.log(error);}
 });
-this.closeForm();
 }
 
+openAlert(){
+  document.getElementById("alertForm")!.style.display="flex";
+}
+closeAlert() {
+  document.getElementById("alertForm")!.style.display = "none";
+}
  openForm() {
     document.getElementById("contactForm")!.style.display = "block";
   }
