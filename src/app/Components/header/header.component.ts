@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { LoginComponent } from '../login/login.component';
 
@@ -11,6 +11,7 @@ import { LoginComponent } from '../login/login.component';
 })
 export class HeaderComponent {
   loginFormVisible = false;
+  isRegistered = false;
   constructor(private router:Router){
 
   }
@@ -22,5 +23,9 @@ export class HeaderComponent {
   }
   toggleLoginForm() {
     this.loginFormVisible = !this.loginFormVisible;
+  }
+  Register(user: any){
+    this.isRegistered
+    console.log(user);
   }
 }
