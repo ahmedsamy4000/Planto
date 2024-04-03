@@ -20,7 +20,6 @@ export class WelcomeComponent {
     try {
       const data: any = await this.productsService.getProducts().toPromise();
       this.products = data.data; 
-      console.log('Products fetched successfully:', this.products);
     } catch (error) {
       console.error('Error fetching products:', error);
     }

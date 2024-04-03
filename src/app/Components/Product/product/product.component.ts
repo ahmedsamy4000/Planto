@@ -24,7 +24,6 @@ export class ProductComponent {
     try {
       const data: any = await this.productsService.getOneProduct(this.name).toPromise();
       this.product = data.data; 
-      console.log('Products fetched successfully:', this.product);
     } catch (error) {
       console.error('Error fetching products:', error);
     }
