@@ -15,6 +15,7 @@ import { PaymentComponent } from './Components/payment/payment.component';
 
 export const routes: Routes = [
     {path: "" ,component:WelcomeComponent},
+    {path: "welcome" ,component:WelcomeComponent},
     {path: "shop", component: ProductsComponent},
     {path: "ourStory", component: OurStoryComponent},
     {path: "cartItems", component: CartItemsComponent},
