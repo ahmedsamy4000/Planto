@@ -3,7 +3,7 @@ import { RegisterComponent } from '../register/register.component';
 import { RouterModule } from '@angular/router';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LoginService } from '../../Services/login.service';
-import {  HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { UserService } from '../../Services/user.service';
 
@@ -16,19 +16,19 @@ import { UserService } from '../../Services/user.service';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  constructor(private login: LoginService, private userService: UserService){}
+  constructor(private login: LoginService, private userService: UserService) { }
   user: any;
   registerFormVisible = false;
   @Output() registerEvent = new EventEmitter();
   @Output() closeForm = new EventEmitter();
   @Output() userEvent = new EventEmitter();
-  onCloseForm(){
+  onCloseForm() {
     this.closeForm.emit();
   }
   toggleRegisterForm() {
     this.registerFormVisible = !this.registerFormVisible;
   }
-  RegisterSuccess(user: any){
+  RegisterSuccess(user: any) {
     this.registerEvent.emit(user);
   }
 
@@ -36,28 +36,58 @@ export class LoginComponent {
     email: new FormControl('', [Validators.pattern("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"), Validators.required]),
     password: new FormControl('', [Validators.minLength(8), Validators.required]),
   });
+
   get EmailValid() {
     return this.loginFormGroup.controls["email"].valid;
   }
   get PasswordValid() {
     return this.loginFormGroup.controls["password"].valid;
   }
-  OnLogin(email: any, password: any){
-    this.login.login({email, password}).subscribe({
-      next: (data)=>{
-        this.userService.GetUserByEmail(email).subscribe({
-          next: (data2)=>{
-            // console.log(data2)
-            this.user = data2;
-            console.log(this.user);
+
+  emailValid = "";
+  passwordValid = "";
+  epValid = "";
+
+  resetEmail() {
+    this.emailValid = "";
+  }
+  resetPassword() {
+    this.passwordValid = "";
+  }
+
+  OnLogin(email: any, password: any) {
+    this.login.login({ email, password }).subscribe({
+      next: (data) => {
+        if (this.loginFormGroup.valid) {
+
+          // this.userService.GetUserByEmail(email).subscribe({
+          //   next: (data2)=>{
+          //     // console.log(data2)
+          //     this.user = data2;
+          //   }
+          // });
+          this.RegisterSuccess(email);
+          this.closeForm.emit();
+        }
+        else {
+          if(this.loginFormGroup.controls['email'].value == "" || this.loginFormGroup.controls['password'].value == "")
+          {
+            if (this.loginFormGroup.controls['email'].value == "") {
+              this.emailValid = "Email is required"
+            }
+            if (this.loginFormGroup.controls['password'].value == "") {
+              this.passwordValid = "Password is required"
+            }
           }
-        });
-        console.log(this.user)
-        this.RegisterSuccess(this.user);
-        this.closeForm.emit();
+          else {
+            if (!this.EmailValid || !this.PasswordValid) {
+              this.epValid = "Invalid Email/Password";
+            }
+          }
+        }
       },
-      error: (err)=>{
-        
+      error: (err) => {
+
       }
     })
   }

@@ -24,8 +24,8 @@ export class HeaderComponent {
   toggleLoginForm() {
     this.loginFormVisible = !this.loginFormVisible;
   }
-  Register(user: any){
-    this.isRegistered
-    console.log(user);
+  Register(email: any){
+    this.isRegistered = true
+    console.log(email);
   }
 }

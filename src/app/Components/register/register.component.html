@@ -28,7 +28,7 @@
             <div class="col-md-6 mb-4">
               <div class="form-outline text-white fw-bold position-relative">
                 <label class="form-label" for="name">Name</label>
-                <input formControlName="name" #name type="text" id="name" class="form-control"/>
+                <input formControlName="name" #name type="text" id="name" class="form-control"  (click)="resetName()"/>
               </div>
               @if(!NameValid && name.value)
               {
@@ -57,7 +57,7 @@
 
               <div class="form-outline datepicker w-100 text-white fw-bold">
                 <label for="email" class="form-label">Email</label>
-                <input formControlName="email" #email type="email" class="form-control" id="email" />
+                <input formControlName="email" #email type="email" class="form-control" id="email"  (click)="resetEmail()"/>
               </div>
               @if(!EmailValid && email.value)
               {
@@ -65,11 +65,14 @@
                   <p class="text-danger">Invalid Email</p>
                 </div>
               }
+              <div class="mt-1">
+                <p class="text-danger">{{emailValid}}</p>
+              </div>
             </div>
             <div class="col-md-6 mb-4 pb-2">
               <div class="form-outline text-white fw-bold">
                 <label class="form-label" for="phone">Phone Number</label>
-                <input formControlName="phone" #phone type="tel" id="phone" class="form-control" />
+                <input formControlName="phone" #phone type="tel" id="phone" class="form-control"  (click)="resetPhone()"/>
               </div>
               @if(!PhoneValid && phone.value)
               {
@@ -77,6 +80,9 @@
                   <p class="text-danger">Invalid Phone Number</p>
                 </div>
               }
+              <div class="mt-1">
+                <p class="text-danger">{{phoneValid}}</p>
+              </div>
             </div>
           </div>
 
@@ -85,7 +91,7 @@
 
               <div class="form-outline text-white fw-bold">
                 <label class="form-label" for="emailAddress">Street</label>
-                <input formControlName="street" #street type="text" id="emailAddress" class="form-control" />
+                <input formControlName="street" #street type="text" id="emailAddress" class="form-control"  (click)="resetStreet()"/>
               </div>
               @if(!StreetValid && street.value)
               {
@@ -93,11 +99,14 @@
                   <p class="text-danger">Street is required</p>
                 </div>
               }
+              <div class="mt-1">
+                <p class="text-danger">{{streetValid}}</p>
+              </div>
             </div>
             <div class="col-md-6 mb-4 pb-2">
               <div class="form-outline text-white fw-bold">
                 <label class="form-label" for="phoneNumber">City</label>
-                <input formControlName="city" #city type="text" id="phoneNumber" class="form-control" />
+                <input formControlName="city" #city type="text" id="phoneNumber" class="form-control"  (click)="resetCity()"/>
               </div>
               @if(!CityValid && city.value)
               {
@@ -105,6 +114,9 @@
                   <p class="text-danger">Name must be only characters</p>
                 </div>
               }
+              <div class="mt-1">
+                <p class="text-danger">{{cityValid}}</p>
+              </div>
             </div>
           </div>
 
@@ -113,7 +125,7 @@
 
               <div class="form-outline text-white fw-bold">
                 <label class="form-label" for="password">Password</label>
-                <input formControlName="password" #password type="password" id="password" class="form-control" />
+                <input formControlName="password" #password type="password" id="password" class="form-control"  (click)="resetPassword()"/>
               </div>
               @if(!PasswordValid && password.value)
               {
@@ -121,30 +133,29 @@
                   <p class="text-danger">Password must be at least 8 characters</p>
                 </div>
               }
+              <div class="mt-1">
+                <p class="text-danger">{{passwordValid}}</p>
+              </div>
             </div>
-            <div class="col-md-6 mb-4 text-white pb-2 fw-bold">
+            <div class="col-md-6 mb-4 text-white pb-2">
 
-              <h6 class="mb-2 pb-1">Gender </h6>
+              <h6 class="mb-2 pb-1 fw-bold">Gender </h6>
 
               <div class="form-check form-check-inline text-white fw-bold me-4">
                 <input formControlName="gender" class="form-check-input checkColor" type="radio" name="gender" id="femaleGender"
-                  value="F" [(ngModel)]="gender"/>
+                  value="F" [(ngModel)]="gender"  (click)="resetGender()"/>
                 <label class="form-check-label" for="femaleGender">Female</label>
               </div>
 
               <div class="form-check form-check-inline text-white fw-bold">
                 <input formControlName="gender" class="form-check-input checkColor" type="radio" name="gender" id="maleGender"
-                  value="M" [(ngModel)]="gender"/>
+                  value="M" [(ngModel)]="gender"  (click)="resetGender()"/>
                 <label class="form-check-label" for="maleGender">Male</label>
               </div>
-
+              <div class="mt-1">
+                <p class="text-danger">{{genderValid}}</p>
+              </div>
             </div>
-            <!-- @if(!GenderValid && gender.value)
-              {
-                <div class="mt-1">
-                  <p class="text-danger">Gender is required</p>
-                </div>
-              } -->
           </div>
 
           <div class="text-center">

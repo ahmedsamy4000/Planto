@@ -17,11 +17,11 @@ import { UserService } from '../../Services/user.service';
 export class RegisterComponent {
   gender: any;
   @Input() close: any;
-  emitRegister(user: any){
-    this.registerSuccess.emit(user);
+  emitRegister(email: any) {
+    this.registerSuccess.emit(email);
   }
   @Output() registerSuccess = new EventEmitter();
-  constructor(private register: RegisterService, private router:Router, private userService: UserService) { }
+  constructor(private register: RegisterService, private router: Router, private userService: UserService) { }
 
   registerFormGroup = new FormGroup({
     name: new FormControl('', [Validators.pattern("^[a-z A-Z]*$"), Validators.required]),
@@ -59,32 +59,76 @@ export class RegisterComponent {
     return this.registerFormGroup.controls["gender"].valid;
   }
 
-  ageValid=""
-  nameValid=""
-  resetAge(){
-    this.ageValid=""
+  ageValid = ""
+  nameValid = ""
+  emailValid = ""
+  passwordValid = ""
+  streetValid = ""
+  cityValid = ""
+  phoneValid = ""
+  genderValid = ""
+
+  resetAge() {
+    this.ageValid = ""
+  }
+  resetName() {
+    this.nameValid = ""
+  }
+  resetPassword() {
+    this.passwordValid = ""
+  }
+  resetEmail() {
+    this.emailValid = ""
+  }
+  resetStreet() {
+    this.streetValid = ""
+  }
+  resetCity() {
+    this.cityValid = ""
+  }
+  resetPhone() {
+    this.phoneValid = ""
+  }
+  resetGender() {
+    this.genderValid = ""
   }
   onRegister(name: any, email: any, street: any, city: any, age: any, password: any, phone: any) {
     this.register.register({ name, password, email, gender: this.gender, age, address: { street, city }, phone }).subscribe({
       next: (data) => {
         if (this.registerFormGroup.valid) {
-          this.userService.GetUserByEmail(email).subscribe({
-            next: (data2)=>{
-              console.log(data2);
-              this.emitRegister(data2);
-            }
-          });
+          // this.userService.GetUserByEmail(email).subscribe({
+          //   next: (data2) => {
+          //     console.log(data2);
+          //     this.emitRegister(data2);
+          //   }
+          // });
+          this.emitRegister(email)
           this.close.emit();
         }
-        else
-        {
-          if(!this.registerFormGroup.controls["age"].valid)
-          {
+        else {
+          if (this.registerFormGroup.controls["age"].value == "") {
             this.ageValid = "Age is required"
           }
-          if(this.registerFormGroup.controls["name"].value == "")
-          {
+          if (this.registerFormGroup.controls["name"].value == "") {
             this.nameValid = "Name is required"
+          }
+          if (this.registerFormGroup.controls["password"].value == "") {
+            this.passwordValid = "Password is required"
+          }
+          if (this.registerFormGroup.controls["email"].value == "") {
+            this.emailValid = "Email is required"
+          }
+          if (this.registerFormGroup.controls["phone"].value == "") {
+            this.phoneValid = "Phone is required"
+          }
+          if (this.registerFormGroup.controls["street"]) {
+            this.streetValid = "Street is required"
+          }
+          if (this.registerFormGroup.controls["city"].value == "") {
+            this.cityValid = "City is required"
+          }
+          if (!this.gender) {
+            this.genderValid = "Gender is required"
           }
         }
       },

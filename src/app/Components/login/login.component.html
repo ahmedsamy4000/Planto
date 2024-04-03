@@ -67,17 +67,25 @@
                 <!-- Email input -->
                 <div class="form-outline mb-4 text-white fw-bold">
                     <label class="form-label" for="loginName">Email</label>
-                    <input formControlName="email" #email type="email" id="loginName" class="form-control" />
+                    <input formControlName="email" #email type="email" id="loginName" class="form-control" (click)="resetEmail()"/>
+                    <div class="mt-1 fw-normal">
+                        <p class="text-danger">{{emailValid}}</p>
+                      </div>
                 </div>
 
                 <!-- Password input -->
                 <div class="form-outline mb-4 text-white fw-bold">
                     <label class="form-label" for="loginPassword">Password</label>
-                    <input formControlName="password" #password type="password" id="loginPassword" class="form-control" />
+                    <input formControlName="password" #password type="password" id="loginPassword" class="form-control" (click)="resetPassword()"/>
+                    <div class="mt-1 fw-normal">
+                        <p class="text-danger">{{passwordValid}}</p>
+                      </div>
                 </div>
+                <div class="mt-2 text-center">
+                    <p class="text-danger">{{epValid}}</p>
+                  </div>
                 <div class="text-center">
-                    <button type="submit" class="btn btnSign btn-block mb-4" (click)="OnLogin(email.value, password.value)"
-                    >Sign in</button>
+                    <button type="submit" class="btn btnSign btn-block mb-4" (click)="OnLogin(email.value, password.value)">Sign in</button>
                 </div>
 
                 <div class="text-center">
