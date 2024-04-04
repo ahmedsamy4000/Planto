@@ -59,13 +59,6 @@ export class LoginComponent {
     this.login.login({ email, password }).subscribe({
       next: (data) => {
         if (this.loginFormGroup.valid) {
-
-          // this.userService.GetUserByEmail(email).subscribe({
-          //   next: (data2)=>{
-          //     // console.log(data2)
-          //     this.user = data2;
-          //   }
-          // });
           this.RegisterSuccess(email);
           this.closeForm.emit();
         }

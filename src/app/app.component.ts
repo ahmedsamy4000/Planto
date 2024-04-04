@@ -12,5 +12,9 @@ import { ContactComponent } from './Components/contact/contact.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'Project';
+  user:any;
+  GetUser(user: any){
+    // console.log(user.data);
+    this.user = user.data;
+  }
 }

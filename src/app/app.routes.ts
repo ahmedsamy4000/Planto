@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { ProductsComponent } from './Components/Shop/products/products.component';
 import { OurStoryComponent } from './Components/our-story/our-story.component';
 
@@ -12,6 +12,7 @@ import { SearchResultComponent } from './Components/search-result/search-result.
 import { CartItemsComponent } from './Components/Card/cart-items/cart-items.component';
 import { CartEmptyComponent } from './Components/Card/cart-empty/cart-empty.component';
 import { PaymentComponent } from './Components/payment/payment.component';
+import { NgModule } from '@angular/core';
 
 export const routes: Routes = [
     {path: "" ,component:WelcomeComponent},
@@ -27,3 +28,9 @@ export const routes: Routes = [
     {path: "searchResults",component:SearchResultComponent},
     {path: "payment",component:PaymentComponent},
 ];
+
+@NgModule({
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
+  })
+  export class AppRoutingModule { }
