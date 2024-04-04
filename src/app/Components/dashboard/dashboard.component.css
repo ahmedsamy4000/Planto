@@ -429,3 +429,13 @@ nav ul li a .cart::after {
         padding: 10px;
     }
 }
+
+select{
+    border:none;
+    padding: 10px 20px;
+    border-radius:5px;
+  }
+  
+  select:focus{
+    outline:none;
+  }
