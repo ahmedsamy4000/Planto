@@ -439,3 +439,9 @@ select{
   select:focus{
     outline:none;
   }
+
+
+  th, td {
+    padding: 15px;
+    text-align: left;
+  }

@@ -2,24 +2,26 @@ import { Component, OnInit } from '@angular/core';
 import { Chart, ChartOptions } from 'chart.js/auto';
 import { ReceiptService } from '../../Services/recieptService';
 import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [HttpClientModule],
+  imports: [HttpClientModule,CommonModule],
   providers: [ReceiptService],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent implements OnInit {
   monthSelectedValue = "4";
+  sortarray:any;
   bestsellingobj: any;
   productsNames: any;
   productvalues: any;
   myChart: Chart | undefined;
 
   constructor(private http: ReceiptService) { }
-
+  myobj:{name:string,age:string}={name:"ahmed",age:"20"}
   onLanguageSelect(event: any): void {
     this.monthSelectedValue = event.target.value;
     console.log(this.monthSelectedValue);
@@ -31,8 +33,17 @@ export class DashboardComponent implements OnInit {
   fetchData() {
     this.http.getRecieptsByMonth(this.monthSelectedValue).subscribe({
       next: (data) => {
+        
         this.bestsellingobj = data;
-        console.log(this.bestsellingobj);
+        this.sortarray=Object.entries(this.bestsellingobj.data).map(([key,value])=>({key,value}));
+        this.sortarray.sort((a:any,b:any)=>b.value-a.value);
+        this.bestsellingobj.data={};
+        console.log(this.sortarray);
+        for(let i=0;i<this.sortarray.length;i++){
+          this.bestsellingobj.data[this.sortarray[i]["key"]]=this.sortarray[i]["value"];
+        }
+      
+        console.log(this.bestsellingobj.data);
         this.productsNames = Object.keys(this.bestsellingobj.data);
         this.productvalues = Object.values(this.bestsellingobj.data);
         this.updateChart();

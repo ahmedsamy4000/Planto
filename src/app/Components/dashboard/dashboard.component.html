@@ -56,32 +56,46 @@
                         </div>
                     </div>
                 </div>
-                <div class="d-flex">
-                    <div class="w-50">
-                        <h1 class="text-white">Best 5 Products</h1>
-                        <div class="bg-light w-50">
-                            <canvas id="myChart" style="width:300px; height:300px;"></canvas>
+                <div class="d-flex justify-content-start">
+                    <div class="row w-100">
+                        <div class="col-6">
+                            <h1 class="text-white">Top 5</h1>
+                            <div class="bg-light " style="height: 40vh; width: 50vh;">
+                                <canvas id="myChart" style="width:300px; height:300px;"></canvas>
+                            </div>
+                        </div>
+                        <div class="col-6 text-white">
+                            <div class="mb-2">Choose Month</div>
+                            <select  class="mb-3" name="language" id="language" (change)="onLanguageSelect($event)">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select>
+                            <div class="bg-light text-black w-100" style="height: 40vh; overflow: auto;">
+                                <table class="w-100">
+                                    <th>Name</th>
+                                    <th>Quantity</th>
+                                        <tr *ngFor="let item of productsNames; let i = index">
+                                            <td>{{item}}</td>
+                                            <td>{{productvalues[i]}}</td>
+                                        </tr>
+                                            
+                                
+                                </table>
+                            </div>
+                       
                         </div>
                     </div>
-                    <div class="w-50 text-white">
-                        <div>Choose Month</div>
-                       
-<select name="language" id="language" (change)="onLanguageSelect($event)">
-  <option value="1">1</option>
-  <option value="2">2</option>
-  <option value="3">3</option>
-  <option value="4">4</option>
-  <option value="5">5</option>
-  <option value="6">6</option>
-  <option value="7">7</option>
-  <option value="8">8</option>
-  <option value="9">9</option>
-  <option value="10">10</option>
-  <option value="11">11</option>
-  <option value="12">12</option>
-</select>
-                   
-                </div>
+                    
                
                 
               
