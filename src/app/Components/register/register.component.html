@@ -157,7 +157,13 @@
               </div>
             </div>
           </div>
-
+          <div class="mt-2 text-center">
+            <p class="text-danger">{{epValid}}
+              @if (epValid!="") {
+                <a (click)="IsLogin()" class="basicColor fw-normal ms-1"> Login</a>
+              }
+            </p>
+          </div>
           <div class="text-center">
             <button type="submit" class="btn btnSign btn-block mb-3"
               (click)="onRegister(name.value, email.value, street.value, city.value, +age.value, password.value, phone.value)">Sign Up</button>

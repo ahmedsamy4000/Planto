@@ -1,36 +1,46 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, Input, Output } from '@angular/core';
 import { RegisterComponent } from '../register/register.component';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LoginService } from '../../Services/login.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { UserService } from '../../Services/user.service';
+import { jwtDecode } from "jwt-decode";
+
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [RegisterComponent, RouterModule, HttpClientModule, FormsModule, CommonModule, ReactiveFormsModule],
-  providers: [LoginService, UserService],
+  providers: [LoginService],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
+
 export class LoginComponent {
-  constructor(private login: LoginService, private userService: UserService) { }
+  
+  constructor(private login: LoginService,private router: Router) { }
   user: any;
   registerFormVisible = false;
-  @Output() registerEvent = new EventEmitter();
+  
   @Output() closeForm = new EventEmitter();
   @Output() userEvent = new EventEmitter();
+  @Input() IsLogin:any
   onCloseForm() {
+   
+    // this.router.navigateByUrl('/welcome', { skipLocationChange: true }).then(() => {
+    //   this.router.navigate(['/welcome']);
+    // });
+    location.reload();
     this.closeForm.emit();
+  }
+  ToggleLogin(){
+    this.registerFormVisible=false;
   }
   toggleRegisterForm() {
     this.registerFormVisible = !this.registerFormVisible;
   }
-  RegisterSuccess(user: any) {
-    this.registerEvent.emit(user);
-  }
+  
 
   loginFormGroup = new FormGroup({
     email: new FormControl('', [Validators.pattern("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"), Validators.required]),
@@ -58,9 +68,24 @@ export class LoginComponent {
   OnLogin(email: any, password: any) {
     this.login.login({ email, password }).subscribe({
       next: (data) => {
-        if (this.loginFormGroup.valid) {
-          this.RegisterSuccess(email);
-          this.closeForm.emit();
+        if (this.loginFormGroup.valid&&data.message==true) {
+          //console.log(data.headers.get('x-auth-token'));
+          console.log(data)
+          console.log(jwtDecode(data.token))
+          interface MyToken {
+            email: string;
+            id: string;
+            iat:number
+            // whatever else is in the JWT.
+          };
+          const decodedToken = jwtDecode<MyToken>(data.token);
+          localStorage.setItem("Email",decodedToken.email);
+          localStorage.setItem("ID",decodedToken.id);
+          
+          //this.RegisterSuccess(email);
+          this.onCloseForm();
+          
+          
         }
         else {
           if(this.loginFormGroup.controls['email'].value == "" || this.loginFormGroup.controls['password'].value == "")
@@ -73,14 +98,14 @@ export class LoginComponent {
             }
           }
           else {
-            if (!this.EmailValid || !this.PasswordValid) {
+              console.log("Invalid Email/Password")
               this.epValid = "Invalid Email/Password";
-            }
+            
           }
         }
       },
       error: (err) => {
-
+        console.log(err)
       }
     })
   }

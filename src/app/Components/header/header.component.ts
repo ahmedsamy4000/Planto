@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { LoginComponent } from '../login/login.component';
 import { UserService } from '../../Services/user.service';
@@ -20,6 +20,10 @@ export class HeaderComponent {
   constructor(private router:Router, private userService: UserService){
 
   }
+  ngOnInit(): void {
+    //localStorage.clear();
+    this.Register();
+  }
   goToCart(){
     this.router.navigate(['/cartItems']);
   }
@@ -29,20 +33,18 @@ export class HeaderComponent {
   // this.router.navigate(['edit', userId]);
   GoToProfile(){
     console.log(this.user)
-    this.router.navigate(['/profile', {name: this.user.name, email: this.user.email, phone: this.user.phone,
-       age: this.user.age, street: this.user.address.street, city: this.user.address.city}]);
+    this.router.navigate(['/profile']);
   }
   toggleLoginForm() {
     this.loginFormVisible = !this.loginFormVisible;
   }
-  Register(email: any){
-    this.isRegistered = true
-    this.userService.GetUserByEmail(email).subscribe({
-            next: (data2)=>{
-              this.userEvent.emit(data2);
-              this.user = data2;
-              this.user = this.user.data;
-            }
-          });
-  }
+  Register(){
+    console.log(localStorage.getItem("Email"))
+    if(localStorage.getItem("Email"))
+      {
+        console.log("Success")
+        this.isRegistered = true
+      }
+      
+}
 }

@@ -29,8 +29,8 @@ export class UpdateProfileComponent implements OnChanges{
       email: new FormControl(this.user.email, [Validators.pattern("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"), Validators.required]),
       password: new FormControl('', [Validators.minLength(8), Validators.required]),
       age: new FormControl(this.user.age, [Validators.required]),
-      street: new FormControl(this.user.street, [Validators.required]),
-      city: new FormControl(this.user.city, [Validators.required]),
+      street: new FormControl(this.user.address.street, [Validators.required]),
+      city: new FormControl(this.user.address.city, [Validators.required]),
       phone: new FormControl(this.user.phone, [Validators.pattern("^(010|011|012|015)[0-9]{8}$"), Validators.required]),
       gender: new FormControl('', [Validators.required]),
     });

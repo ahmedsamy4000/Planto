@@ -5,11 +5,13 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { UserService } from '../../Services/user.service';
+import { LoginComponent } from '../login/login.component';
+import { jwtDecode } from "jwt-decode";
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [HttpClientModule, FormsModule, ReactiveFormsModule, CommonModule],
+  imports: [HttpClientModule, FormsModule, ReactiveFormsModule, CommonModule,LoginComponent],
   providers: [RegisterService],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
@@ -17,10 +19,9 @@ import { UserService } from '../../Services/user.service';
 export class RegisterComponent {
   gender: any;
   @Input() close: any;
-  emitRegister(email: any) {
-    this.registerSuccess.emit(email);
-  }
-  @Output() registerSuccess = new EventEmitter();
+  @Output() onLogin= new EventEmitter();
+
+  
   constructor(private register: RegisterService, private router: Router, private userService: UserService) { }
 
   registerFormGroup = new FormGroup({
@@ -67,7 +68,7 @@ export class RegisterComponent {
   cityValid = ""
   phoneValid = ""
   genderValid = ""
-
+  epValid=""
   resetAge() {
     this.ageValid = ""
   }
@@ -92,18 +93,38 @@ export class RegisterComponent {
   resetGender() {
     this.genderValid = ""
   }
+  IsLogin(){
+    this.onLogin.emit();
+  }
+  result:any;
+  token1:any;
   onRegister(name: any, email: any, street: any, city: any, age: any, password: any, phone: any) {
     this.register.register({ name, password, email, gender: this.gender, age, address: { street, city }, phone }).subscribe({
       next: (data) => {
-        if (this.registerFormGroup.valid) {
+        console.log(data)
+        this.result=data
+        if (this.registerFormGroup.valid&&this.result.message==true) {
           // this.userService.GetUserByEmail(email).subscribe({
           //   next: (data2) => {
           //     console.log(data2);
           //     this.emitRegister(data2);
           //   }
           // });
-          this.emitRegister(email)
+          //this.emitRegister(email)
+          interface MyToken {
+            email: string;
+            id: string;
+            iat:number
+            // whatever else is in the JWT.
+          };
+          this.token1=data;
+          const decodedToken = jwtDecode<MyToken>(this.token1.token);
+          localStorage.setItem("Email",decodedToken.email);
+          localStorage.setItem("ID",decodedToken.id);
+
           this.close.emit();
+          location.reload();
+          
         }
         else {
           if (this.registerFormGroup.controls["age"].value == "") {
@@ -121,7 +142,7 @@ export class RegisterComponent {
           if (this.registerFormGroup.controls["phone"].value == "") {
             this.phoneValid = "Phone is required"
           }
-          if (this.registerFormGroup.controls["street"]) {
+          if (this.registerFormGroup.controls["street"].value == "") {
             this.streetValid = "Street is required"
           }
           if (this.registerFormGroup.controls["city"].value == "") {
@@ -130,6 +151,11 @@ export class RegisterComponent {
           if (!this.gender) {
             this.genderValid = "Gender is required"
           }
+          else {
+            console.log("Email already exist")
+            this.epValid = "Email already exist";
+          
+        }
         }
       },
       error: (err) => { console.log(err) }
