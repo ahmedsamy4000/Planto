@@ -3,12 +3,13 @@ import { Chart, ChartOptions } from 'chart.js/auto';
 import { ReceiptService } from '../../Services/recieptService';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { FeedBackService } from '../../Services/feedbackService';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
   imports: [HttpClientModule,CommonModule],
-  providers: [ReceiptService],
+  providers: [ReceiptService,FeedBackService],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
@@ -19,9 +20,9 @@ export class DashboardComponent implements OnInit {
   productsNames: any;
   productvalues: any;
   myChart: Chart | undefined;
+  feedbacks:any;
 
-  constructor(private http: ReceiptService) { }
-  myobj:{name:string,age:string}={name:"ahmed",age:"20"}
+  constructor(private http: ReceiptService,private feedbackhttp:FeedBackService) { }
   onLanguageSelect(event: any): void {
     this.monthSelectedValue = event.target.value;
     console.log(this.monthSelectedValue);
@@ -87,5 +88,22 @@ export class DashboardComponent implements OnInit {
         options: options
       });
     }
+  }
+
+  openPage(id:string){
+    this.feedbackhttp.getFeedBacks().subscribe({
+      next:(data)=>{
+        this.feedbacks=data;
+        this.feedbacks=this.feedbacks.data;
+        console.log(this.feedbacks);
+      },
+      error:(error)=>{
+        console.log(error);
+      }
+    })
+    document.getElementById(id)!.style.display="flex";
+  }
+  closePage(id:string) {
+    document.getElementById(id)!.style.display = "none";
   }
 }

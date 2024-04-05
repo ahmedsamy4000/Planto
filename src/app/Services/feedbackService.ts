@@ -11,5 +11,8 @@ export class FeedBackService {
   addFeedback (feedbackBody:{userID:any,body:any}){
     return this.http.post(this.DB_URL,feedbackBody);
   }
+  getFeedBacks(){
+    return this.http.get(this.DB_URL);
+  }
   
 }
