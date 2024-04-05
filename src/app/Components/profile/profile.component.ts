@@ -15,12 +15,6 @@ import { UserService } from '../../Services/user.service';
 export class ProfileComponent implements OnInit {
   user: any;
   profileFormVisible = false;
-  // constructor(private route: ActivatedRoute) { }
-  // ngOnInit(): void {
-  //   this.route.params.subscribe(params => {
-  //     this.user = {name: params['name'], email: params['email'], phone: params['phone'], age: params['age'], street: params['street'], city: params['city']}
-  //   });
-  // }
   constructor(private userService: UserService) { }
   ngOnInit(): void {
     console.log(localStorage.getItem("Email"));

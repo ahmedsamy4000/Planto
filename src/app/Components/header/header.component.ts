@@ -17,34 +17,37 @@ export class HeaderComponent {
   isRegistered = false;
   user: any;
   @Output() userEvent = new EventEmitter();
-  constructor(private router:Router, private userService: UserService){
+  constructor(private router: Router, private userService: UserService) {
 
   }
   ngOnInit(): void {
-    //localStorage.clear();
+    // localStorage.clear();
     this.Register();
   }
-  goToCart(){
+  goToCart() {
     this.router.navigate(['/cartItems']);
   }
-  GoToSearch(){
+  GoToSearch() {
     this.router.navigate(['/searchResults']);
   }
-  // this.router.navigate(['edit', userId]);
-  GoToProfile(){
+  GoToProfile() {
     console.log(this.user)
     this.router.navigate(['/profile']);
   }
   toggleLoginForm() {
     this.loginFormVisible = !this.loginFormVisible;
   }
-  Register(){
+  Register() {
     console.log(localStorage.getItem("Email"))
-    if(localStorage.getItem("Email"))
-      {
-        console.log("Success")
-        this.isRegistered = true
-      }
-      
-}
+    if (localStorage.getItem("Email")) {
+      console.log("Success")
+      this.isRegistered = true
+    }
+  }
+
+  Logout(){
+    localStorage.removeItem('Email');
+    this.isRegistered=false;
+    this.router.navigate(['/'])
+  }
 }

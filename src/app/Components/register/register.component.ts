@@ -104,18 +104,10 @@ export class RegisterComponent {
         console.log(data)
         this.result=data
         if (this.registerFormGroup.valid&&this.result.message==true) {
-          // this.userService.GetUserByEmail(email).subscribe({
-          //   next: (data2) => {
-          //     console.log(data2);
-          //     this.emitRegister(data2);
-          //   }
-          // });
-          //this.emitRegister(email)
           interface MyToken {
             email: string;
             id: string;
             iat:number
-            // whatever else is in the JWT.
           };
           this.token1=data;
           const decodedToken = jwtDecode<MyToken>(this.token1.token);

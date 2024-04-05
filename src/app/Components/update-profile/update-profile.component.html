@@ -13,7 +13,7 @@
             <div class="container">
                 <div class="row justify-content-center align-items-center">
                     <div class="col-12">
-                        <form [formGroup]="registerFormGroup">
+                        <form [formGroup]="profileFormGroup">
                             <div class="row">
                                 <div class="col-md-6 mb-4">
                                     <div class="form-outline text-white fw-bold position-relative">
@@ -120,11 +120,11 @@
                                 <div class="col-md-6 mb-4 pb-2">
 
                                     <div class="form-outline text-white fw-bold">
-                                        <label class="form-label" for="password">Password</label>
-                                        <input formControlName="password" #password type="password" id="password"
+                                        <label class="form-label" for="password1">Current Password</label>
+                                        <input formControlName="password" #cpassword type="password" id="password1"
                                             class="form-control" (click)="resetPassword()" />
                                     </div>
-                                    @if(!PasswordValid && password.value)
+                                    @if(!PasswordValid && cpassword.value)
                                     {
                                     <div class="mt-1">
                                         <p class="text-danger">Password must be at least 8 characters</p>
@@ -134,32 +134,25 @@
                                         <p class="text-danger">{{passwordValid}}</p>
                                     </div>
                                 </div>
-                                <div class="col-md-6 mb-4 text-white pb-2">
+                                <div class="col-md-6 mb-4 pb-2">
 
-                                    <h6 class="mb-2 pb-1 fw-bold">Gender </h6>
-
-                                    <div class="form-check form-check-inline text-white fw-bold me-4">
-                                        <input formControlName="gender" class="form-check-input checkColor" type="radio"
-                                            name="gender" id="femaleGender" value="F" [(ngModel)]="gender"
-                                            (click)="resetGender()" />
-                                        <label class="form-check-label" for="femaleGender">Female</label>
+                                    <div class="form-outline text-white fw-bold">
+                                        <label class="form-label" for="password2">New Password</label>
+                                        <input formControlName="password" #npassword type="password" id="password2"
+                                            class="form-control" (click)="resetPassword()" />
                                     </div>
-
-                                    <div class="form-check form-check-inline text-white fw-bold">
-                                        <input formControlName="gender" class="form-check-input checkColor" type="radio"
-                                            name="gender" id="maleGender" value="M" [(ngModel)]="gender"
-                                            (click)="resetGender()" />
-                                        <label class="form-check-label" for="maleGender">Male</label>
-                                    </div>
+                                    @if(npassword.value && npassword.value.length < 8)
+                                    {
                                     <div class="mt-1">
-                                        <p class="text-danger">{{genderValid}}</p>
+                                        <p class="text-danger">Password must be at least 8 characters</p>
                                     </div>
+                                    }
                                 </div>
                             </div>
 
                             <div class="text-center">
                                 <button type="submit" class="btn btnSign btn-block mb-3"
-                                    (click)="Update(name.value, email.value, street.value, city.value, +age.value, phone.value)">Update
+                                    (click)="Update(name.value, email.value, street.value, city.value, +age.value, phone.value, cpassword.value, npassword.value)">Update
                                     </button>
                             </div>
 
