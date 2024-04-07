@@ -4,12 +4,12 @@
         <li class="nav-item" role="presentation">
             @if(registerFormVisible)
             {
-            <a class="nav-link text-white fw-bold" id="tab-login" data-mdb-toggle="pill" role="tab"
-                aria-controls="pills-login" routerLink="" aria-selected="true" (click)="toggleRegisterForm()">Login</a>
+            <a class="nav-link text-white fw-bold custom-cursor" id="tab-login" data-mdb-toggle="pill" role="tab"
+                aria-controls="pills-login" aria-selected="true" (click)="toggleRegisterForm()">Login</a>
             }
             @else
             {
-            <a class="nav-link btnSign  fw-bold" id="tab-login" data-mdb-toggle="pill" role="tab" routerLink=""
+            <a class="nav-link btnSign  fw-bold custom-cursor" id="tab-login" data-mdb-toggle="pill" role="tab" 
                 aria-controls="pills-login" aria-selected="true">Login</a>
             }
 
@@ -17,12 +17,12 @@
         <li class="nav-item" role="presentation">
             @if(registerFormVisible)
             {
-                <a class="nav-link btnSign fw-bold" id="tab-register" data-mdb-toggle="pill" role="tab" routerLink=""
+                <a class="nav-link btnSign fw-bold custom-cursor" id="tab-register" data-mdb-toggle="pill" role="tab"
                 aria-controls="pills-register" aria-selected="false">Register</a>
             }
             @else
             {
-                <a class="nav-link text-white fw-bold" id="tab-register" data-mdb-toggle="pill" role="tab" routerLink=""
+                <a class="nav-link text-white fw-bold custom-cursor" id="tab-register" data-mdb-toggle="pill" role="tab"
                 aria-controls="pills-register" aria-selected="false" (click)="toggleRegisterForm()">Register</a>
             }
         </li>

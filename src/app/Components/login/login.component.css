@@ -24,8 +24,8 @@
     background-color: #E1CCBE;
     border-radius: 15px;
     padding: 20px;
-    overflow: auto;
-    height: 50%;
+    /* overflow: auto; */
+    height: auto;
   }
 
   .btnSign{
@@ -39,4 +39,8 @@
   
   .checkColor:checked{
     background-color: #2F5C2F;
+  }
+
+  .custom-cursor {
+    cursor: pointer;
   }

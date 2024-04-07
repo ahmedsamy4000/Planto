@@ -1,3 +1,5 @@
+@if(products)
+{
 <div class="row m-5">
     <div class="col-12 col-md-4 my-5 text-center m-auto">
         <h1 class="text-white roboto-light">Our Plants</h1>
@@ -16,3 +18,8 @@
         }
     </div>
 </div>
+}
+@else
+{
+    <div style="margin-top: 200px; height: 100vh;"></div>
+}
