@@ -71,23 +71,18 @@ export class LoginComponent {
         console.log(data.body)
         if (this.loginFormGroup.valid&&data.body.message==true) {
           console.log(data.headers.get('x-auth-token'));
-          console.log(data.headers.getAll())
           console.log(data)
           console.log(jwtDecode(data.body.token))
           interface MyToken {
             email: string;
             id: string;
             iat:number
-            // whatever else is in the JWT.
           };
           const decodedToken = jwtDecode<MyToken>(data.body.token);
           localStorage.setItem("Email",decodedToken.email);
           localStorage.setItem("ID",decodedToken.id);
           
-          //this.RegisterSuccess(email);
           this.onCloseForm();
-          
-          
         }
         else {
           if(this.loginFormGroup.controls['email'].value == "" || this.loginFormGroup.controls['password'].value == "")
