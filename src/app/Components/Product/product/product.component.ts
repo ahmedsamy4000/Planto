@@ -20,10 +20,22 @@ export class ProductComponent {
   constructor(private myActivated: ActivatedRoute, private productsService: ProductsService) {
     this.name = this.myActivated.snapshot.params['name'];
   }
-  async ngOnInit() {
+  ngOnInit() {
     try {
-      const data: any = await this.productsService.getOneProduct(this.name).toPromise();
-      this.product = data.data; 
+      this.productsService.getOneProduct(this.name).subscribe({
+        next:(data)=>{
+          console.log(data)
+          
+          this.product=data;
+          this.product=this.product.data;
+          console.log(this.product)
+
+        },
+        error:(err)=>{
+          console.log(err)
+        }
+      })
+       
     } catch (error) {
       console.error('Error fetching products:', error);
     }
