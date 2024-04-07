@@ -14,4 +14,7 @@ export class UserService {
   UpdateUser(email: any, user: any){
     return this.http.post(this.DB_URL+'/'+email, user);
   }
+  UpdateCart(item: any){
+    return this.http.post(this.DB_URL, item);
+  }
 }
