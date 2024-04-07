@@ -107,12 +107,14 @@ export class RegisterComponent {
           interface MyToken {
             email: string;
             id: string;
+            isAdmin: string;
             iat:number
           };
           this.token1=data;
           const decodedToken = jwtDecode<MyToken>(this.token1.token);
           localStorage.setItem("Email",decodedToken.email);
           localStorage.setItem("ID",decodedToken.id);
+          localStorage.setItem("isAdmin", decodedToken.isAdmin);
 
           this.close.emit();
           location.reload();

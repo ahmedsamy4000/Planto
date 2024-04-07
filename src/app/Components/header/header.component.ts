@@ -16,12 +16,12 @@ export class HeaderComponent {
   loginFormVisible = false;
   isRegistered = false;
   user: any;
+  isAdmin: any;
   @Output() userEvent = new EventEmitter();
   constructor(private router: Router, private userService: UserService) {
 
   }
   ngOnInit(): void {
-    // localStorage.clear();
     this.Register();
   }
   goToCart() {
@@ -42,6 +42,7 @@ export class HeaderComponent {
     if (localStorage.getItem("Email")) {
       console.log("Success")
       this.isRegistered = true
+      this.isAdmin = localStorage.getItem("isAdmin");
     }
   }
 

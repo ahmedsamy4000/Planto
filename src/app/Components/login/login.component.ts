@@ -76,11 +76,14 @@ export class LoginComponent {
           interface MyToken {
             email: string;
             id: string;
+            isAdmin: string;
             iat:number
           };
           const decodedToken = jwtDecode<MyToken>(data.body.token);
           localStorage.setItem("Email",decodedToken.email);
           localStorage.setItem("ID",decodedToken.id);
+          localStorage.setItem("isAdmin",decodedToken.isAdmin);
+
           
           this.onCloseForm();
         }

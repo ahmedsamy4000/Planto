@@ -10,18 +10,23 @@
             <input type="text" required="" placeholder="Search....">
             <button type="submit"><i class="searchbtn fas fa-search"></i></button>
         </form>
-
         <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
             <ul class="navbar-nav mx-auto">
-                <li class="nav-item">
-                    <a routerLink="/shop" class="menu__link">Shop</a>
-                </li>
-                <li class="nav-item">
-                    <a routerLink="/contact" class="menu__link">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <a routerLink="/dashboard" class="menu__link">DashBoard</a>
-                </li>
+                @if(isRegistered)
+                {
+                    <li class="nav-item">
+                        <a routerLink="/shop" class="menu__link">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a routerLink="/contact" class="menu__link">Contact</a>
+                    </li>
+                }
+                @if(isAdmin == "true")
+                {
+                    <li class="nav-item">
+                        <a routerLink="/dashboard" class="menu__link">DashBoard</a>
+                    </li>
+                }
             </ul>
         </div>
         @if(!isRegistered)
@@ -43,7 +48,7 @@
         <div class="ml-auto">
             <div class="child child-1">
                 <button class="button btn-1" (click)="goToCart()">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-cart"
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" class="bi bi-cart"
                         viewBox="0 0 16 16">
                         <path
                             d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
@@ -54,7 +59,7 @@
         <div class="ml-auto">
             <div class="child child-2">
                 <button class="button btn-2" (click)="GoToProfile()">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white"
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white"
                         class="bi bi-person-fill" viewBox="0 0 16 16">
                         <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
                     </svg>

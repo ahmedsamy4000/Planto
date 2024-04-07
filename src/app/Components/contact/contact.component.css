@@ -130,4 +130,16 @@ p{
     }
   }
 
+  .sizes {
+    background-color: transparent;
+    color: #E0CCBE;
+    border: 1px solid white;
+    font-weight: 500;
+}
+
+.sizes:hover {
+    background-color: #E0CCBE;
+    color: black;
+}
+
   
