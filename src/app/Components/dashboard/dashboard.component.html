@@ -12,7 +12,7 @@
                             alt="">
                         <div class="d-flex align-items-center mt-2">
                             <div class="tag">Total Orders</div>
-                            <div class="ms-auto number">10</div>
+                            <div class="ms-auto number">{{TotalOrdes}}</div>
                         </div>
                     </div>
                     <div class="box me-4 my-1 bg-light w-25">
@@ -20,7 +20,7 @@
                             alt="">
                         <div class="d-flex align-items-center mt-2">
                             <div class="tag">Total Products</div>
-                            <div class="ms-auto number">200</div>
+                            <div class="ms-auto number">{{totalProducts}}</div>
                         </div>
                     </div>
                     <div class="box me-4 my-1 bg-light w-25">
@@ -28,7 +28,7 @@
                             alt="">
                         <div class="d-flex align-items-center mt-2">
                             <div class="tag">Total Growth</div>
-                            <div class="ms-auto number">10$</div>
+                            <div class="ms-auto number">{{TotalMoney}}$</div>
                         </div>
                     </div>
                     <div class="box me-4 my-1 bg-light w-25">
@@ -36,7 +36,7 @@
                             alt="">
                         <div class="d-flex align-items-center mt-2">
                             <div class="tag">Profit</div>
-                            <div class="ms-auto number">10$</div>
+                            <div class="ms-auto number">{{totalprofit}}$</div>
                         </div>
                     </div>
                     <div class="box me-4 my-1 bg-light w-25">
@@ -44,7 +44,7 @@
                             alt="">
                         <div class="d-flex align-items-center mt-2">
                             <div class="tag">Fees</div>
-                            <div class="ms-auto number">300$</div>
+                            <div class="ms-auto number">{{Fees}}$</div>
                         </div>
                     </div>
                     <div class="box me-4 my-1 bg-light w-25">
@@ -52,7 +52,7 @@
                             alt="">
                         <div class="d-flex align-items-center mt-2">
                             <div class="tag">Net Profit</div>
-                            <div class="ms-auto number">300$</div>
+                            <div class="ms-auto number">{{netProfit}}$</div>
                         </div>
                     </div>
                 </div>
@@ -66,7 +66,7 @@
                         </div>
                         <div class="col-6 text-white">
                             <div class="mb-2">Choose Month</div>
-                            <select  class="mb-3" name="language" id="language" (change)="onLanguageSelect($event)">
+                            <select  class="mb-3" name="language" id="language" (change)="onMonthSelect($event)">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>

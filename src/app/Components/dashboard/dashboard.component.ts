@@ -21,16 +21,52 @@ export class DashboardComponent implements OnInit {
   productvalues: any;
   myChart: Chart | undefined;
   feedbacks:any;
+  TotalMoney:any;
+  TotalOrdes:any;
+  totalProducts=0;
+  totalprofit=0;
+  Fees=0;
+  netProfit=0;
 
   constructor(private http: ReceiptService,private feedbackhttp:FeedBackService) { }
-  onLanguageSelect(event: any): void {
+  onMonthSelect(event: any): void {
     this.monthSelectedValue = event.target.value;
     console.log(this.monthSelectedValue);
     this.fetchData();
+    this.fetchMoneyData();
+
   }
   ngOnInit() {
     this.fetchData();
+    this.fetchMoneyData();
   }
+
+  fetchMoneyData() {
+    this.http.getMonetStat(this.monthSelectedValue).subscribe({
+      next: async (data) => {
+        let money: any = data;
+        this.TotalMoney = await money.data.TotalProfit;
+        this.TotalOrdes = await money.data.TotalOrders;
+        this.statMoney( this.TotalMoney)
+
+      },
+      error: (error) => {
+        console.error("Error fetching money data:", error);
+      }
+    });
+  }
+  statMoney(Totalmon:any){
+    this.totalprofit=Totalmon-Totalmon*20/100;
+    this.Fees=Totalmon*10/100;
+    this.netProfit=this.totalprofit- this.Fees;
+
+  }
+  
+
+
+
+
+
   fetchData() {
     this.http.getRecieptsByMonth(this.monthSelectedValue).subscribe({
       next: (data) => {
@@ -43,10 +79,10 @@ export class DashboardComponent implements OnInit {
         for(let i=0;i<this.sortarray.length;i++){
           this.bestsellingobj.data[this.sortarray[i]["key"]]=this.sortarray[i]["value"];
         }
-      
         console.log(this.bestsellingobj.data);
         this.productsNames = Object.keys(this.bestsellingobj.data);
         this.productvalues = Object.values(this.bestsellingobj.data);
+        this.CalcTotalProducts(this.productvalues);
         this.updateChart();
       },
       error: (error) => {
@@ -54,6 +90,13 @@ export class DashboardComponent implements OnInit {
       }
     });
   }
+  CalcTotalProducts(productvalues:any){
+    this.totalProducts=0
+    this.productvalues.forEach((value: number) => {
+    this.totalProducts += value;
+    });
+  }
+  
 
   updateChart() {
     if (this.myChart) {
