@@ -23,6 +23,7 @@
         <p class="roboto-light fs-5">Quantity:</p>
         <input #quantity type="number" min="1" value="1" class="roboto-light fs-5 px-3 py-4">
     </div>
+    
     <div class="text-center my-5">
         <button class="pola" (click)="AddtoCart(quantity)">
             Add To Cart
@@ -87,4 +88,8 @@
           <p class="roboto-light fs-5 mt-4 d-block d-md-none col-12">Welcome to a world where plants not only beautify our surroundings but
             also have the power to nourish our souls.</p>         
     </div>
+    <div class="message">
+      <p class="text-white text-center my-2 fs-3">{{message}}</p>
+    </div>
+    
 </div>

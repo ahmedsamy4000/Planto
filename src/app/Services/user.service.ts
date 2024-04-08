@@ -15,6 +15,10 @@ export class UserService {
     return this.http.post(this.DB_URL+'/'+email, user);
   }
   UpdateCart(item: any){
-    return this.http.post(this.DB_URL, item);
+    return this.http.post(this.DB_URL+"/cart/add", item);
+  }
+  GetCart(email: any){
+    return this.http.get(this.DB_URL+"/cart/"+email);
   }
 }
+

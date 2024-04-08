@@ -19,7 +19,7 @@ import { jwtDecode } from "jwt-decode";
 
 export class LoginComponent {
   
-  constructor(private login: LoginService,private router: Router) { }
+  constructor(private login: LoginService) { }
   user: any;
   registerFormVisible = false;
   
