@@ -25,7 +25,7 @@ export const routes: Routes = [
     {path: "contact",component:ContactComponent},
     {path: "profile",component:ProfileComponent},
     {path: "dashboard",component:DashboardComponent},
-    {path: "searchResults",component:SearchResultComponent},
+    {path: "searchResults/:name",component:SearchResultComponent},
     {path: "payment",component:PaymentComponent},
 ];
 

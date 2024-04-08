@@ -15,6 +15,7 @@ export class ProductsService {
   getOneProduct(name:string){
         return this.http.get(this.DB_URL+"/"+name);
     }
-  
-
+    searchByName(name:string){
+      return this.http.get(this.DB_URL+"/search/"+name)
+    }
 }
