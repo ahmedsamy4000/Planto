@@ -20,12 +20,12 @@
 
   .form-container{
     position: relative;
-    top: 20%;
+    top: 10%;
     background-color: #E1CCBE;
     border-radius: 15px;
     padding: 20px;
-    /* overflow: auto; */
-    height: auto;
+    overflow: auto; 
+    height: 70%;
   }
 
   .btnSign{
