@@ -20,12 +20,12 @@
                     <li class="nav-item">
                         <a routerLink="/contact" class="menu__link">Contact</a>
                     </li>
-                }
-                @if(isAdmin == "true")
-                {
-                    <li class="nav-item">
-                        <a routerLink="/dashboard" class="menu__link">DashBoard</a>
-                    </li>
+                    @if(isAdmin == "true")
+                    {
+                        <li class="nav-item">
+                            <a routerLink="/dashboard" class="menu__link">DashBoard</a>
+                        </li>
+                    }
                 }
             </ul>
         </div>
