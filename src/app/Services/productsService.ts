@@ -9,6 +9,10 @@ export class ProductsService {
 
   constructor(private http: HttpClient) { }
 
+
+  addProduct (productBody:any){
+    return this.http.post(this.DB_URL,productBody);
+  }
   getProducts(){
     return this.http.get(this.DB_URL);
   }

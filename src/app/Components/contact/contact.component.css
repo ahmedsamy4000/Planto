@@ -36,7 +36,7 @@ p{
   font-size: 70px;
   font-family: 'Times New Roman', Times, serif;
 }
-.form-container {
+.add-product-list {
   height: 90vh;
   display: none;
   z-index: 1000;

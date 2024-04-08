@@ -466,6 +466,22 @@ select{
     padding: 20px;
     animation: fadeIn 0.5s ease forwards;
   }
+  .add-product-list {
+    height: 60vh;
+    width: 20vh;
+    display: none;
+    flex-direction: column;
+    z-index: 1000;
+    position: fixed;
+    overflow: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #ccc;
+    background-color: #f2f2f2;
+    padding: 20px;
+    animation: fadeIn 0.5s ease forwards;
+  }
 
   @keyframes fadeIn {
     from {
@@ -477,3 +493,20 @@ select{
       transform: translate(-50%, -50%) scale(1);
     }
   }
+
+  .form-container {
+  height: 90vh;
+  display: none;
+  z-index: 1000;
+  position: fixed;
+  overflow: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid #ccc;
+  background-color: #f2f2f2;
+  padding: 20px;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+  

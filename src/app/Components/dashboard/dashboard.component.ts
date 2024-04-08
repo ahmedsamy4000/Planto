@@ -4,11 +4,12 @@ import { ReceiptService } from '../../Services/recieptService';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FeedBackService } from '../../Services/feedbackService';
+import { AddproductComponent } from './addproduct/addproduct.component';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [HttpClientModule,CommonModule],
+  imports: [HttpClientModule,CommonModule,AddproductComponent],
   providers: [ReceiptService,FeedBackService],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'

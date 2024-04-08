@@ -97,7 +97,7 @@
                     </div>
             </div>
             <div class="row m-3">
-                <div class="btn btn-dark col-4 dbtn"  id="addbtn">Add Product</div>
+                <div class="btn btn-dark col-4 dbtn" (click)="openPage('addproduct')" id="addbtn">Add Product</div>
                 <div class="btn btn-dark col-4 dbtn" id="deletebtn">Delete Product</div>
                 <div class="btn btn-dark col-4 dbtn" (click)="openPage('feedback')" id="FeedBacks">FeedBacks</div>
             </div>
@@ -113,6 +113,13 @@
                 </div>
               <button type="submit"  (click)="closePage('feedback')" class="btn btn-dark text-white mb-3  m-auto  md-w-25 col-12" style="height: 40px;" >Done</button>
             </div>
-            </div>
+        </div>
+        <div class="add-product-list bg-success w-75 md-w-25  justify-content-center align-items-center " id="addproduct">
+            <app-addproduct></app-addproduct>
+           
+        </div>
+      
 
+        
+   
 </div>
