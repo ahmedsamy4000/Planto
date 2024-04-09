@@ -7,7 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterModule, LoginComponent, HttpClientModule, RouterModule],
+  imports: [RouterModule, LoginComponent, HttpClientModule],
   providers: [UserService],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'

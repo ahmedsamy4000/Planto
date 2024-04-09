@@ -36,23 +36,13 @@
             <div class="col-md-5">
                 <div class="right rounded">
                     <div class="header">Order Summary</div>
-                    <p>2 items</p>
-                    <div class="row item">
-                        <div class="col-4 align-self-center"><img class="img-fluid" src="../../../assets/Images/Lily/1.jpg"></div>
-                        <div class="col-8">
-                            <div class="row"><b>$ 26.99</b></div>
-                            <div class="row text-muted">Be Legandary Lipstick-Nude rose</div>
-                            <div class="row">Qty:1</div>
-                        </div>
-                    </div>
-                    <div class="row item">
-                        <div class="col-4 align-self-center"><img class="img-fluid" src="../../../assets/Images/Orchid/1.jpg"></div>
-                        <div class="col-8">
-                            <div class="row"><b>$ 19.99</b></div>
-                            <div class="row text-muted">Be Legandary Lipstick-Sheer Navy Cream</div>
-                            <div class="row">Qty:1</div>
-                        </div>
-                    </div>
+                    <!-- numOfItems -->
+                    <p>{{numOfItems}} items</p>
+                    @for (item of items; track $index) {
+                        <app-paymentitem [item]="item"></app-paymentitem>
+                        
+                    }
+                    
                     <hr>
                     <div class="row lower">
                         <div class="col text-left">Subtotal</div>

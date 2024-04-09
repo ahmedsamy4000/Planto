@@ -17,9 +17,10 @@
                     </div>
                 </div>
                 <div class="col-md-2 col-6 order-2 order-md-1 text-end">  
-                    <h5 class="pt-2">{{item.product.price}}EGP</h5>
+                    <h5 class="pt-2">{{totalPrice}}EGP</h5>
                 </div>
-                <div class="col-md-1 col-2 order-1 order-md-1">
+                
+                <div class="col-md-1 col-2 order-1 order-md-1" (click)="deleteItem()">
     
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-x-lg m-4 mt-2" viewBox="0 0 16 16">
@@ -28,6 +29,7 @@
                     </svg>
     
                 </div>
+            
             </div>
         </div>
         
