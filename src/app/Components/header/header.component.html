@@ -1,15 +1,15 @@
 <link rel="stylesheet" type="text/css"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
 <div id="ex" class="justify-content-center d-flex">
-    <header class="navbar navbar-expand-lg header w-100">       
+    <header class="navbar navbar-expand-lg header w-100 row">       
 <!-- mmm -->
-<nav class="navbar navbar-expand-lg justify-content-center">
+<nav class="navbar navbar-expand-lg justify-content-center ">
     <div class="container-fluid text-white">
         <a routerLink="/" class="navbar-brand">
             PLANTO
             <img src="../../../assets/plant-svgrepo-com.svg" alt="Your SVG Image" class="icon ml-2">
         </a>
-        <form class="search-form">
+        <form class="search-form search">
             <input type="text" required="" placeholder="Search....">
             <button type="submit"><i class="searchbtn fas fa-search"></i></button>
         </form>
@@ -20,15 +20,15 @@
             <ul class="navbar-nav mx-auto">
                 @if(isRegistered)
                 {
-                    <li class="nav-item">
+                    <li class="nav-item m-auto">
                         <a routerLink="/shop" class="menu__link">Shop</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item m-auto">
                         <a routerLink="/contact" class="menu__link">Contact</a>
                     </li>
                     @if(isAdmin == "true")
                     {
-                        <li class="nav-item">
+                        <li class="nav-item  m-auto">
                             <a routerLink="/dashboard" class="menu__link">DashBoard</a>
                         </li>
                     }
@@ -51,7 +51,7 @@
         }
         @else{
         <div class="ml-auto">
-            <div class="child child-1">
+            <div class="child child-1 m-auto">
                 <button class="button btn-1" (click)="goToCart()">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" class="bi bi-cart"
                         viewBox="0 0 16 16">
@@ -62,7 +62,7 @@
             </div>
         </div>
         <div class="ml-auto">
-            <div class="child child-2">
+            <div class="child child-2  m-auto">
                 <button class="button btn-2" (click)="GoToProfile()">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white"
                         class="bi bi-person-fill" viewBox="0 0 16 16">
@@ -72,7 +72,7 @@
             </div>
         </div>
             <div class="ml-auto">
-                <button class="new login-button" (click)="Logout()">
+                <button class="new login-button m-auto" (click)="Logout()">
                     <span class="text">Logout</span>
                     <span class="icon" style="font-size: 20px;">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
