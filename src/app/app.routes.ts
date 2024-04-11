@@ -13,6 +13,7 @@ import { CartItemsComponent } from './Components/Card/cart-items/cart-items.comp
 import { CartEmptyComponent } from './Components/Card/cart-empty/cart-empty.component';
 import { PaymentComponent } from './Components/payment/payment.component';
 import { NgModule } from '@angular/core';
+import { FeedbacksComponent } from './Components/Feedback/feedbacks/feedbacks.component';
 
 export const routes: Routes = [
     {path: "" ,component:WelcomeComponent},
@@ -27,6 +28,7 @@ export const routes: Routes = [
     {path: "dashboard",component:DashboardComponent},
     {path: "searchResults/:name",component:SearchResultComponent},
     {path: "payment",component:PaymentComponent},
+    {path: "feedbacks",component:FeedbacksComponent},
 ];
 
 @NgModule({

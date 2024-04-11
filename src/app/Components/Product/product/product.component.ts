@@ -17,6 +17,8 @@ import { ProductsService } from '../../../Services/productsService';
 export class ProductComponent {
   name = "";
   product:any;
+  isAdmin:any;
+
   constructor(private myActivated: ActivatedRoute, private productsService: ProductsService) {
     this.name = this.myActivated.snapshot.params['name'];
   }
@@ -39,6 +41,7 @@ export class ProductComponent {
     } catch (error) {
       console.error('Error fetching products:', error);
     }
+    this.isAdmin=localStorage.getItem("isAdmin");
   }
 
 }

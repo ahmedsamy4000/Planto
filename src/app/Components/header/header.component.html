@@ -23,11 +23,17 @@
                     <li class="nav-item m-auto">
                         <a routerLink="/shop" class="menu__link">Shop</a>
                     </li>
+                    @if(isAdmin != "true")
+                    {
                     <li class="nav-item m-auto">
                         <a routerLink="/contact" class="menu__link">Contact</a>
                     </li>
+                    }
                     @if(isAdmin == "true")
                     {
+                        <li class="nav-item m-auto">
+                            <a routerLink="/feedbacks" class="menu__link">Feedbacks</a>
+                        </li>
                         <li class="nav-item  m-auto">
                             <a routerLink="/dashboard" class="menu__link">DashBoard</a>
                         </li>

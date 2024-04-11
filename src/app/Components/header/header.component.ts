@@ -51,4 +51,5 @@ export class HeaderComponent {
     this.isRegistered=false;
     this.router.navigate(['/'])
   }
+  
 }

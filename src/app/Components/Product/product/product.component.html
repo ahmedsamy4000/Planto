@@ -17,9 +17,12 @@
                 <app-product-details [selected]="product"></app-product-details>
             </div>
         </div>
-        <div>
-            <p class="roboto-light fs-1 ms-5 mb-5">You Might Also Like</p>
-        </div>
-        <app-suggesstion></app-suggesstion>
+        @if(isAdmin!="true"){
+            <div>
+                <p class="roboto-light fs-1 ms-5 mb-5">You Might Also Like</p>
+            </div>
+            <app-suggesstion></app-suggesstion>
+        }
+        
     </div>
 </div>

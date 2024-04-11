@@ -11,6 +11,9 @@ export class UserService {
   GetUserByEmail (email:any){
     return this.http.get(this.DB_URL+'/'+email);
   }
+  GetUserByID (id:any){
+    return this.http.get(this.DB_URL+'/id/'+id);
+  }
   UpdateUser(email: any, user: any){
     return this.http.post(this.DB_URL+'/'+email, user);
   }

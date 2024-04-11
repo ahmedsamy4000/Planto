@@ -22,4 +22,10 @@ export class ProductsService {
     searchByName(name:string){
       return this.http.get(this.DB_URL+"/search/"+name)
     }
+  updateProduct(name:string,product:any){
+    return this.http.put(this.DB_URL+"/"+name,product);
+  }
+  deleteProduct(name:string){
+    return this.http.delete(this.DB_URL+"/"+name);
+  }
 }

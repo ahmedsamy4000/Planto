@@ -1,0 +1,11 @@
+
+<div class="container m-5 p-5">
+    @if(feedbacks.length>0){
+        @for (item of feedbacks; track $index) {
+        <app-feedback-item [item]="item"></app-feedback-item>
+        }
+        }
+        @else {
+        <app-feedback-empty></app-feedback-empty>
+        }
+</div>
