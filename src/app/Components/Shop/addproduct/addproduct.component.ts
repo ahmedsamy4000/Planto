@@ -71,7 +71,7 @@ export class AddproductComponent {
       price:price,
       description:description,
       images:[this.imageurl1,this.imageurl2],
-      stoc:+stock,
+      stock:+stock,
       category:category,
       count:0,
       rate:0

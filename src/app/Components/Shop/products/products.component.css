@@ -22,6 +22,7 @@
 .con2{
     box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
     background-color: #E1CCBE;
+    min-height:350px;
 }
 .add-product-list {
     height: 60vh;
