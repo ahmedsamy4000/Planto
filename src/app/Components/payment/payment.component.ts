@@ -4,12 +4,13 @@ import { PaymentitemComponent } from './paymentitem/paymentitem.component';
 import { HttpClientModule } from '@angular/common/http';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { ReceiptService } from '../../Services/recieptService';
 
 @Component({
   selector: 'app-payment',
   standalone: true,
   imports: [PaymentitemComponent, HttpClientModule, RouterModule, CommonModule],
-  providers:[UserService],
+  providers:[UserService, ReceiptService],
   templateUrl: './payment.component.html',
   styleUrl: './payment.component.css'
 })
@@ -19,7 +20,7 @@ numOfItems=0;
 totalPrice=0;
 userData: any;
 
-  constructor(private user:UserService, private router:Router){}
+  constructor(private user:UserService, private receipt: ReceiptService){}
   ngOnInit(): void {
     this.user.GetUserByEmail(localStorage.getItem("Email")).subscribe({
       next:(data)=>{
@@ -52,5 +53,14 @@ userData: any;
   // }
   output(data:number){
     this.totalPrice+=+data;
+  }
+
+  makePayment(){
+    this.receipt.checkout({name: 'Palm'}).subscribe({
+      next: (data: any)=>{
+        console.log(data);
+        location.assign(data.url);
+      }
+    })
   }
 }
