@@ -20,7 +20,7 @@ this.feedbackhttp.addFeedback({userID:userid,body:body}).subscribe({
 }
 
 openAlert(){
-  document.getElementById("alertForm")!.style.display="flex";
+  document.getElementById("alertForm")!.style.display="block";
 }
 closeAlert() {
   document.getElementById("alertForm")!.style.display = "none";

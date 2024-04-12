@@ -15,11 +15,14 @@ import { AddproductComponent } from '../addproduct/addproduct.component';
 })
 export class ProductsComponent implements OnInit {
   products: any 
-
+  isRegistered=false;
+  isAdmin:any;
   constructor(private productsService: ProductsService) { }
 
    ngOnInit() {
+    this.Register();
     try {
+    
       this.productsService.getProducts().subscribe({
         next:(data)=>{
           console.log(data)
@@ -35,5 +38,16 @@ export class ProductsComponent implements OnInit {
   }
   add(form:any){
     form.style.display = "flex";
+  }
+  Register() {
+    console.log(localStorage.getItem("Email"))
+    if (localStorage.getItem("Email")) {
+      console.log("Success")
+      this.isRegistered = true;
+      this.isAdmin = localStorage.getItem("isAdmin");
+ 
+    }
+    console.log("is admin :",this.isAdmin);
+    console.log("is registered :",this.isRegistered);
   }
 }

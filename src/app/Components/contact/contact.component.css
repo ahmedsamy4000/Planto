@@ -23,7 +23,6 @@
   align-items: center;
   margin: 0;
   font-family: 'Times New Roman', Times, serif;
-
 }
 #sendtext{
   font-size: 30px;
@@ -36,23 +35,8 @@ p{
   font-size: 70px;
   font-family: 'Times New Roman', Times, serif;
 }
-.add-product-list {
-  height: 90vh;
-  display: none;
-  z-index: 1000;
-  position: fixed;
-  overflow: auto;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border: 1px solid #ccc;
-  background-color: #f2f2f2;
-  padding: 20px;
-  animation: fadeIn 0.5s ease forwards;
-}
-
-.alert-container {
-  height: 40vh;
+.form-container {
+  height: 80vh;
   width: 20vh;
   display: none;
   flex-direction: column;
@@ -63,7 +47,23 @@ p{
   left: 50%;
   transform: translate(-50%, -50%);
   border: 1px solid #ccc;
-  background-color: #f2f2f2;
+  background-color: #E0CCBE;
+  padding: 20px;
+  animation: fadeIn 0.5s ease forwards;
+}
+.alert-container {
+  height: 20vh;
+  width: 20vh;
+  flex-direction: column;
+  display: none;
+  z-index: 1000;
+  position: fixed;
+  overflow: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid #ccc;
+  background-color: #E0CCBE;
   padding: 20px;
   animation: fadeIn 0.5s ease forwards;
 }
@@ -105,9 +105,7 @@ p{
     color: black;
   }
   
-  #contactform{
-    z-index: 0;
-  }
+
 
   @media screen and (min-width: 768px) and (max-width: 991px) {
 

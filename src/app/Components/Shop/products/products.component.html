@@ -16,6 +16,7 @@
             <app-one-product [imgSrc]=p.images [price]=p.price [name]=p.name></app-one-product>
         </div>
         }
+      @if(isAdmin=="true"){
         <div class="col col-sm-6 col-md-3 col-6 text-center con2 d-flex align-items-center justify-content-center"  (click)="add(addProduct)">
             <div class="text-center fs-5 mb-5 text-white">
                 <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
@@ -24,6 +25,7 @@
                   </svg>
             </div>
         </div>
+      }
     </div>
 </div>
 }
