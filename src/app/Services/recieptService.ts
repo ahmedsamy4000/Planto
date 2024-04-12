@@ -12,15 +12,19 @@ export class ReceiptService {
 
   constructor(private http: HttpClient) { }
 
-  getReceipt(){
+  getReceipt() {
     return this.http.get(this.DB_URL);
   }
-  getRecieptsByMonth(month:any){
-        return this.http.get(this.DB_URL+"/"+month);
+  getRecieptsByMonth(month: any) {
+    return this.http.get(this.DB_URL + "/" + month);
   }
-  getMonetStat(month:any){
-    return this.http.get(this.DB_URL+"/total/"+month);
-}
-  
+  getMonetStat(month: any) {
+    return this.http.get(this.DB_URL + "/total/" + month);
+  }
+
+  checkout(name: any) {
+    return this.http.post('http://localhost:7500/checkout', name);
+  }
+
 
 }

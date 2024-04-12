@@ -14,21 +14,25 @@ import { CartEmptyComponent } from './Components/Card/cart-empty/cart-empty.comp
 import { PaymentComponent } from './Components/payment/payment.component';
 import { NgModule } from '@angular/core';
 import { FeedbacksComponent } from './Components/Feedback/feedbacks/feedbacks.component';
+import { userGuard } from './Guards/user.guard';
+import { ErrorComponent } from './Components/error/error.component';
+import { adminGuard } from './Guards/admin.guard';
 
 export const routes: Routes = [
-    {path: "" ,component:WelcomeComponent},
+    {path: '', redirectTo: 'welcome', pathMatch: 'full'},
     {path: "welcome" ,component:WelcomeComponent},
     {path: "shop", component: ProductsComponent},
     {path: "ourStory", component: OurStoryComponent},
-    {path: "cartItems", component: CartItemsComponent},
-    {path: "cartEmpty", component: CartEmptyComponent},
+    {path: "cartItems",canActivate: [userGuard],  component: CartItemsComponent},
+    {path: "cartEmpty",canActivate: [userGuard],  component: CartEmptyComponent},
     {path: "shop/:name", component: ProductComponent},
-    {path: "contact",component:ContactComponent},
-    {path: "profile",component:ProfileComponent},
-    {path: "dashboard",component:DashboardComponent},
+    {path: "contact", canActivate: [userGuard], component:ContactComponent},
+    {path: "profile", canActivate: [userGuard], component:ProfileComponent},
+    {path: "dashboard", canActivate: [adminGuard], component:DashboardComponent},
     {path: "searchResults/:name",component:SearchResultComponent},
-    {path: "payment",component:PaymentComponent},
+    {path: "payment", canActivate: [userGuard], component:PaymentComponent},
     {path: "feedbacks",component:FeedbacksComponent},
+    {path: "**", component:ErrorComponent},
 ];
 
 @NgModule({
