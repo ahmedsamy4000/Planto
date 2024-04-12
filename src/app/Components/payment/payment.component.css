@@ -13,6 +13,8 @@
 .card-top{
     padding: 0.7rem 5rem;
     background-color: #E1CCBE;
+    border-radius: 3px;
+
 }
 .card-top a{
     float: left;
@@ -28,6 +30,7 @@
     background-color: #E1CCBE;
     background-size: cover;
     background-repeat: no-repeat;
+    border-radius: 3px;
 }
 @media(max-width:768px){
     .card-body{
