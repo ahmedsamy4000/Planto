@@ -1,0 +1,14 @@
+<div class="container mt-5 p-5">
+    <h2 class="text-white">Favourites</h2>
+    @if(flag==1){
+        @for (item of items; track $index) {
+            <app-fav-item [item]="item" [idx]="$index"></app-fav-item>
+            
+        }
+    }@else {
+        <app-fav-empty></app-fav-empty>
+    }
+</div>
+
+
+

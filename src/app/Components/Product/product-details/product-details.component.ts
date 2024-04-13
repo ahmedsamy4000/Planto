@@ -20,7 +20,7 @@ export class ProductDetailsComponent {
   size="";
   message="";
   isAdmin:any;
-  constructor(private cart:UserService,private producthttp:ProductsService, private router:Router) {
+  constructor(private cart:UserService,private producthttp:ProductsService, private router:Router,private fav:UserService) {
     this.isAdmin=localStorage.getItem("isAdmin");
   }
 
@@ -34,6 +34,27 @@ export class ProductDetailsComponent {
     this.size="Large"
   }
   
+
+  AddToFavourites(){
+    if(!localStorage.getItem("Email")){
+      this.message="Please, Login first";
+      console.log("Please, Login first")
+    }
+    console.log(localStorage.getItem("Email"))
+    console.log(this.selected)
+    this.fav.AddToFavourites({email:localStorage.getItem("Email"),product:this.selected}).subscribe({
+      next:(data:any)=>{
+        if(data.message==0){
+          this.message="Product Already Exist"
+        }else{
+          this.message="Added To Favourites"
+        }
+      },
+      error:(err)=>{
+        console.log(err);
+      }
+    }) 
+  }
   AddtoCart(quantity:any){
     if(localStorage.getItem("Email")){
       if(this.size!="")
@@ -45,7 +66,8 @@ export class ProductDetailsComponent {
           console.log(quantity)
 
           this.cart.AddToCart({email:localStorage.getItem("Email"),product:this.selected,quantity:+quantity.value,size:this.size}).subscribe({
-            next:(data)=>{},
+            next:(data)=>{
+            },
             error:(err)=>{}
           })
           this.message="Added Successfully";

@@ -30,5 +30,23 @@ export class UserService {
   DeleteFromCart(email: any,idx:any){
     return this.http.post(this.DB_URL+"/cart/delete",{email:email,index:idx});
   }
+
+
+ 
+
+
+  AddToFavourites(item: any){
+    return this.http.post(this.DB_URL+"/favourites/add", item);
+  }
+  GetFavourites(email: any){
+    return this.http.get(this.DB_URL+"/favourites/"+email);
+  }
+  UpdateFavourites(email: any,fav:any,idx:any){
+    return this.http.put(this.DB_URL+"/favourites",{email:email,fav:fav,index:idx});
+  }
+
+  DeleteFromFavourites(email: any,idx:any){
+    return this.http.post(this.DB_URL+"/favourites/delete",{email:email,index:idx});
+  }
 }
 
