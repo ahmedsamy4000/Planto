@@ -56,16 +56,12 @@ export class ProductDetailsComponent {
     }) 
   }
   AddtoCart(quantity:any){
-    if(localStorage.getItem("Email")){
+    if(localStorage.getItem("userToken")){
       if(this.size!="")
         {
           
           if(this.selected.stock>=quantity.value&&quantity.value>0){
-          console.log(localStorage.getItem("Email"))
-          console.log(this.selected)
-          console.log(quantity)
-
-          this.cart.AddToCart({email:localStorage.getItem("Email"),product:this.selected,quantity:+quantity.value,size:this.size}).subscribe({
+          this.cart.AddToCart({product:this.selected,quantity:+quantity.value,size:this.size}).subscribe({
             next:(data)=>{
             },
             error:(err)=>{}

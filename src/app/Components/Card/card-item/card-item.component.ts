@@ -23,17 +23,13 @@ constructor(private cart:UserService){}
     this.totalPrice=this.item.quantity*this.item.product.price;
   }
 Plus(){
-  console.log(this.idx)
-  console.log(this.item)
-  console.log(this.item.product.stock)
-  console.log(this.item.quantity)
   if(this.item.product.stock>this.item.quantity)
     {
       this.item.quantity+=1;
       this.totalPrice=this.item.quantity*this.item.product.price;
       this.cartTotalPrice.emit(this.item.product.price);
       console.log(this.item)
-      this.cart.UpdateCart(localStorage.getItem("Email"),this.item,this.idx).subscribe({
+      this.cart.UpdateCart(this.item,this.idx).subscribe({
         next:(data)=>{},
         error:(err)=>{console.log(err)}
       })
@@ -45,7 +41,7 @@ Minus(){
       this.item.quantity-=1;
       this.totalPrice=this.item.quantity*this.item.product.price;
       this.cartTotalPrice.emit(-this.item.product.price);
-      this.cart.UpdateCart(localStorage.getItem("Email"),this.item,this.idx).subscribe({
+      this.cart.UpdateCart(this.item,this.idx).subscribe({
         next:(data)=>{},
         error:(err)=>{console.log(err)}
       })
@@ -53,7 +49,7 @@ Minus(){
   
 }
 deleteItem(){
-  this.cart.DeleteFromCart(localStorage.getItem("Email"),this.idx).subscribe({
+  this.cart.DeleteFromCart(this.idx).subscribe({
     next:(data)=>{},
     error:(err)=>{console.log(err)}
   });

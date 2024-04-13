@@ -71,7 +71,7 @@ export class LoginComponent {
         console.log(data.body)
         if (this.loginFormGroup.valid&&data.body.message==true) {
           console.log(data.headers.get('x-auth-token'));
-          console.log(data)
+          localStorage.setItem("userToken", data.headers.get('x-auth-token'));
           console.log(jwtDecode(data.body.token))
           interface MyToken {
             email: string;

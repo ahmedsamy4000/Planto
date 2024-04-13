@@ -15,7 +15,6 @@ export class AppComponent implements OnInit{
   user:any;
   constructor(private router: Router) { } 
   GetUser(user: any){
-    // console.log(user.data);
     this.user = user.data;
   }
     ngOnInit() { 

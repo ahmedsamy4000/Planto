@@ -24,8 +24,9 @@ constructor(private user:UserService, private router:Router){
 
 }
   ngOnInit(): void {
-    this.user.GetCart(localStorage.getItem("Email")).subscribe({
+    this.user.GetCart().subscribe({
       next:(data)=>{
+        console.log(data);
         this.items=data;
         this.items=this.items.data;
         console.log(this.items)

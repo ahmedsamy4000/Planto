@@ -15,7 +15,7 @@ export class ContactComponent implements OnInit{
   userData:any;
   constructor(private feedbackhttp: FeedBackService,private user:UserService) { }
   ngOnInit(): void {
-    this.user.GetUserByEmail(localStorage.getItem("Email")).subscribe({
+    this.user.GetUser().subscribe({
       next:(data)=>{
         this.userData=data
         this.userData=this.userData.data;

@@ -7,28 +7,28 @@ import { Injectable } from '@angular/core';
 export class UserService {
   
   private DB_URL="http://localhost:7500/api/user";
+  private headers: any = {
+    token: localStorage.getItem('userToken')
+  }
   constructor(private http:HttpClient) { }
-  GetUserByEmail (email:any){
-    return this.http.get(this.DB_URL+'/'+email);
+  GetUser (){
+    return this.http.get(this.DB_URL, {headers: this.headers});
   }
-  GetUserByID (id:any){
-    return this.http.get(this.DB_URL+'/id/'+id);
-  }
-  UpdateUser(email: any, user: any){
-    return this.http.post(this.DB_URL+'/'+email, user);
+  UpdateUser(user: any){
+    return this.http.put(this.DB_URL, user, {headers: this.headers});
   }
   AddToCart(item: any){
-    return this.http.post(this.DB_URL+"/cart/add", item);
+    return this.http.post(this.DB_URL+"/cart/add", item, {headers: this.headers});
   }
-  GetCart(email: any){
-    return this.http.get(this.DB_URL+"/cart/"+email);
+  GetCart(){
+    return this.http.get(this.DB_URL+"/get/cart", {headers: this.headers});
   }
-  UpdateCart(email: any,cart:any,idx:any){
-    return this.http.put(this.DB_URL+"/cart",{email:email,cart:cart,index:idx});
+  UpdateCart(cart:any,idx:any){
+    return this.http.put(this.DB_URL+"/cart",{cart:cart,index:idx}, {headers: this.headers});
   }
   
-  DeleteFromCart(email: any,idx:any){
-    return this.http.post(this.DB_URL+"/cart/delete",{email:email,index:idx});
+  DeleteFromCart(idx:any){
+    return this.http.post(this.DB_URL+"/cart/delete",{index:idx}, {headers: this.headers});
   }
 
 

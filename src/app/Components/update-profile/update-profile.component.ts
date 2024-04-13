@@ -104,7 +104,7 @@ export class UpdateProfileComponent implements OnChanges {
     const isPasswordMatch = bcrypt.compareSync(cPassword, this.user.password);
     if ((nPassword && nPassword.length >= 8) || !nPassword) {
       if (isPasswordMatch || !cPassword) {
-        this.userService.UpdateUser(this.user.email, { name, email, gender: this.user.gender, age, address: { street, city }, phone, password: nPassword ? nPassword : cPassword }).subscribe({
+        this.userService.UpdateUser({ name, email, gender: this.user.gender, age, address: { street, city }, phone, password: nPassword ? nPassword : cPassword }).subscribe({
           next: (data) => {
             if (this.profileFormGroup.valid) {
               this.onCloseForm()

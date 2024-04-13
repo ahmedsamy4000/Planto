@@ -100,7 +100,7 @@ export class RegisterComponent {
   token1:any;
   onRegister(name: any, email: any, street: any, city: any, age: any, password: any, phone: any) {
     this.register.register({ name, password, email, gender: this.gender, age, address: { street, city }, phone }).subscribe({
-      next: (data) => {
+      next: (data: any) => {
         console.log(data)
         this.result=data
         if (this.registerFormGroup.valid&&this.result.message==true) {
@@ -112,6 +112,7 @@ export class RegisterComponent {
           };
           this.token1=data;
           const decodedToken = jwtDecode<MyToken>(this.token1.token);
+          localStorage.setItem("userToken", data.headers.get('x-auth-token'));
           localStorage.setItem("Email",decodedToken.email);
           localStorage.setItem("ID",decodedToken.id);
           localStorage.setItem("isAdmin", decodedToken.isAdmin);

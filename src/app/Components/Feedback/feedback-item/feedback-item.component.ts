@@ -15,8 +15,7 @@ export class FeedbackItemComponent implements OnInit{
   userData:any;
   constructor(private user:UserService){}
   ngOnInit(): void {
-    console.log(this.item.userID)
-  this.user.GetUserByID(this.item.userID).subscribe({
+  this.user.GetUser().subscribe({
     next:(data)=>{
       this.userData=data;
       this.userData=this.userData.data;

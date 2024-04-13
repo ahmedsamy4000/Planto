@@ -19,7 +19,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     console.log(localStorage.getItem("Email"));
     
-    this.userService.GetUserByEmail(localStorage.getItem("Email")).subscribe({
+    this.userService.GetUser().subscribe({
       next:(data)=>{
         console.log(data)
         

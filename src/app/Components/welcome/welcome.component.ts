@@ -24,14 +24,14 @@ export class WelcomeComponent {
   constructor(private productsService: ProductsService, private router: Router, private userService: UserService) { }
 
   ngOnInit() {
-    if(!localStorage.getItem('Email'))
+    if(!localStorage.getItem('userToken'))
       {
         this.isRegistered = false;
       }
       else
       {
         this.isRegistered = true;
-        this.userService.GetUserByEmail(localStorage.getItem('Email')).subscribe({
+        this.userService.GetUser().subscribe({
           next: (data)=>{
             this.name = data;
             this.name = this.name.data['name'];
