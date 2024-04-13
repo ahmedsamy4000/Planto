@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ProductsService } from '../../Services/productsService';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { LoginComponent } from '../login/login.component';
 import { RegisterComponent } from '../register/register.component';
 import { UserService } from '../../Services/user.service';
@@ -10,7 +10,7 @@ import { UserService } from '../../Services/user.service';
 @Component({
   selector: 'app-welcome',
   standalone: true,
-  imports: [HttpClientModule, CommonModule, LoginComponent, RegisterComponent, HttpClientModule],
+  imports: [HttpClientModule, CommonModule, LoginComponent, RegisterComponent, HttpClientModule,RouterModule],
   providers: [ProductsService, UserService],
   templateUrl: './welcome.component.html',
   styleUrl: './welcome.component.css'

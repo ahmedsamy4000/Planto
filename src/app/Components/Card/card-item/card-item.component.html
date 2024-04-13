@@ -5,19 +5,19 @@
         </div>
         <div class="col-md-10 col-8">
             <div class="row">
-                <div class="col-md-5 col-10 order-1 order-md-1">
-                    <h5 class="card-title">{{item.product.name}}</h5>
-                    <p class="card-text"><small class="text-white">Size: {{item.size}}</small></p>
+                <div class="col-lg-4 col-md-4 col-10 order-1 order-md-1">
+                    <h5 class="card-title fs-4">{{item.product.name}}</h5>
+                    <p class="card-text fs-5"><small class="text-white">Size: {{item.size}}</small></p>
                 </div>
-                <div class="col-md-4 col-6 order-2 order-md-1 text-end">
-                    <div class="flex-row d-flex justify-content-center">
+                <div class="col-lg-4 col-md-3 col-5 order-2 order-md-1 text-end">
+                    <div class="flex-row d-flex justify-content-end fs-5">
                         <input type="button" value="-" class="m-2 border border-0 color text-white" (click)="Minus()">
                         <p class="m-2">{{item.quantity}}</p>
                         <input type="button" value="+" class="m-2 border border-0 color text-white" (click)="Plus()">
                     </div>
                 </div>
-                <div class="col-md-2 col-6 order-2 order-md-1 text-end">  
-                    <h5 class="pt-2">{{totalPrice}}EGP</h5>
+                <div class="col-lg-3 col-md-4 col-7 order-2 order-md-1 text-end">  
+                    <h5 class="pt-2 fs-5">{{totalPrice | currency:'EGP'}}</h5>
                 </div>
                 
                 <div class="col-md-1 col-2 order-1 order-md-1" (click)="deleteItem()">

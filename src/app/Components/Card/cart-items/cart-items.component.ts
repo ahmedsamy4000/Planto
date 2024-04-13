@@ -4,11 +4,12 @@ import { CartEmptyComponent } from '../cart-empty/cart-empty.component';
 import { UserService } from '../../../Services/user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { Router, RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-cart-items',
   standalone: true,
-  imports: [CardItemComponent,CartEmptyComponent,HttpClientModule,RouterModule],
+  imports: [CardItemComponent,CartEmptyComponent,HttpClientModule,RouterModule,CommonModule],
   providers:[UserService],
   templateUrl: './cart-items.component.html',
   styleUrl: './cart-items.component.css'

@@ -3,7 +3,7 @@
 <div class="row m-5">
     <div class="col-12 col-md-4 my-5 text-center m-auto">
         <h1 class="text-white roboto-light">Our Plants</h1>
-        <p class="text-white roboto-light fs-5 mt-4">Welcome to a world where plants not only beautify our surroundings but
+        <p class="text-white roboto-light fs-4 mt-4">Welcome to a world where plants not only beautify our surroundings but
             also have the power to nourish our souls.</p>
     </div>
 </div>
@@ -31,6 +31,7 @@
 }
 @else
 {
+    @if(isAdmin=="true"){
     <div class="container" (click)="add(addProduct)">
         <div class="col col-md-3 col-6 pt-5 text-center con d-flex align-items-center justify-content-center">
             <div class="text-center fs-1 mb-5 text-white">
@@ -43,6 +44,7 @@
         <div style="margin-top: 200px; height: 10vh;"></div>
     </div>
     
+}
 }
 
 <div #addProduct class="add-product-list bg-success w-75 md-w-25 justify-content-center align-items-center ">

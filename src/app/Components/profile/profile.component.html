@@ -1,46 +1,47 @@
 @if(user)
 {
-<div class="container" style="margin-bottom: 500px;">
+<div class="container mb-5 pb-5">
     <div class="row d-flex justify-content-center">
         <div class="col-md-10 mt-5 pt-5">
             <div class="row z-depth-3">
-                <div class="col-sm-4 custom-bg-color">
+                <div class="col-lg-4 col-md-5 col-12 custom-bg-color">
                     <div class="card-block text-center text-black">
-                        <img src="../../../assets/flower.jpg"  alt="Profile Image" class="mt-2 image"> <!-- Applied border-radius to make it a circle -->
-                        <h2 class="font-weight-bold mt-4">{{user.name}}</h2>
+                        <img src="../../../assets/flower.jpg" alt="Profile Image" class="mt-2 image">
+                        <!-- Applied border-radius to make it a circle -->
+                        <h2 class="font-weight-bold mt-4 fs-1">{{user.name}}</h2>
                     </div>
                 </div>
-                <div class="col-sm-8 bg-dark text-white rounded-right">
-                    <h3 class="mt-3 text-center">Your Profile</h3>
+                <div class="col-lg-8 col-md-7 col-12 bg-dark text-white rounded-right px-5 py-3">
+                    <h3 class="mt-3 text-center fs-1">Your Profile</h3>
                     <hr class="bg-primary mt-0 mb-4 w-25 mx-auto">
-                    <div class="row">
-                        <div class="col-sm-6 mb-4 fs-3">
-                            <div class="font-weight-bold" >Email: {{user.email}}</div>
-                        </div>
-                        <div class="col-sm-6 fs-3">
-                            <div class="font-weight-bold" >Phone: {{user.phone}}</div>
-                        </div>
+
+                    <div class="mb-4 fs-2">
+                        <div class="font-weight-bold">Email: {{user.email}}</div>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-6 mb-4 fs-3">
-                            <div class="font-weight-bold" >Address: {{user.address.street}}, {{user.address.city}}</div>
-                        </div>
-                        <div class="col-sm-6 fs-3">
-                            <div class="font-weight-bold" >Age: {{user.age}}</div>
-                        </div>
+                    <div class=" mb-4 fs-2">
+                        <div class="font-weight-bold">Phone: {{user.phone}}</div>
                     </div>
+
+
+                    <div class="mb-4 fs-2">
+                        <div class="font-weight-bold">Address: {{user.address.street}}, {{user.address.city}}</div>
+                    </div>
+                    <div class="fs-2">
+                        <div class="font-weight-bold">Age: {{user.age}}</div>
+                    </div>
+
                     <hr class="bg-primary">
                     <div class="text-center mb-4">
                         <button class="learn-more" (click)="toggleProfileForm()">
                             <span class="circle" aria-hidden="true">
-                            <span class="icon arrow"></span>
+                                <span class="icon arrow"></span>
                             </span>
                             <span class="button-text">Edit Profile</span>
-                          </button>
+                        </button>
                     </div>
                     @if(profileFormVisible)
                     {
-                        <app-update-profile (closeForm)="toggleProfileForm()" [user]="user"></app-update-profile>
+                    <app-update-profile (closeForm)="toggleProfileForm()" [user]="user"></app-update-profile>
                     }
                 </div>
             </div>

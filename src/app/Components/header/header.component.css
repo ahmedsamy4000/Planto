@@ -1,3 +1,4 @@
+
 button {
   border: none;
   background-color: transparent;
@@ -65,7 +66,7 @@ a {
 }
 a {
   font-size: 30px;
-  font-family: bold;
+  
 }
 
 @media (min-width: 1051px) {
@@ -130,7 +131,7 @@ a {
   border: none;
   transition: all 0.5s ease-in-out;
   font-size: 20px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  
   font-weight: 600;
   display: flex;
   align-items: center;

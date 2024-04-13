@@ -2,11 +2,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { UserService } from '../../../Services/user.service';
 import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-card-item',
   standalone: true,
-  imports: [HttpClientModule,RouterModule],
+  imports: [HttpClientModule,RouterModule,CommonModule],
   providers:[UserService],
   templateUrl: './card-item.component.html',
   styleUrl: './card-item.component.css'

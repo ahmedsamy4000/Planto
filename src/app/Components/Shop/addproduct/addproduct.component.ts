@@ -65,7 +65,6 @@ export class AddproductComponent {
  async AddProduct (name:any,price:string,description:any,stock:string,category:any,img1:any,img2:any) {
    await this.uploadImage1(img1);
    await this.uploadImage2(img2);
-
     this.http.addProduct({
       name:name,
       price:price,

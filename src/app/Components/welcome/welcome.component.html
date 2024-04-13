@@ -15,6 +15,7 @@
             <img src={{p.images[0]}} class="prd-img">
             <p class="roboto-light mt-3">{{p.name}}</p>
             <p class="roboto-light">{{p.price |currency:'EGP' }}</p>
+            <a routerLink="/shop/{{p.name}}">
             <button class="button1">Buy Now
                 <div class="icon-1">
                     <svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 58.56 116.18"
@@ -43,6 +44,7 @@
                     </svg>
                 </div>
             </button>
+        </a>
         </div>
         }
 
@@ -62,7 +64,7 @@
         }
         @if(isRegistered){
             <div class="phrase-text">Welcome {{name}}</div>
-            <div class="phrase-subtext2">here you can find the plants that you need to beautify your home, office, and life.</div>
+            <div class="phrase-subtext2 col-6 text-center">Here you can find the plants that you need to beautify your home, office, and life.</div>
         }
     </div>
     @if(isSignIn)
@@ -83,6 +85,7 @@
             you can brighten up someone’s home, office or dorm room with a potted plant of their choice. They’re
             available in any denomination and we’ll mail it for free!
         </div>
+        <a routerLink="/shop">
         <button class="gift w-50 mt-3">
             Purchase a Gift Card
             <div class="star-1">
@@ -164,6 +167,7 @@
                 </svg>
             </div>
         </button>
+    </a>
 
     </div>
 </div>

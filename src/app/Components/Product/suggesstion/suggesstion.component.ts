@@ -1,10 +1,11 @@
+import { CommonModule } from '@angular/common';
 import { Component, SimpleChanges } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-suggesstion',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule,CommonModule],
   templateUrl: './suggesstion.component.html',
   styleUrl: './suggesstion.component.css'
 })

@@ -1,4 +1,5 @@
 .prd-img {
     width: 100%;
     height: auto;
+    max-height: 490px;
 }

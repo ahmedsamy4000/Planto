@@ -1,18 +1,18 @@
 <div class=" background-image-container d-flex align-items-center text-white">
 
-  <p>Contact Us</p>
+  <p class="mt-5 pt-5">Contact Us</p>
 
   <div class="w-50">
-    <p style="text-align:center;white-space:pre-wrap; font-size: 20px;" class="">
+    <p class="fs-1 text-center mb-5">
       Don't hesitate to reach out with the contact information below, or send a message using the form.</p>
   </div>
 
-  <button type="button" class="sizes roboto-light fs-5 px-5 py-4" (click)="openForm()">
+  <button type="button" class="sizes roboto-light fs-3 px-5 py-4 mb-5" (click)="openForm()">
     Get In Touch
     <span></span><span></span><span></span><span></span>
   </button>
 
-  <div class="form-container w-50  md-w-25" id="contactForm">
+  <div class="form-container w-50  md-w-25 f-3" id="contactForm">
     <div class="d-flex justify-content-end">
       <svg (click)="closeForm()" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
         class="bi bi-x-square" viewBox="0 0 16 16">
@@ -26,11 +26,11 @@
     <div class="row justify-content-center d-flex ">
       <div class="mb-3 w-50">
         <label for="exampleFormControlInput1" class="form-label">User Name</label>
-        <input type="text" class="form-control" placeholder="User Name">
+        <input type="text" class="form-control" value={{userData.name}} disabled>
       </div>
       <div class="mb-3 w-50">
         <label for="exampleFormControlInput1" class="form-label">Email</label>
-        <input type="email" class="form-control" placeholder="example@gmail.com">
+        <input type="email" class="form-control" value={{userData.email}} disabled>
       </div>
     </div>
     <div class="mb-3">
