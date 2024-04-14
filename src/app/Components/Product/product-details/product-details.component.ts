@@ -5,6 +5,7 @@ import { UserService } from '../../../Services/user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductsService } from '../../../Services/productsService';
 import { EditProductComponent } from '../edit-product/edit-product.component';
+import { jwtDecode } from 'jwt-decode';
 
 
 @Component({
@@ -21,7 +22,16 @@ export class ProductDetailsComponent {
   message="";
   isAdmin:any;
   constructor(private cart:UserService,private producthttp:ProductsService, private router:Router,private fav:UserService) {
-    this.isAdmin=localStorage.getItem("isAdmin");
+    if (localStorage.getItem("userToken")) {
+      interface MyToken {
+        email: string;
+        id: string;
+        isAdmin: string;
+        iat:number
+      };
+      const decodedToken = jwtDecode<MyToken>(localStorage.getItem("userToken")!);
+      this.isAdmin = decodedToken.isAdmin;
+    }
   }
 
   smallClick(){
@@ -36,12 +46,9 @@ export class ProductDetailsComponent {
   
 
   AddToFavourites(){
-    if(!localStorage.getItem("Email")){
+    if(!localStorage.getItem("userToken")){
       this.message="Please, Login first";
-      console.log("Please, Login first")
     }
-    console.log(localStorage.getItem("Email"))
-    console.log(this.selected)
     this.fav.AddToFavourites({product:this.selected}).subscribe({
       next:(data:any)=>{
         if(data.message==0){
@@ -59,7 +66,6 @@ export class ProductDetailsComponent {
     if(localStorage.getItem("userToken")){
       if(this.size!="")
         {
-          
           if(this.selected.stock>=quantity.value&&quantity.value>0){
           this.cart.AddToCart({product:this.selected,quantity:+quantity.value,size:this.size}).subscribe({
             next:(data)=>{
@@ -67,7 +73,6 @@ export class ProductDetailsComponent {
             error:(err)=>{}
           })
           this.message="Added Successfully";
-          console.log("added successfully");
 
         }else{
           this.message="Quantity Unavailable";
@@ -75,11 +80,9 @@ export class ProductDetailsComponent {
         }else
         {
           this.message="Select Size";
-          console.log("select size");
         }
     }else{
       this.message="Please, Login first";
-      console.log("Please, Login first")
     }
     
   }

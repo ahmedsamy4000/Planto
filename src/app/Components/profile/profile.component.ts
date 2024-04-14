@@ -18,21 +18,15 @@ export class ProfileComponent implements OnInit {
   profileFormVisible = false;
   constructor(private userService: UserService) { }
   ngOnInit(): void {
-    console.log(localStorage.getItem("Email"));
-    
     this.userService.GetUser().subscribe({
       next:(data)=>{
-        console.log(data)
-        
         this.user=data;
         this.user=this.user.data;
-        console.log(this.user)
       },
       error:(err)=>{
         console.log(err)
       }
     })
-    console.log(this.user);
   }
   toggleProfileForm() {
     this.profileFormVisible = !this.profileFormVisible;

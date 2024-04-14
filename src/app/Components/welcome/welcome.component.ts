@@ -56,7 +56,7 @@ export class WelcomeComponent {
     this.router.navigate(['/shop']);
   }
   SignIn() {
-    if (!localStorage.getItem('Email')) {
+    if (!localStorage.getItem('userToken')) {
       this.isSignIn = true;
     }
   }

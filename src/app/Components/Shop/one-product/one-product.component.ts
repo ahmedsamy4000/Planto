@@ -5,23 +5,22 @@ import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-one-product',
   standalone: true,
-  imports: [RouterModule,CommonModule],
+  imports: [RouterModule, CommonModule],
   templateUrl: './one-product.component.html',
   styleUrl: './one-product.component.css'
 })
-export class OneProductComponent implements OnChanges{
+export class OneProductComponent implements OnChanges {
   @Input() name = "";
   @Input() price = "";
-
   @Input() imgSrc = "";
-  currentimg=""
+  currentimg = ""
   ngOnChanges(changes: SimpleChanges): void {
     this.currentimg = this.imgSrc[0];
   }
-  onMouseOver(){
+  onMouseOver() {
     this.currentimg = this.imgSrc[1];
   }
-  onMouseOut(){
+  onMouseOut() {
     this.currentimg = this.imgSrc[0];
   }
 }

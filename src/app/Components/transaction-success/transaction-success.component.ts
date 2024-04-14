@@ -21,10 +21,8 @@ export class TransactionSuccessComponent {
     userService.GetUser().subscribe({
       next: (data: any) => {
         this.user = data.data;
-        console.log(this.user);
         userService.GetCart().subscribe({
           next: (data2: any) => {
-            console.log(data2.data)
             for (var c of data2.data) {
               this.totalPrice += c.quantity * c.product.price;
               this.cart.push({ name: c.product.name, quantity: c.quantity, price: c.product.price })

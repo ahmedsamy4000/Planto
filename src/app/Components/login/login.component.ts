@@ -83,7 +83,6 @@ export class LoginComponent {
             }
           }
           else {
-              console.log("Invalid Email/Password")
               this.epValid = "Invalid Email/Password";
             
           }

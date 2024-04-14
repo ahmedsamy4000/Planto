@@ -6,19 +6,20 @@ import { SuggesstionComponent } from '../suggesstion/suggesstion.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductsService } from '../../../Services/productsService';
 import { LoadingComponent } from '../../loading/loading.component';
+import { jwtDecode } from 'jwt-decode';
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [RouterModule, ProductPhotoComponent, ProductDetailsComponent, SuggesstionComponent,HttpClientModule,LoadingComponent],
-  providers:[ProductsService],
+  imports: [RouterModule, ProductPhotoComponent, ProductDetailsComponent, SuggesstionComponent, HttpClientModule, LoadingComponent],
+  providers: [ProductsService],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
 })
 export class ProductComponent {
   name = "";
-  product:any;
-  isAdmin:any;
+  product: any;
+  isAdmin: any;
 
   constructor(private myActivated: ActivatedRoute, private productsService: ProductsService) {
     this.name = this.myActivated.snapshot.params['name'];
@@ -26,23 +27,29 @@ export class ProductComponent {
   ngOnInit() {
     try {
       this.productsService.getOneProduct(this.name).subscribe({
-        next:(data)=>{
-          console.log(data)
-          
-          this.product=data;
-          this.product=this.product.data;
-          console.log(this.product)
+        next: (data) => {
+          this.product = data;
+          this.product = this.product.data;
 
         },
-        error:(err)=>{
+        error: (err) => {
           console.log(err)
         }
       })
-       
+
     } catch (error) {
       console.error('Error fetching products:', error);
     }
-    this.isAdmin=localStorage.getItem("isAdmin");
+    if (localStorage.getItem("userToken")) {
+      interface MyToken {
+        email: string;
+        id: string;
+        isAdmin: string;
+        iat:number
+      };
+      const decodedToken = jwtDecode<MyToken>(localStorage.getItem("userToken")!);
+      this.isAdmin = decodedToken.isAdmin;
+    }
   }
 
 }

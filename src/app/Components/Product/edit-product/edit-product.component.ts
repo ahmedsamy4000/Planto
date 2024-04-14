@@ -33,11 +33,11 @@ export class EditProductComponent {
       .then(response => response.json())
       .then(data => {
           this.imageurl1 = data["imageUrl"];
-          resolve(); // Resolve the Promise once the image URL has been updated
+          resolve();
       })
       .catch(error => {
           console.error('Error:', error);
-          reject(error); // Reject the Promise in case of error
+          reject(error);
       });
       
     });
@@ -54,11 +54,11 @@ export class EditProductComponent {
       .then(response => response.json())
       .then(data => {
           this.imageurl2 = data["imageUrl"];
-          resolve(); // Resolve the Promise once the image URL has been updated
+          resolve();
       })
       .catch(error => {
           console.error('Error:', error);
-          reject(error); // Reject the Promise in case of error
+          reject(error);
       });
     });
   }
@@ -76,12 +76,8 @@ export class EditProductComponent {
   this.Product.category=category;
   delete this.Product._id; 
   delete this.Product.__v;
-  console.log(this.Product);
     this.http.updateProduct(this.productName,this.Product).subscribe({
       next:(value)=>{
-        console.log(value);
-        console.log(this.imageurl1);
-        console.log(this.imageurl2);
         this.closeForm();
       },
       error:(error)=>{console.log(error);}

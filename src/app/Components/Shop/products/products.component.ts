@@ -5,6 +5,7 @@ import { ProductsService } from '../../../Services/productsService';
 import { HttpClientModule } from '@angular/common/http';
 import { AddproductComponent } from '../addproduct/addproduct.component';
 import { LoadingComponent } from '../../loading/loading.component';
+import { jwtDecode } from 'jwt-decode';
 
 @Component({
   selector: 'app-products',
@@ -26,7 +27,6 @@ export class ProductsComponent implements OnInit {
     
       this.productsService.getProducts().subscribe({
         next:(data)=>{
-          console.log(data)
           this.products = data; 
           this.products=this.products.data;
           console.log('Products fetched successfully:', this.products);
@@ -41,14 +41,16 @@ export class ProductsComponent implements OnInit {
     form.style.display = "flex";
   }
   Register() {
-    console.log(localStorage.getItem("Email"))
-    if (localStorage.getItem("Email")) {
-      console.log("Success")
-      this.isRegistered = true;
-      this.isAdmin = localStorage.getItem("isAdmin");
- 
+    if (localStorage.getItem("userToken")) {
+      this.isRegistered = true
+      interface MyToken {
+        email: string;
+        id: string;
+        isAdmin: string;
+        iat:number
+      };
+      const decodedToken = jwtDecode<MyToken>(localStorage.getItem("userToken")!);
+      this.isAdmin = decodedToken.isAdmin;
     }
-    console.log("is admin :",this.isAdmin);
-    console.log("is registered :",this.isRegistered);
   }
 }
