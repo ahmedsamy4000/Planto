@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ProductsService {
-  private DB_URL = "http://localhost:7500/api/products";
+  private DB_URL = "https://planto-nodejs.onrender.com/api/products";
 
   constructor(private http: HttpClient) { }
 

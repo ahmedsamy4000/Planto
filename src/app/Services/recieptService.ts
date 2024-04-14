@@ -8,7 +8,7 @@ export class ReceiptService {
   get<T>(arg0: string) {
     throw new Error('Method not implemented.');
   }
-  private DB_URL = "http://localhost:7500/api/receipt";
+  private DB_URL = "https://planto-nodejs.onrender.com/api/receipt";
 
   constructor(private http: HttpClient) { }
 

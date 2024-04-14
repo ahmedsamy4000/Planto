@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class FeedBackService {
 
-  private DB_URL="http://localhost:7500/api/feedbacks";
+  private DB_URL="https://planto-nodejs.onrender.com/api/feedbacks";
   constructor(private http:HttpClient) { }
   addFeedback (feedbackBody:{userID:any,body:any}){
     return this.http.post(this.DB_URL,feedbackBody);

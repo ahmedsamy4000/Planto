@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class UserService {
   
-  private DB_URL="http://localhost:7500/api/user";
+  private DB_URL="https://planto-nodejs.onrender.com/api/user";
   private headers: any = {
     token: localStorage.getItem('userToken')
   }
