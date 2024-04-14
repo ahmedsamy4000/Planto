@@ -6,11 +6,12 @@ import { Router, RouterModule } from '@angular/router';
 import { LoginComponent } from '../login/login.component';
 import { RegisterComponent } from '../register/register.component';
 import { UserService } from '../../Services/user.service';
+import { LoadingComponent } from '../loading/loading.component';
 
 @Component({
   selector: 'app-welcome',
   standalone: true,
-  imports: [HttpClientModule, CommonModule, LoginComponent, RegisterComponent, HttpClientModule,RouterModule],
+  imports: [HttpClientModule, CommonModule, LoginComponent, RegisterComponent, HttpClientModule,RouterModule,LoadingComponent],
   providers: [ProductsService, UserService],
   templateUrl: './welcome.component.html',
   styleUrl: './welcome.component.css'

@@ -5,11 +5,12 @@ import { ProductDetailsComponent } from '../product-details/product-details.comp
 import { SuggesstionComponent } from '../suggesstion/suggesstion.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductsService } from '../../../Services/productsService';
+import { LoadingComponent } from '../../loading/loading.component';
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [RouterModule, ProductPhotoComponent, ProductDetailsComponent, SuggesstionComponent,HttpClientModule],
+  imports: [RouterModule, ProductPhotoComponent, ProductDetailsComponent, SuggesstionComponent,HttpClientModule,LoadingComponent],
   providers:[ProductsService],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'

@@ -5,11 +5,12 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from '../../Services/productsService';
 import { HttpClientModule } from '@angular/common/http';
 import { UserService } from '../../Services/user.service';
+import { LoadingComponent } from '../loading/loading.component';
 
 @Component({
   selector: 'app-search-result',
   standalone: true,
-  imports: [OneProductComponent, CommonModule,HttpClientModule],
+  imports: [OneProductComponent, CommonModule,HttpClientModule,LoadingComponent],
   providers:[ProductsService,UserService],
   templateUrl: './search-result.component.html',
   styleUrl: './search-result.component.css'

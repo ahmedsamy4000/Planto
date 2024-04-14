@@ -4,11 +4,12 @@ import { CommonModule } from '@angular/common';
 import { ProductsService } from '../../../Services/productsService';
 import { HttpClientModule } from '@angular/common/http';
 import { AddproductComponent } from '../addproduct/addproduct.component';
+import { LoadingComponent } from '../../loading/loading.component';
 
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [OneProductComponent, CommonModule,HttpClientModule,AddproductComponent],
+  imports: [OneProductComponent, CommonModule,HttpClientModule,AddproductComponent,LoadingComponent],
   providers:[ProductsService],
   templateUrl: './products.component.html',
   styleUrl: './products.component.css'

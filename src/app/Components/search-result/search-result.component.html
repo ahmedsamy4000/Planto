@@ -24,14 +24,19 @@
     </div>
 
 
+    @if (products) {
 
-<div class="d-flex justify-content-center gap-5 products mb-5">
-    <div class="row mx-5">
-        @for(p of products; track p)
-        {
-        <div class="col col-sm-6 col-md-3 col-6">
-            <app-one-product [imgSrc]=p.images [price]=p.price [name]=p.name></app-one-product>
+        <div class="d-flex justify-content-center gap-5 products mb-5">
+            <div class="row mx-5">
+                @for(p of products; track p)
+                {
+                    <div class="col col-sm-6 col-md-3 col-6">
+                        <app-one-product [imgSrc]=p.images [price]=p.price [name]=p.name></app-one-product>
+                    </div>
+                }
+            </div>
         </div>
-        }
-    </div>
-</div>
+        
+    }@else {
+       <app-loading></app-loading> 
+    }

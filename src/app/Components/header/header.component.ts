@@ -51,6 +51,9 @@ export class HeaderComponent {
 
   Logout(){
     localStorage.removeItem('Email');
+    localStorage.removeItem('isAdmin');
+    localStorage.removeItem('ID');
+    localStorage.removeItem('userToken');
     this.isRegistered=false;
     this.router.navigate(['/'])
   }

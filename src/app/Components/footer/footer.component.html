@@ -1,33 +1,40 @@
 <footer class="footer">
   <div class="container-fluid px-0">
     <div class="row mx-0">
-      <div class="col-md-3 col-sm-6 px-0"> 
+      <div class="col-md-4 col-sm-6 px-0">
         <div class="d-flex align-items-center justify-content-center justify-content-sm-start">
           <div class="button">
             <a class="navbar-brand" href="#">
               PLANTO
-              <img src="../../../assets/plant-svgrepo-com.svg" alt="Your SVG Image" class="img" style="vertical-align: middle;">
+              <img src="../../../assets/plant-svgrepo-com.svg" alt="Your SVG Image" class="img"
+                style="vertical-align: middle;">
             </a>
           </div>
         </div>
       </div>
-      <div class="col-md-3 col-sm-6 text-center px-0"> 
+      <div class="col-md-4 col-sm-6 text-center px-0">
         <div class="position">
           <h5 class="text-white">Categories</h5>
           <ul class="list-unstyled align-items-center text-white fs-5">
-            <li><a class="text-white" (click)="OnClick('Outdoor')">Outdoor</a></li>
-            <li><a class="text-white" (click)="OnClick('Indoor')">Indoor</a></li>
-            <li><a class="text-white" (click)="OnClick('Both')">Both</a></li>
+            <li><a class="text-white fs-4" (click)="OnClick('Outdoor')">Outdoor</a></li>
+            <li><a class="text-white fs-4" (click)="OnClick('Indoor')">Indoor</a></li>
+            <li><a class="text-white fs-4" (click)="OnClick('Both')">Both</a></li>
           </ul>
         </div>
       </div>
-      <div class="col-md-3 col-sm-6 text-center px-0"> 
-        <h5 class="text-white">Our Team</h5>
+      <div class="col-md-4 col-sm-6 text-center px-0">
+        <h5 class="text-white">Links</h5>
         <ul class="list-unstyled text-white">
-          <li>Contact</li>
-          <li>Feedback</li>
+
+          <li><a class="text-white fs-4" (click)="ProfileClick()">Profile</a></li>
+          <li><a class="text-white fs-4" (click)="ShopClick()">Shop</a></li>
+          <li><a class="text-white fs-4" (click)="ContactClick()">Contact</a></li>
         </ul>
       </div>
     </div>
   </div>
 </footer>
+@if(loginFormVisible)
+{
+<app-login (closeForm)="toggleLoginForm()"></app-login>
+}
