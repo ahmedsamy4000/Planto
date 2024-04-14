@@ -3,13 +3,14 @@ import { OneProductComponent } from '../Shop/one-product/one-product.component';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from '../../Services/productsService';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { UserService } from '../../Services/user.service';
 
 @Component({
   selector: 'app-search-result',
   standalone: true,
   imports: [OneProductComponent, CommonModule,HttpClientModule],
-  providers:[ProductsService],
+  providers:[ProductsService,UserService],
   templateUrl: './search-result.component.html',
   styleUrl: './search-result.component.css'
 })
@@ -17,21 +18,38 @@ export class SearchResultComponent {
 
   products:any;
   name=""
-  constructor(private myActivated: ActivatedRoute, private productsService: ProductsService) {
+  searchValue=""
+  userName=""
+  constructor(private myActivated: ActivatedRoute, private productsService: ProductsService, private user:UserService) {
     this.name = this.myActivated.snapshot.params['name'];
+    this.searchValue=this.name;
   }
    ngOnInit() {
     try {
-      this.productsService.searchByName(this.name).subscribe({
-        next:(data)=>{
-
-          this.products=data;
-
-        },
-        error:(err)=>{
-          console.log(err)
+      if(this.name=="Outdoor"||this.name=="Indoor"||this.name=="Both"){
+        this.productsService.searchByCategory(this.name).subscribe({
+          next:(data)=>{
+            this.products=data;
+          },
+          error:(err)=>{
+            console.log(err)
+          }
+        })
+      }else{
+        this.productsService.searchByName(this.name).subscribe({
+          next:(data)=>{
+            this.products=data;
+          },
+          error:(err)=>{
+            console.log(err)
+          }
+        })
+      }
+      this.user.GetUser().subscribe({
+        next:(data:any)=>{
+          this.userName=data.data.name;
         }
-      })
+      });
     } catch (error) {
       console.error('Error fetching products:', error);
     }

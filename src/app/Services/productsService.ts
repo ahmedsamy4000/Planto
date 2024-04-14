@@ -31,4 +31,7 @@ export class ProductsService {
   calcProductRate(name: string, rate: any, number:any) {
     return this.http.put(this.DB_URL + "/rate/" + name, {rate,number});
   }
+  searchByCategory(category:string){
+    return this.http.get(this.DB_URL+"/category/"+category)
+  }
 }

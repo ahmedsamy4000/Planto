@@ -73,7 +73,8 @@ export class AddproductComponent {
       stock:+stock,
       category:category,
       count:0,
-      rate:0
+      rate:0,
+      numberOfRates:0
     }).subscribe({
       next:(value)=>{
         console.log(value);
