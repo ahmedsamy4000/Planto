@@ -20,6 +20,7 @@ export class ProductDetailsComponent {
   @Input() selected:any;
   size="";
   message="";
+  price:number | undefined;
   isAdmin:any;
   constructor(private cart:UserService,private producthttp:ProductsService, private router:Router,private fav:UserService) {
     if (localStorage.getItem("userToken")) {
@@ -33,17 +34,25 @@ export class ProductDetailsComponent {
       this.isAdmin = decodedToken.isAdmin;
     }
   }
-
-  smallClick(){
-    this.size="Small"
-  }
-  meduimClick(){
-    this.size="Meduim"
-  }
-  largeClick(){
-    this.size="Large"
-  }
   
+ ngOnInit(): void {
+  this.price = +this.selected.price;
+}
+
+smallClick(){
+  this.price=+this.selected.price
+  this.size="small"
+}
+meduimClick(){
+  this.price=parseInt(this.selected.price)+100
+  this.size="meduim"
+
+}
+largeClick(){
+  this.price=parseInt(this.selected.price)+200
+  this.size="large"
+
+}
 
   AddToFavourites(){
     if(!localStorage.getItem("userToken")){
@@ -62,17 +71,19 @@ export class ProductDetailsComponent {
       }
     }) 
   }
-  AddtoCart(quantity:any){
+  AddtoCart(quantity:any,productPrice:any){
     if(localStorage.getItem("userToken")){
       if(this.size!="")
         {
+          
           if(this.selected.stock>=quantity.value&&quantity.value>0){
-          this.cart.AddToCart({product:this.selected,quantity:+quantity.value,size:this.size}).subscribe({
+          this.cart.AddToCart({product:this.selected,quantity:+quantity.value,size:this.size,price:productPrice}).subscribe({
             next:(data)=>{
             },
             error:(err)=>{}
           })
           this.message="Added Successfully";
+          console.log("added successfully");
 
         }else{
           this.message="Quantity Unavailable";
@@ -80,12 +91,15 @@ export class ProductDetailsComponent {
         }else
         {
           this.message="Select Size";
+          console.log("select size");
         }
     }else{
       this.message="Please, Login first";
+      console.log("Please, Login first")
     }
     
   }
+
   EditProduct(editProduct:any){
     editProduct.style.display = "flex";
   }

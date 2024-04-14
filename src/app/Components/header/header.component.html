@@ -9,8 +9,8 @@
             PLANTO
             <img src="../../../assets/plant-svgrepo-com.svg" alt="Your SVG Image" class="icon ml-2">
         </a>
-        <form class="search-form search">
-            <input type="text" required="" placeholder="Search....">
+        <form class="search-form search" (ngSubmit)="search()">
+            <input type="text" required=""  [(ngModel)]="searchQuery" name="searchQuery" placeholder="Search....">
             <button type="submit"><i class="searchbtn fas fa-search"></i></button>
         </form>
       <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

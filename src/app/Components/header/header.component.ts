@@ -4,11 +4,12 @@ import { LoginComponent } from '../login/login.component';
 import { UserService } from '../../Services/user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { jwtDecode } from 'jwt-decode';
+import { FormsModule, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterModule, LoginComponent, HttpClientModule],
+  imports: [RouterModule, LoginComponent, HttpClientModule, FormsModule],
   providers: [UserService],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
@@ -28,7 +29,7 @@ export class HeaderComponent {
   goToCart() {
     this.router.navigate(['/cartItems']);
   }
-  goToFavourites(){
+  goToFavourites() {
     this.router.navigate(['/favourites']);
   }
   GoToSearch() {
@@ -48,17 +49,24 @@ export class HeaderComponent {
         email: string;
         id: string;
         isAdmin: string;
-        iat:number
+        iat: number
       };
       const decodedToken = jwtDecode<MyToken>(localStorage.getItem("userToken")!);
       this.isAdmin = decodedToken.isAdmin;
     }
   }
 
-  Logout(){
+  Logout() {
     localStorage.removeItem('userToken');
-    this.isRegistered=false;
+    this.isRegistered = false;
     this.router.navigate(['/'])
   }
-  
+
+  searchQuery: any;
+  search() {
+    if (this.searchQuery) {
+      this.router.navigate(["/searchResults/" + this.searchQuery]).then(page => { window.location.reload(); });
+    }
+  }
+
 }

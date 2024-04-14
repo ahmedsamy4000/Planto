@@ -31,7 +31,7 @@ constructor(private user:UserService, private router:Router){
         this.flag=this.items.length>0?1:0;
         for(let item of this.items){
           this.i=item;
-          this.totalPrice+=this.i.quantity*this.i.product.price;
+          this.totalPrice+=this.i.quantity*this.i.price;
         }
       },
       error:(err)=>{

@@ -39,8 +39,8 @@ export class PaymentComponent implements OnInit {
         this.items = this.items.data;
         for (let item of this.items) {
           this.numOfItems += +item.quantity;
-          this.totalPrice += item.quantity * item.product.price;
-          let obj = { name: item.product.name, amount_cents: item.product.price * 100, quantity: item.quantity };
+          this.totalPrice+=item.quantity*item.price;
+          let obj = {name: item.product.name, amount_cents: item.price * 100, quantity: item.quantity};
           this.cartt.push(obj);
         }
       },

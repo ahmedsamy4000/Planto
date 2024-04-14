@@ -20,14 +20,14 @@ totalPrice=0;
 
 constructor(private cart:UserService){}
   ngOnInit(): void {
-    this.totalPrice=this.item.quantity*this.item.product.price;
+    this.totalPrice=this.item.quantity*this.item.price;
   }
 Plus(){
   if(this.item.product.stock>this.item.quantity)
     {
       this.item.quantity+=1;
-      this.totalPrice=this.item.quantity*this.item.product.price;
-      this.cartTotalPrice.emit(this.item.product.price);
+      this.totalPrice=this.item.quantity*this.item.price;
+      this.cartTotalPrice.emit(this.item.price);
       this.cart.UpdateCart(this.item,this.idx).subscribe({
         next:(data)=>{},
         error:(err)=>{console.log(err)}
@@ -38,8 +38,8 @@ Minus(){
   if(this.item.quantity>1)
     {
       this.item.quantity-=1;
-      this.totalPrice=this.item.quantity*this.item.product.price;
-      this.cartTotalPrice.emit(-this.item.product.price);
+      this.totalPrice=this.item.quantity*this.item.price;
+      this.cartTotalPrice.emit(-this.item.price);
       this.cart.UpdateCart(this.item,this.idx).subscribe({
         next:(data)=>{},
         error:(err)=>{console.log(err)}
