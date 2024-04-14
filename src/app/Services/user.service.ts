@@ -30,6 +30,12 @@ export class UserService {
   DeleteFromCart(idx:any){
     return this.http.post(this.DB_URL+"/cart/delete",{index:idx}, {headers: this.headers});
   }
+
+  DeleteCart(){
+    return this.http.delete(this.DB_URL+"/cart/alldelete", {headers: this.headers});
+  }
+
+  
   AddToFavourites(item: any){
     return this.http.post(this.DB_URL+"/favourites/add", item);
   }

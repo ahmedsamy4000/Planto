@@ -12,6 +12,9 @@ export class ReceiptService {
 
   constructor(private http: HttpClient) { }
 
+  AddReceipt(receipt: any){
+    return this.http.post(this.DB_URL, receipt);
+  }
   getReceipt() {
     return this.http.get(this.DB_URL);
   }
@@ -20,10 +23,6 @@ export class ReceiptService {
   }
   getMonetStat(month: any) {
     return this.http.get(this.DB_URL + "/total/" + month);
-  }
-
-  checkout(name: any) {
-    return this.http.post('http://localhost:7500/checkout', name);
   }
 
   getToken(apiKey: any){

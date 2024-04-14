@@ -41,9 +41,7 @@ userData: any;
           this.numOfItems+=+item.quantity;
           this.totalPrice+=item.quantity*item.product.price;
           let obj = {name: item.product.name, amount_cents: item.product.price * 100, quantity: item.quantity};
-          console.log(obj)
           this.cartt.push(obj);
-          console.log(this.cartt)
         }
       },
       error:(err)=>{
