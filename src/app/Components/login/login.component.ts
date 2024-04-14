@@ -68,23 +68,8 @@ export class LoginComponent {
   OnLogin(email: any, password: any) {
     this.login.login({ email, password }).subscribe({
       next: (data) => {
-        console.log(data.body)
         if (this.loginFormGroup.valid&&data.body.message==true) {
-          console.log(data.headers.get('x-auth-token'));
           localStorage.setItem("userToken", data.headers.get('x-auth-token'));
-          console.log(jwtDecode(data.body.token))
-          interface MyToken {
-            email: string;
-            id: string;
-            isAdmin: string;
-            iat:number
-          };
-          const decodedToken = jwtDecode<MyToken>(data.body.token);
-          localStorage.setItem("Email",decodedToken.email);
-          localStorage.setItem("ID",decodedToken.id);
-          localStorage.setItem("isAdmin",decodedToken.isAdmin);
-
-          
           this.onCloseForm();
         }
         else {

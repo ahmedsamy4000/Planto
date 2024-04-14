@@ -101,25 +101,11 @@ export class RegisterComponent {
   onRegister(name: any, email: any, street: any, city: any, age: any, password: any, phone: any) {
     this.register.register({ name, password, email, gender: this.gender, age, address: { street, city }, phone }).subscribe({
       next: (data: any) => {
-        console.log(data)
         this.result=data
         if (this.registerFormGroup.valid&&this.result.message==true) {
-          interface MyToken {
-            email: string;
-            id: string;
-            isAdmin: string;
-            iat:number
-          };
-          this.token1=data;
-          const decodedToken = jwtDecode<MyToken>(this.token1.token);
           localStorage.setItem("userToken", data.headers.get('x-auth-token'));
-          localStorage.setItem("Email",decodedToken.email);
-          localStorage.setItem("ID",decodedToken.id);
-          localStorage.setItem("isAdmin", decodedToken.isAdmin);
-
           this.close.emit();
           location.reload();
-          
         }
         else {
           if (this.registerFormGroup.controls["age"].value == "") {
@@ -147,7 +133,6 @@ export class RegisterComponent {
             this.genderValid = "Gender is required"
           }
           else {
-            console.log("Email already exist")
             this.epValid = "Email already exist";
           
         }

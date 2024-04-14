@@ -3,6 +3,7 @@ import { Router, RouterModule } from '@angular/router';
 import { LoginComponent } from '../login/login.component';
 import { UserService } from '../../Services/user.service';
 import { HttpClientModule } from '@angular/common/http';
+import { jwtDecode } from 'jwt-decode';
 
 @Component({
   selector: 'app-header',
@@ -41,18 +42,20 @@ export class HeaderComponent {
     this.loginFormVisible = !this.loginFormVisible;
   }
   Register() {
-    console.log(localStorage.getItem("Email"))
-    if (localStorage.getItem("Email")) {
-      console.log("Success")
+    if (localStorage.getItem("userToken")) {
       this.isRegistered = true
-      this.isAdmin = localStorage.getItem("isAdmin");
+      interface MyToken {
+        email: string;
+        id: string;
+        isAdmin: string;
+        iat:number
+      };
+      const decodedToken = jwtDecode<MyToken>(localStorage.getItem("userToken")!);
+      this.isAdmin = decodedToken.isAdmin;
     }
   }
 
   Logout(){
-    localStorage.removeItem('Email');
-    localStorage.removeItem('isAdmin');
-    localStorage.removeItem('ID');
     localStorage.removeItem('userToken');
     this.isRegistered=false;
     this.router.navigate(['/'])

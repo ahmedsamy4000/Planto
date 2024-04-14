@@ -21,7 +21,6 @@ export class FeedbacksComponent implements OnInit{
       next:(data)=>{
         this.feedbacks=data;
         this.feedbacks=this.feedbacks.data;
-        console.log(this.feedbacks);
       },
       error:(error)=>{
         console.log(error);

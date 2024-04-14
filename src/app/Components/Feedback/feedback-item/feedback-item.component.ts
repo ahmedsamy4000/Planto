@@ -19,7 +19,6 @@ export class FeedbackItemComponent implements OnInit{
     next:(data)=>{
       this.userData=data;
       this.userData=this.userData.data;
-      console.log(data)
     },
     error:(err)=>{
       console.log(err);
