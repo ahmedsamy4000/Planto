@@ -17,47 +17,7 @@ export class TransactionSuccessComponent {
   success: any;
   user: any;
   totalPrice: any = 0;
-  // arr: any = [
-  //   'amount_cents',
-  //   'created_at',
-  //   'currency',
-  //   'error_occured',
-  //   'has_parent_transaction',
-  //   'id',
-  //   'integration_id',
-  //   'is_3d_secure',
-  //   'is_auth',
-  //   'is_capture',
-  //   'is_refunded',
-  //   'is_standalone_payment',
-  //   'is_voided',
-  //   'order.id',
-  //   'owner',
-  //   'pending',
-  //   'source_data.pan',
-  //   'source_data.sub_type',
-  //   'source_data.type',
-  //   'success',
-  // ];
   constructor(private activated: ActivatedRoute, private receiptService: ReceiptService, userService: UserService) {
-    // this.hmac = activated.snapshot.queryParams['hmac'];
-    // console.log(this.hmac);
-    // for(var i in activated.snapshot.queryParams)
-    //   this.data.push(i);
-    // this.data.sort();
-    // console.log(this.data);
-    //{
-    //     "user": "doha@gmail.com",
-    //     "product": [
-    //         {
-    //             "name": "Palm", 
-    //             "quantity": 2,
-    //             "price": "800"
-    //         }
-    //     ],
-    //     "totalPrice": 800
-    // }
-
     userService.GetUser().subscribe({
       next: (data: any) => {
         this.user = data.data;
