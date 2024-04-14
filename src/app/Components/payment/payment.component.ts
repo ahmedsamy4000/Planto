@@ -5,11 +5,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ReceiptService } from '../../Services/recieptService';
+import { LoadingComponent } from '../loading/loading.component';
 
 @Component({
   selector: 'app-payment',
   standalone: true,
-  imports: [PaymentitemComponent, HttpClientModule, RouterModule, CommonModule],
+  imports: [PaymentitemComponent, HttpClientModule, RouterModule, CommonModule,LoadingComponent],
   providers:[UserService, ReceiptService],
   templateUrl: './payment.component.html',
   styleUrl: './payment.component.css'

@@ -1,8 +1,5 @@
 import { RouterModule, Routes } from '@angular/router';
 import { ProductsComponent } from './Components/Shop/products/products.component';
-import { OurStoryComponent } from './Components/our-story/our-story.component';
-
-
 import { ContactComponent } from './Components/contact/contact.component';
 import { WelcomeComponent } from './Components/welcome/welcome.component';
 import { ProductComponent } from './Components/Product/product/product.component';
@@ -25,7 +22,6 @@ export const routes: Routes = [
     {path: '', redirectTo: 'welcome', pathMatch: 'full'},
     {path: "welcome" ,component:WelcomeComponent},
     {path: "shop", component: ProductsComponent},
-    {path: "ourStory", component: OurStoryComponent},
     {path: "cartItems",canActivate: [userGuard],  component: CartItemsComponent},
     {path: "cartEmpty",canActivate: [userGuard],  component: CartEmptyComponent},
     {path: "shop/:name", component: ProductComponent},

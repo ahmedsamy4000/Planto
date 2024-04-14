@@ -1,5 +1,7 @@
-<div class="body">
-<div class="card">
+@if(userData){
+
+    <div class="body">
+        <div class="card">
     <div class="card-top border-bottom text-center">
          <a href="/shop"> Back to shop</a>
     </div>
@@ -47,10 +49,10 @@
                     <p *ngIf="numOfItems !== 1">{{ numOfItems }} items</p>
 
                     <div class="overflow-auto" style="max-height: 230px;">
-                    @for (item of items; track $index) {
-                        <app-paymentitem [item]="item"></app-paymentitem>
-                        
-                    }
+                        @for (item of items; track $index) {
+                            <app-paymentitem [item]="item"></app-paymentitem>
+                            
+                        }
                     </div>
                     <hr>
                     <div class="row lower">
@@ -76,7 +78,10 @@
         </div>
     </div>
     
- <div>
+    <div>
+    </div>
 </div>
 </div>
-</div>
+}@else {
+    <app-loading></app-loading>
+}
