@@ -28,7 +28,7 @@ export class ProductsService {
   deleteProduct(name: string) {
     return this.http.delete(this.DB_URL + "/" + name);
   }
-  calcProductRate(name: string, rate: any) {
-    return this.http.put(this.DB_URL + "/rate/" + name, {rate});
+  calcProductRate(name: string, rate: any, number:any) {
+    return this.http.put(this.DB_URL + "/rate/" + name, {rate,number});
   }
 }

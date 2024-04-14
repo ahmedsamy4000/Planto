@@ -24,8 +24,9 @@ export class ProductRateComponent{
   constructor(private productsService: ProductsService) { }
 
   calcRate() {
-    this.selected.rate += +this.selectedRating;
-    this.productsService.calcProductRate(this.selected.name,this.selected.rate).subscribe({
+    this.selected.numberOfRates = +this.selected.numberOfRates + 1;
+    this.selected.rate = ((+this.selectedRating + (+this.selected.rate * (+this.selected.numberOfRates - 1))) / +this.selected.numberOfRates).toFixed(2);
+    this.productsService.calcProductRate(this.selected.name,this.selected.rate, this.selected.numberOfRates).subscribe({
       next: (value) => { console.log(this.selected.rate); this.closeForm(); this.openAlert(); },
       error: (error) => { console.log(error); }
     });
@@ -39,6 +40,7 @@ export class ProductRateComponent{
   }
   openForm() {
     document.getElementById("contactForm")!.style.display = "block";
+    this.selectedRating = 0;
   }
 
   closeForm() {
