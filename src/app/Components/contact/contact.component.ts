@@ -7,20 +7,20 @@ import { UserService } from '../../Services/user.service';
   selector: 'app-contact',
   standalone: true,
   imports: [HttpClientModule],
-  providers: [FeedBackService,UserService],
+  providers: [FeedBackService, UserService],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css'
 })
-export class ContactComponent implements OnInit{
-  userData:any;
-  constructor(private feedbackhttp: FeedBackService,private user:UserService) { }
+export class ContactComponent implements OnInit {
+  userData: any;
+  constructor(private feedbackhttp: FeedBackService, private user: UserService) { }
   ngOnInit(): void {
     this.user.GetUser().subscribe({
-      next:(data)=>{
-        this.userData=data
-        this.userData=this.userData.data;
+      next: (data) => {
+        this.userData = data
+        this.userData = this.userData.data;
       },
-      error:(err)=>{
+      error: (err) => {
         console.log(err)
       }
     })
@@ -32,7 +32,7 @@ export class ContactComponent implements OnInit{
       error: (error) => { console.log(error); }
     });
   }
-
+openedForm:boolean=false;
   openAlert() {
     document.getElementById("alertForm")!.style.display = "block";
   }
@@ -40,12 +40,22 @@ export class ContactComponent implements OnInit{
     document.getElementById("alertForm")!.style.display = "none";
   }
   openForm() {
-
     document.getElementById("contactForm")!.style.display = "block";
+    this.openedForm=true;
   }
 
   closeForm() {
     document.getElementById("contactForm")!.style.display = "none";
+    this.openedForm=false;
   }
+  formClick(event: any) {
+    console.log(this.openedForm)
+    if (this.openedForm==true) {
+      console.log(event.target.className)
+      if (!event.target.className.includes("formopen")) {
+        document.getElementById("contactForm")!.style.display = "none";
+      }
+    }
 
+  }
 }

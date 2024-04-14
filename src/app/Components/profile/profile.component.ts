@@ -31,4 +31,14 @@ export class ProfileComponent implements OnInit {
   toggleProfileForm() {
     this.profileFormVisible = !this.profileFormVisible;
   }
+  formClick(event: any) {
+    console.log(this.profileFormVisible)
+    if (this.profileFormVisible==true) {
+      console.log(event.target.className)
+      if (!event.target.className.includes("formopen")) {
+        this.profileFormVisible=false;
+      }
+    }
+
+  }
 }

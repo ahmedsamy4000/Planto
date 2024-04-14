@@ -1,6 +1,6 @@
 @if(user)
 {
-<div class="container mb-5 pb-5">
+<div class="container mb-5 pb-5"  (click)="profileFormVisible==true?formClick($event):null">
     <div class="row d-flex justify-content-center">
         <div class="col-md-10 mt-5 pt-5">
             <div class="row z-depth-3">
@@ -31,12 +31,12 @@
                     </div>
 
                     <hr class="bg-primary">
-                    <div class="text-center mb-4">
-                        <button class="learn-more" (click)="toggleProfileForm()">
-                            <span class="circle" aria-hidden="true">
-                                <span class="icon arrow"></span>
+                    <div class="text-center mb-4 formopen">
+                        <button class="learn-more formopen" (click)="toggleProfileForm()">
+                            <span class="circle formopen" aria-hidden="true">
+                                <span class="icon arrow formopen"></span>
                             </span>
-                            <span class="button-text">Edit Profile</span>
+                            <span class="button-text formopen">Edit Profile</span>
                         </button>
                     </div>
                     @if(profileFormVisible)
