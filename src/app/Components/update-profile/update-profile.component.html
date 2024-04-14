@@ -1,169 +1,168 @@
-<div class="w-100 h-100 parent formopen">
-    <div class="form-container w-50 shadow m-auto formopen">
-        <ul class="nav nav-pills nav-justified mb-3 d-flex justify-content-end formopen" id="ex1" role="tablist">
-            <li class="ms-3 formopen">
-                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                    class="bi bi-x-lg text-white formopen" viewBox="0 0 16 16" (click)="onCloseForm()">
-                    <path
-                        d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
-                </svg>
-            </li>
-        </ul>
-        <section class="gradient-custom formopen">
-            <div class="container formopen">
-                <div class="row justify-content-center align-items-center formopen">
-                    <div class="col-12 formopen">
-                        <form [formGroup]="profileFormGroup">
-                            <div class="row formopen">
-                                <div class="col-md-6 mb-4 formopen">
-                                    <div class="form-outline text-white fw-bold position-relative formopen">
-                                        <label class="form-label formopen" for="name">Name</label>
-                                        <input formControlName="name" #name type="text" id="name" class="form-control formopen"
-                                            (click)="resetName()" />
-                                    </div>
-                                    @if(!NameValid && name.value)
-                                    {
-                                    <div class="mt-1 formopen">
-                                        <p class="text-danger formopen">Name must be only characters</p>
-                                    </div>
-                                    }
-                                    <div class="mt-1 formopen">
-                                        <p class="text-danger formopen">{{nameValid}}</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-4 formopen">
 
-                                    <div class="form-outline text-white fw-bold formopen">
-                                        <label class="form-label formopen" for="age">Age</label>
-                                        <input formControlName="age" #age type="number" id="age" class="form-control formopen"
-                                            (click)="resetAge()" />
-                                    </div>
-                                    <div class="mt-1 formopen">
-                                        <p class="text-danger formopen">{{ageValid}}</p>
-                                    </div>
+<div class="form-container w-50 shadow m-auto formopen">
+    <ul class="nav nav-pills nav-justified mb-3 d-flex justify-content-end formopen" id="ex1" role="tablist">
+        <li class="ms-3 formopen">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                class="bi bi-x-lg text-white formopen" viewBox="0 0 16 16" (click)="onCloseForm()">
+                <path
+                    d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+            </svg>
+        </li>
+    </ul>
+    <section class="gradient-custom formopen">
+        <div class="container formopen">
+            <div class="row justify-content-center align-items-center formopen">
+                <div class="col-12 formopen">
+                    <form [formGroup]="profileFormGroup">
+                        <div class="row formopen">
+                            <div class="col-md-6 mb-4 formopen">
+                                <div class="form-outline text-white fw-bold position-relative formopen">
+                                    <label class="form-label formopen" for="name">Name</label>
+                                    <input formControlName="name" #name type="text" id="name" class="form-control formopen"
+                                        (click)="resetName()" />
+                                </div>
+                                @if(!NameValid && name.value)
+                                {
+                                <div class="mt-1 formopen">
+                                    <p class="text-danger formopen">Name must be only characters</p>
+                                </div>
+                                }
+                                <div class="mt-1 formopen">
+                                    <p class="text-danger formopen">{{nameValid}}</p>
                                 </div>
                             </div>
+                            <div class="col-md-6 mb-4 formopen">
 
-                            <div class="row formopen">
-                                <div class="col-md-6 mb-4 formopen">
-
-                                    <div class="form-outline datepicker w-100 text-white fw-bold formopen">
-                                        <label for="email" class="form-label formopen">Email</label>
-                                        <input formControlName="email" #email type="email" class="form-control formopen"
-                                            id="email" (click)="resetEmail()" />
-                                    </div>
-                                    @if(!EmailValid && email.value)
-                                    {
-                                    <div class="mt-1 formopen">
-                                        <p class="text-danger formopen">Invalid Email</p>
-                                    </div>
-                                    }
-                                    <div class="mt-1 formopen">
-                                        <p class="text-danger formopen">{{emailValid}}</p>
-                                    </div>
+                                <div class="form-outline text-white fw-bold formopen">
+                                    <label class="form-label formopen" for="age">Age</label>
+                                    <input formControlName="age" #age type="number" id="age" class="form-control formopen"
+                                        (click)="resetAge()" />
                                 </div>
-                                <div class="col-md-6 mb-4 pb-2 formopen">
-                                    <div class="form-outline text-white fw-bold formopen">
-                                        <label class="form-label formopen" for="phone">Phone Number</label>
-                                        <input formControlName="phone" #phone type="tel" id="phone" class="form-control formopen"
-                                            (click)="resetPhone()" />
-                                    </div>
-                                    @if(!PhoneValid && phone.value)
-                                    {
-                                    <div class="mt-1 formopen">
-                                        <p class="text-danger formopen">Invalid Phone Number</p>
-                                    </div>
-                                    }
-                                    <div class="mt-1 formopen">
-                                        <p class="text-danger formopen">{{phoneValid}}</p>
-                                    </div>
+                                <div class="mt-1 formopen">
+                                    <p class="text-danger formopen">{{ageValid}}</p>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="row formopen">
-                                <div class="col-md-6 mb-4 pb-2 formopen">
+                        <div class="row formopen">
+                            <div class="col-md-6 mb-4 formopen">
 
-                                    <div class="form-outline text-white fw-bold formopen">
-                                        <label class="form-label formopen" for="emailAddress">Street</label>
-                                        <input formControlName="street" #street type="text" id="emailAddress"
-                                            class="form-control formopen" (click)="resetStreet()" />
-                                    </div>
-                                    @if(!StreetValid && street.value)
-                                    {
-                                    <div class="mt-1 formopen">
-                                        <p class="text-danger formopen">Street is required</p>
-                                    </div>
-                                    }
-                                    <div class="mt-1 formopen">
-                                        <p class="text-danger formopen">{{streetValid}}</p>
-                                    </div>
+                                <div class="form-outline datepicker w-100 text-white fw-bold formopen">
+                                    <label for="email" class="form-label formopen">Email</label>
+                                    <input formControlName="email" #email type="email" class="form-control formopen"
+                                        id="email" (click)="resetEmail()" />
                                 </div>
-                                <div class="col-md-6 mb-4 pb-2 formopen">
-                                    <div class="form-outline text-white fw-bold formopen">
-                                        <label class="form-label formopen" for="phoneNumber">City</label>
-                                        <input formControlName="city" #city type="text" id="phoneNumber"
-                                            class="form-control formopen" (click)="resetCity()" />
-                                    </div>
-                                    @if(!CityValid && city.value)
-                                    {
-                                    <div class="mt-1 formopen">
-                                        <p class="text-danger formopen">Name must be only characters</p>
-                                    </div>
-                                    }
-                                    <div class="mt-1 formopen">
-                                        <p class="text-danger formopen">{{cityValid}}</p>
-                                    </div>
+                                @if(!EmailValid && email.value)
+                                {
+                                <div class="mt-1 formopen">
+                                    <p class="text-danger formopen">Invalid Email</p>
+                                </div>
+                                }
+                                <div class="mt-1 formopen">
+                                    <p class="text-danger formopen">{{emailValid}}</p>
                                 </div>
                             </div>
-
-                            <div class="row formopen">
-                                <div class="col-md-6 mb-4 pb-2 formopen">
-
-                                    <div class="form-outline text-white fw-bold formopen">
-                                        <label class="form-label formopen" for="password1">Current Password</label>
-                                        <input formControlName="password" #cpassword type="password" id="password1"
-                                            class="form-control formopen" (click)="resetPassword()" />
-                                    </div>
-                                    @if(!PasswordValid && cpassword.value)
-                                    {
-                                    <div class="mt-1 formopen">
-                                        <p class="text-danger formopen">Password must be at least 8 characters</p>
-                                    </div>
-                                    }
-                                    <div class="mt-1 formopen">
-                                        <p class="text-danger formopen">{{passwordValid}}</p>
-                                    </div>
+                            <div class="col-md-6 mb-4 pb-2 formopen">
+                                <div class="form-outline text-white fw-bold formopen">
+                                    <label class="form-label formopen" for="phone">Phone Number</label>
+                                    <input formControlName="phone" #phone type="tel" id="phone" class="form-control formopen"
+                                        (click)="resetPhone()" />
                                 </div>
-                                <div class="col-md-6 mb-4 pb-2 formopen">
-
-                                    <div class="form-outline text-white fw-bold formopen">
-                                        <label class="form-label formopen" for="password2">New Password</label>
-                                        <input formControlName="password" #npassword type="password" id="password2"
-                                            class="form-control formopen" (click)="resetPassword()" />
-                                    </div>
-                                    @if(npassword.value && npassword.value.length < 8)
-                                    {
-                                    <div class="mt-1 formopen">
-                                        <p class="text-danger formopen">Password must be at least 8 characters</p>
-                                    </div>
-                                    }
+                                @if(!PhoneValid && phone.value)
+                                {
+                                <div class="mt-1 formopen">
+                                    <p class="text-danger formopen">Invalid Phone Number</p>
+                                </div>
+                                }
+                                <div class="mt-1 formopen">
+                                    <p class="text-danger formopen">{{phoneValid}}</p>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="text-center formopen">
-                                <button type="submit" class="btn btn-dark text-white mb-3 w-50 p-3 md-w-25 fs-4 formopen"
-                                    (click)="Update(name.value, email.value, street.value, city.value, +age.value, phone.value, cpassword.value, npassword.value)">Update
-                                    </button>
+                        <div class="row formopen">
+                            <div class="col-md-6 mb-4 pb-2 formopen">
+
+                                <div class="form-outline text-white fw-bold formopen">
+                                    <label class="form-label formopen" for="emailAddress">Street</label>
+                                    <input formControlName="street" #street type="text" id="emailAddress"
+                                        class="form-control formopen" (click)="resetStreet()" />
+                                </div>
+                                @if(!StreetValid && street.value)
+                                {
+                                <div class="mt-1 formopen">
+                                    <p class="text-danger formopen">Street is required</p>
+                                </div>
+                                }
+                                <div class="mt-1 formopen">
+                                    <p class="text-danger formopen">{{streetValid}}</p>
+                                </div>
                             </div>
+                            <div class="col-md-6 mb-4 pb-2 formopen">
+                                <div class="form-outline text-white fw-bold formopen">
+                                    <label class="form-label formopen" for="phoneNumber">City</label>
+                                    <input formControlName="city" #city type="text" id="phoneNumber"
+                                        class="form-control formopen" (click)="resetCity()" />
+                                </div>
+                                @if(!CityValid && city.value)
+                                {
+                                <div class="mt-1 formopen">
+                                    <p class="text-danger formopen">Name must be only characters</p>
+                                </div>
+                                }
+                                <div class="mt-1 formopen">
+                                    <p class="text-danger formopen">{{cityValid}}</p>
+                                </div>
+                            </div>
+                        </div>
 
-                        </form>
+                        <div class="row formopen">
+                            <div class="col-md-6 mb-4 pb-2 formopen">
 
-                    </div>
+                                <div class="form-outline text-white fw-bold formopen">
+                                    <label class="form-label formopen" for="password1">Current Password</label>
+                                    <input formControlName="password" #cpassword type="password" id="password1"
+                                        class="form-control formopen" (click)="resetPassword()" />
+                                </div>
+                                @if(!PasswordValid && cpassword.value)
+                                {
+                                <div class="mt-1 formopen">
+                                    <p class="text-danger formopen">Password must be at least 8 characters</p>
+                                </div>
+                                }
+                                <div class="mt-1 formopen">
+                                    <p class="text-danger formopen">{{passwordValid}}</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4 pb-2 formopen">
+
+                                <div class="form-outline text-white fw-bold formopen">
+                                    <label class="form-label formopen" for="password2">New Password</label>
+                                    <input formControlName="password" #npassword type="password" id="password2"
+                                        class="form-control formopen" (click)="resetPassword()" />
+                                </div>
+                                @if(npassword.value && npassword.value.length < 8)
+                                {
+                                <div class="mt-1 formopen">
+                                    <p class="text-danger formopen">Password must be at least 8 characters</p>
+                                </div>
+                                }
+                            </div>
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-dark text-white mb-3 w-50 p-3 md-w-25 fs-4"
+                                (click)="Update(name.value, email.value, street.value, city.value, +age.value, phone.value, cpassword.value, npassword.value)">Update
+                                </button>
+                        </div>
+
+                    </form>
+
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
 
 
-    </div>
 </div>
