@@ -32,7 +32,6 @@ export class DashboardComponent implements OnInit {
   constructor(private http: ReceiptService,private feedbackhttp:FeedBackService) { }
   onMonthSelect(event: any): void {
     this.monthSelectedValue = event.target.value;
-    console.log(this.monthSelectedValue);
     this.fetchData();
     this.fetchMoneyData();
 
@@ -71,11 +70,9 @@ export class DashboardComponent implements OnInit {
         this.sortarray=Object.entries(this.bestsellingobj.data).map(([key,value])=>({key,value}));
         this.sortarray.sort((a:any,b:any)=>b.value-a.value);
         this.bestsellingobj.data={};
-        console.log(this.sortarray);
         for(let i=0;i<this.sortarray.length;i++){
           this.bestsellingobj.data[this.sortarray[i]["key"]]=this.sortarray[i]["value"];
         }
-        console.log(this.bestsellingobj.data);
         this.productsNames = Object.keys(this.bestsellingobj.data);
         this.productvalues = Object.values(this.bestsellingobj.data);
         this.CalcTotalProducts(this.productvalues);
@@ -134,7 +131,6 @@ export class DashboardComponent implements OnInit {
       next:(data)=>{
         this.feedbacks=data;
         this.feedbacks=this.feedbacks.data;
-        console.log(this.feedbacks);
       },
       error:(error)=>{
         console.log(error);

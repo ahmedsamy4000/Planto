@@ -23,14 +23,12 @@ i:any
 constructor(private user:UserService,private router:Router){}
 
   ngOnInit(): void {
-   this.user.GetFavourites(localStorage.getItem("Email")).subscribe({
+   this.user.GetFavourites().subscribe({
     next:(data)=>{
       this.items=data;
       this.items=this.items.data;
-      console.log(this.items)
       this.flag=this.items.length>0?1:0;
       for(let item of this.items){
-        console.log(item);
         this.i=item;
         this.Price=this.i.product.price;
       }

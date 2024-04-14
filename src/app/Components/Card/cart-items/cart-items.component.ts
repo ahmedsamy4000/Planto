@@ -26,13 +26,10 @@ constructor(private user:UserService, private router:Router){
   ngOnInit(): void {
     this.user.GetCart().subscribe({
       next:(data)=>{
-        console.log(data);
         this.items=data;
         this.items=this.items.data;
-        console.log(this.items)
         this.flag=this.items.length>0?1:0;
         for(let item of this.items){
-          console.log(item)
           this.i=item;
           this.totalPrice+=this.i.quantity*this.i.product.price;
         }

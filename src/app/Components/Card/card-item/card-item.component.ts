@@ -28,7 +28,6 @@ Plus(){
       this.item.quantity+=1;
       this.totalPrice=this.item.quantity*this.item.product.price;
       this.cartTotalPrice.emit(this.item.product.price);
-      console.log(this.item)
       this.cart.UpdateCart(this.item,this.idx).subscribe({
         next:(data)=>{},
         error:(err)=>{console.log(err)}

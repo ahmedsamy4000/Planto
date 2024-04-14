@@ -42,7 +42,7 @@ export class ProductDetailsComponent {
     }
     console.log(localStorage.getItem("Email"))
     console.log(this.selected)
-    this.fav.AddToFavourites({email:localStorage.getItem("Email"),product:this.selected}).subscribe({
+    this.fav.AddToFavourites({product:this.selected}).subscribe({
       next:(data:any)=>{
         if(data.message==0){
           this.message="Product Already Exist"

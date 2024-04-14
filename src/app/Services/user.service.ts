@@ -37,17 +37,17 @@ export class UserService {
 
   
   AddToFavourites(item: any){
-    return this.http.post(this.DB_URL+"/favourites/add", item);
+    return this.http.post(this.DB_URL+"/favourites/add", item, {headers: this.headers});
   }
-  GetFavourites(email: any){
-    return this.http.get(this.DB_URL+"/favourites/"+email);
+  GetFavourites(){
+    return this.http.get(this.DB_URL+"/favourites", {headers: this.headers});
   }
-  UpdateFavourites(email: any,fav:any,idx:any){
-    return this.http.put(this.DB_URL+"/favourites",{email:email,fav:fav,index:idx});
+  UpdateFavourites(fav:any,idx:any){
+    return this.http.put(this.DB_URL+"/favourites",{fav:fav,index:idx}, {headers: this.headers});
   }
 
-  DeleteFromFavourites(email: any,idx:any){
-    return this.http.post(this.DB_URL+"/favourites/delete",{email:email,index:idx});
+  DeleteFromFavourites(idx:any){
+    return this.http.post(this.DB_URL+"/favourites/delete",{index:idx}, {headers: this.headers});
   }
 }
 

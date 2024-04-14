@@ -21,9 +21,8 @@ export class FavItemComponent implements OnInit{
     this.totalPrice=this.item.product.price
   }
   deleteItem(){
-    this.fav.DeleteFromFavourites(localStorage.getItem("Email"),this.idx).subscribe({
+    this.fav.DeleteFromFavourites(this.idx).subscribe({
       next:(data)=>{
-        console.log("deleted");
         location.reload();
       },
       error:(err)=>{console.log(err)}
