@@ -7,7 +7,7 @@
 
     <div class="form-group">
       <h3>Price</h3> 
-      <input formControlName="price" #price type="text" class="form-control" style="height: 5vh;" placeholder="Price">
+      <input  #price formControlName="price" type="text" class="form-control" style="height: 5vh;" placeholder="Price">
     </div>
 
     <div class="form-group">
@@ -32,6 +32,6 @@
     <p>Image2: </p><input formControlName="img2" #img2 type="file" class="form-control-file">
   </div>
 
-  <button type="button" (click)="AddProduct(name.value,price.value,description.value,stock.value,category.value,img1.value, img2.value)" class="btn btn-dark text-white mb-3 m-auto md-w-25 w-50" style="height: 40px;">Add</button>
+  <button type="button" (click)="AddProduct(name.value, price.value,description.value,stock.value,category.value,img1.value, img2.value)" class="btn btn-dark text-white mb-3 m-auto md-w-25 w-50" style="height: 40px;">Add</button>
   <button type="button" (click)="closeForm()" class="btn btn-dark text-white mb-3 m-auto md-w-25 w-50" style="height: 40px;">Cancel</button>
 </div>

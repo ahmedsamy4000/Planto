@@ -5,12 +5,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FeedBackService } from '../../Services/feedbackService';
 import { AddproductComponent } from '../Shop/addproduct/addproduct.component';
+import { UserService } from '../../Services/user.service';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
   imports: [HttpClientModule,CommonModule,AddproductComponent],
-  providers: [ReceiptService,FeedBackService],
+  providers: [ReceiptService,FeedBackService,UserService],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
@@ -28,8 +29,9 @@ export class DashboardComponent implements OnInit {
   totalprofit=0;
   Fees=0;
   netProfit=0;
-
-  constructor(private http: ReceiptService,private feedbackhttp:FeedBackService) { }
+  name="";
+  email="";
+  constructor(private http: ReceiptService,private feedbackhttp:FeedBackService,private user:UserService) { }
   onMonthSelect(event: any): void {
     this.monthSelectedValue = event.target.value;
     this.fetchData();
@@ -39,6 +41,12 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.fetchData();
     this.fetchMoneyData();
+    this.user.GetUser().subscribe({
+      next:(data:any)=>{
+        this.name=data.data.name;
+        this.email=data.data.email;
+      }
+    });
   }
 
   fetchMoneyData() {

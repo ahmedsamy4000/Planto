@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavigationEnd, Router, RouterModule, RoutesRecognized } from '@angular/router';
 import { filter, pairwise } from 'rxjs';
 import { LoginComponent } from '../login/login.component';
+import { jwtDecode } from 'jwt-decode';
 
 @Component({
   selector: 'app-footer',
@@ -30,7 +31,19 @@ export class FooterComponent {
   ContactClick(){
     if(localStorage.getItem("userToken"))
       {
-        this.router.navigateByUrl("/contact");
+        if (localStorage.getItem("userToken")) {
+          interface MyToken {
+            email: string;
+            id: string;
+            isAdmin: string;
+            iat: number
+          };
+          const decodedToken = jwtDecode<MyToken>(localStorage.getItem("userToken")!);
+          if(decodedToken.isAdmin=="true"){
+            this.router.navigateByUrl("/contact");
+          }
+        }
+        
       }else{
         this.toggleLoginForm();
       }

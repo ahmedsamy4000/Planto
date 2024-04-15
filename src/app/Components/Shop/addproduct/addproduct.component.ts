@@ -15,7 +15,7 @@ import { CommonModule } from '@angular/common';
 export class AddproductComponent {
   imageurl1 = "";
   imageurl2 = "";
-
+@Input() form:any;
   productName = "";
 
   constructor(private http: ProductsService, private fb: FormBuilder) { }
@@ -106,10 +106,10 @@ export class AddproductComponent {
     });
   }
 
-  AddProduct(name: string,price: number,description: string, stock: number, category: string,img1: any,img2: any){
+  AddProduct(name: string,price: string,description: string, stock: string, category: string,img1: any,img2: any){
     
   }
-  closeform(){
+  closeForm(){
 
   }
 }
