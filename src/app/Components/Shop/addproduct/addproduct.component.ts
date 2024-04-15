@@ -18,22 +18,21 @@ export class AddproductComponent {
 @Input() form:any;
   productName = "";
 
-  constructor(private http: ProductsService, private fb: FormBuilder) { }
+  constructor(private http: ProductsService) { }
 
    Form =new FormGroup({
     name: new FormControl('', [Validators.pattern("^[a-zA-Z ]*$"), Validators.required]),
     price: new FormControl('', [Validators.pattern("^[0-9]*$"), Validators.required]), 
     description: new FormControl('', Validators.required), 
     stock: new FormControl('', [Validators.pattern("^[0-9]*$"), Validators.required]), 
-    category: new FormControl('', [Validators.pattern("^(indoor|outdoor|both)$"), Validators.required]), 
-    img1: new FormControl('', Validators.required), // 
-    img2: new FormControl('', Validators.required),
+    category: new FormControl('',[Validators.pattern("^[Indoor|Outdoor|Both]$")]), 
+    img1: new FormControl(''), // 
+    img2: new FormControl(''),
   });
     
   
   get NameValid() {
     return this.Form.controls["name"].valid;
-
   }
   
   get PriceValid() {
@@ -106,8 +105,17 @@ export class AddproductComponent {
   }
 
   async AddProduct(name: any, price: string, description: any, stock: string, category: any, img1: any, img2: any) {
-    await this.uploadImage1(img1);
-    await this.uploadImage2(img2);
+   console.log(this.NameValid)
+   console.log(this.PriceValid)
+   console.log(this.DescriptionValid)
+   console.log(this.StockValid)
+   console.log(this.CategoryValid)
+   console.log(this.Form.controls["category"])
+   console.log(this.Img1Valid)
+   console.log(this.Img2Valid)
+    if (this.Form.valid){
+      await this.uploadImage1(img1);
+      await this.uploadImage2(img2);
     this.http.addProduct({
       name: name,
       price: price,
@@ -123,7 +131,10 @@ export class AddproductComponent {
         this.closeForm();
       },
       error: (error) => { console.log(error); }
-    });
+    });}
+    else{
+      console.log("not valid")
+    }
   }
   closeForm() {
     this.form.style.display = "none";

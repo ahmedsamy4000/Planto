@@ -19,12 +19,13 @@
       <h3>Stock</h3> 
       <input formControlName="stock" #stock type="text" class="form-control" style="height: 5vh;" placeholder="Stock">
     </div>
+    
   </form>
 
   <div class="form-group col-6 p-3">
     <div class="form-group">
       <h3>Category</h3> 
-      <input formControlName="category" #category type="text" class="form-control mb-5" style="height: 5vh;" placeholder="Category">
+      <input #category formControlName="category" type="text" class="form-control mb-5" style="height: 5vh;" placeholder="Category">
     </div>
 
     <h2>Images :</h2>
@@ -32,6 +33,6 @@
     <p>Image2: </p><input formControlName="img2" #img2 type="file" class="form-control-file">
   </div>
 
-  <button type="button" (click)="AddProduct(name.value, price.value,description.value,stock.value,category.value,img1.value, img2.value)" class="btn btn-dark text-white mb-3 m-auto md-w-25 w-25 mx-5" style="height: 40px;">Add</button>
+  <button type="button" (click)="AddProduct(name.value, price.value,description.value,stock.value,category.value,img1, img2)" class="btn btn-dark text-white mb-3 m-auto md-w-25 w-25 mx-5" style="height: 40px;">Add</button>
   <button type="button" (click)="closeForm()" class="btn btn-dark text-white mb-3 m-auto md-w-25 w-25 mx-5" style="height: 40px;">Cancel</button>
 </div>
