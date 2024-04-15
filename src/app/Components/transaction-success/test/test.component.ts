@@ -11,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class TestComponent {
   constructor(router: Router, activated: ActivatedRoute){
     if(activated.snapshot.queryParams['success']){
-      location.assign('http://localhost:4200/success2')
+      location.assign('https://plantoo.vercel.app/success2')
     }
   }
 }
