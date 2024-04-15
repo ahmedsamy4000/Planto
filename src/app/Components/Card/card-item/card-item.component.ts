@@ -26,6 +26,7 @@ Plus(){
   if(this.item.product.stock>this.item.quantity)
     {
       this.item.quantity+=1;
+      console.log(this.item.product.images[0])
       this.totalPrice=this.item.quantity*this.item.price;
       this.cartTotalPrice.emit(this.item.price);
       this.cart.UpdateCart(this.item,this.idx).subscribe({

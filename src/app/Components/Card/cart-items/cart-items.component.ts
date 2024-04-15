@@ -47,9 +47,4 @@ constructor(private user:UserService, private router:Router){
   goToReceipt(){
     this.router.navigate(['/payment']);
   }
-
-
-
-
-
 }
