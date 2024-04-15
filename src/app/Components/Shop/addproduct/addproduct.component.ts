@@ -65,7 +65,7 @@ export class AddproductComponent {
       const formData1 = new FormData();
       formData1.append('image', file1);
 
-      fetch('http://localhost:7500/upload', {
+      fetch('https://planto.onrender.com/upload', {
         method: 'POST',
         body: formData1
       })
@@ -88,7 +88,7 @@ export class AddproductComponent {
       const formData2 = new FormData();
       formData2.append('image', file2);
 
-      fetch('http://localhost:7500/upload', {
+      fetch('https://planto.onrender.com/upload', {
         method: 'POST',
         body: formData2
       })
