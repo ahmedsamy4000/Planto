@@ -1,12 +1,12 @@
-<div class="row ms-5">
+<div class="row ms-3">
     <div class="col-12 text-center">
         <p class="roboto-light fs-1">{{selected.name}}</p>
         <p class="roboto-light fs-4">{{selected.category}}</p>
-        <p class="roboto-light fs-4"  >{{price}}</p>    
-        <p class="roboto-light fs-4 mt-4 d-none d-md-block">{{selected.description}}</p>
+        <p class="roboto-light fs-4"  >EGP{{price}}</p>    
+        <p class="roboto-light fs-4 mt-3 d-none d-md-block">{{selected.description}}</p>
     </div>
     
-    <div class="text-center my-5">
+    <div class="text-center my-3">
       @if(isAdmin){
         <div class="text-center">
           <p class="roboto-light fs-4 mt-3">Stock: {{selected.stock}} items</p>
@@ -134,14 +134,14 @@
         </button> 
       }@else{
         <div class="text-center">
-          <p class="roboto-light fs-4 mt-3">Size:</p>
+          <p class="roboto-light fs-4">Size:</p>
         </div>
         <div class="row m-auto">
           <div class="text-center col-lg-6 col-12">
-            <button type="button" class="sizes roboto-light fs-5 px-5 py-4 my-3" (click)="smallClick()">Small</button>
+            <button type="button" class="sizes roboto-light fs-5 px-5 py-4 my-2" (click)="smallClick()">Small</button>
           </div>
           <div class="text-center col-lg-6 col-12">
-            <button type="button" class="sizes roboto-light fs-5 px-5 py-4 my-3" (click)="meduimClick()">Meduim</button>
+            <button type="button" class="sizes roboto-light fs-5 px-5 py-4 my-2" (click)="meduimClick()">Meduim</button>
           </div>
           <div class="text-center my-3 col-12">
             <button type="button" class="sizes roboto-light fs-5 px-5 py-4" (click)="largeClick()">Large</button>
@@ -151,7 +151,7 @@
           <p class="roboto-light fs-4">Quantity:</p>
           <input #quantity type="number" min="1" max="{{selected.stock}}" value="1" class="roboto-light fs-4 px-3 py-4">
       </div>
-        <button class="pola mt-5" (click)="AddtoCart(quantity,price)">
+        <button class="pola mt-5 wid" (click)="AddtoCart(quantity,price)">
             Add To Cart
             <div class="icon-1">
               <svg
@@ -211,7 +211,8 @@
               </svg>
             </div>
           </button> 
-          <button class="pola mt-5 w-75" (click)="AddToFavourites()">
+          <br>
+          <button class="pola mt-5 w-75 wid" (click)="AddToFavourites()">
             Add To Favourites
             <div class="icon-1">
               <svg

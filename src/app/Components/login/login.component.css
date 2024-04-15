@@ -4,6 +4,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     backdrop-filter: blur(10px);
+    z-index: 1000;
   }
 
   .form-container{
