@@ -57,9 +57,9 @@ export class HeaderComponent {
   }
 
   Logout() {
-    // localStorage.removeItem('userToken');
     this.isRegistered = false;
     this.router.navigate(['/'])
+    localStorage.removeItem('userToken');
   }
 
   searchQuery: any;

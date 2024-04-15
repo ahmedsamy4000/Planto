@@ -103,7 +103,7 @@ export class RegisterComponent {
       next: (data: any) => {
         this.result=data
         if (this.registerFormGroup.valid&&this.result.message==true) {
-          localStorage.setItem("userToken", data.headers.get('x-auth-token'));
+          localStorage.setItem("userToken", data.token);
           this.close.emit();
           location.reload();
         }
