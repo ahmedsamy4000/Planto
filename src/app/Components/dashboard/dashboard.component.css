@@ -494,6 +494,9 @@ select{
     }
   }
 
+  .samy{
+    background-color: #E0CCBE;
+  }
   .form-container {
   height: 90vh;
   display: none;
