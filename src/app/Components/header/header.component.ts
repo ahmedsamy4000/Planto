@@ -57,7 +57,7 @@ export class HeaderComponent {
   }
 
   Logout() {
-    localStorage.removeItem('userToken');
+    // localStorage.removeItem('userToken');
     this.isRegistered = false;
     this.router.navigate(['/'])
   }
