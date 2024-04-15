@@ -1,0 +1,41 @@
+<div class="card color px-4 pt-4 len text-white">
+    <div class="row g-0">
+        <div class="col-md-2 col-4">
+            <img src="assets/Images/Palm/1.jpg" class="img-fluid img" alt="...">
+        </div>
+        <div class="col-md-10 col-8">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-10 order-1 order-md-1">
+                    <h5 class="card-title fs-4">{{item.product.name}}</h5>
+                    <p class="card-text fs-5"><small class="text-white">Size: {{item.size}}</small></p>
+                </div>
+                <div class="col-lg-4 col-md-3 col-5 order-2 order-md-1 text-end">
+                    <div class="flex-row d-flex justify-content-end fs-5">
+                        <!-- <input type="button" value="-" class="m-2 border border-0 color text-white" (click)="Minus()"> -->
+                        <p class="m-2">{{item.quantity}}</p>
+                        <!-- <input type="button" value="+" class="m-2 border border-0 color text-white" (click)="Plus()"> -->
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-7 order-2 order-md-1 text-end">  
+                    <h5 class="pt-2 fs-5">{{totalPrice | currency:'EGP'}}</h5>
+                </div>
+                
+                <!-- <div class="col-md-1 col-2 order-1 order-md-1" (click)="deleteItem()"> -->
+    
+                    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-x-lg m-4 mt-2" viewBox="0 0 16 16">
+                        <path
+                            d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+                    </svg> -->
+    
+                </div>
+            
+            </div>
+        </div>
+        
+    </div>
+<!-- </div> -->
+<div class="row mar">
+    <hr class="divider">
+</div>
+<br>
