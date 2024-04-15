@@ -23,7 +23,7 @@
                     <li class="nav-item m-auto">
                         <a routerLink="/shop" class="menu__link">Shop</a>
                     </li>
-                    @if(isAdmin)
+                    @if(!isAdmin)
                     {
                     <li class="nav-item m-auto">
                         <a routerLink="/contact" class="menu__link">Contact</a>
