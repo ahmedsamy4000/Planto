@@ -62,6 +62,7 @@ export class PaymentComponent implements OnInit {
           next: (response2: any) => {
             this.receipt.getPaymentToken(this.token, response2.amount_cents, response2.id, this.userData.email, this.userData.name, this.userData.address.street, this.userData.phone, this.userData.address.city).subscribe({
               next: (res3: any) => {
+                this.setCookie('userToken', `${localStorage.getItem('userToken')}`, 1);
                 location.assign('https://accept.paymob.com/api/acceptance/iframes/837788?payment_token=' + res3.token);
               },
               error: (err) => {
@@ -80,4 +81,12 @@ export class PaymentComponent implements OnInit {
     });
 
   }
+
+  private setCookie(name: string, value: string, expireDays: number, path: string = '') {
+    let d:Date = new Date();
+    d.setTime(d.getTime() + expireDays * 24 * 60 * 60 * 1000);
+    let expires:string = `expires=${d.toUTCString()}`;
+    let cpath:string = path ? `; path=${path}` : '';
+    document.cookie = `${name}=${value}; ${expires}${cpath}`;
+}
 }
