@@ -50,9 +50,11 @@ Minus(){
 }
 deleteItem(){
   this.cart.DeleteFromCart(this.idx).subscribe({
-    next:(data)=>{},
+    next:(data)=>{
+  location.reload();
+
+    },
     error:(err)=>{console.log(err)}
   });
-  location.reload();
 }
 }
