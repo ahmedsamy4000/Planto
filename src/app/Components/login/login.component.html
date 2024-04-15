@@ -40,22 +40,22 @@
     }
     @else
     {
-    <div class="tab-content">
+    <div class="tab-content m-5">
         <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
             <form [formGroup]="loginFormGroup">
                 <!-- Email input -->
-                <div class="form-outline mb-4 text-white fw-bold">
+                <div class="form-outline mb-4 text-white fw-bold fs-3">
                     <label class="form-label" for="loginName">Email</label>
-                    <input formControlName="email" #email type="email" id="loginName" class="form-control" (click)="resetEmail()"/>
+                    <input formControlName="email" #email type="email" id="loginName" class="form-control fs-5" (click)="resetEmail()"/>
                     <div class="mt-1 fw-normal">
                         <p class="text-danger">{{emailValid}}</p>
                       </div>
                 </div>
 
                 <!-- Password input -->
-                <div class="form-outline mb-4 text-white fw-bold">
+                <div class="form-outline mb-4 text-white fw-bold fs-3">
                     <label class="form-label" for="loginPassword">Password</label>
-                    <input formControlName="password" #password type="password" id="loginPassword" class="form-control" (click)="resetPassword()"/>
+                    <input formControlName="password" #password type="password" id="loginPassword" class="form-control fs-5" (click)="resetPassword()"/>
                     <div class="mt-1 fw-normal">
                         <p class="text-danger">{{passwordValid}}</p>
                       </div>
@@ -64,7 +64,7 @@
                     <p class="text-danger">{{epValid}}</p>
                   </div>
                 <div class="text-center">
-                    <button type="submit" class="btn btnSign btn-block mb-4" (click)="OnLogin(email.value, password.value)">Sign in</button>
+                    <button type="submit" class="btn btnSign btn-block mb-4 fs-4" (click)="OnLogin(email.value, password.value)">Sign in</button>
                 </div>
             </form>
         </div>
