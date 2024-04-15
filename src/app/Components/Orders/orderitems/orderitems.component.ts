@@ -42,7 +42,7 @@ export class OrderitemsComponent {
         this.items = data;
         this.items = this.items.data;
         console.log(this.items)
-        this.flag = this.items.length > 0 ? 1 : 0;
+        // this.flag = this.items.length > 0 ? 1 : 0;
         for (let item of this.items) {
           this.numOfItems += +item.quantity;
           this.totalPrice += item.quantity * item.product.price;
@@ -58,9 +58,9 @@ export class OrderitemsComponent {
     });
   }
 
-  output(data: number) {
-    this.totalPrice += +data;
-  }
+  // output(data: number) {
+  //   this.totalPrice += +data;
+  // }
 
   // goToReceipt() {
   //   this.router.navigate(['/payment']);

@@ -17,6 +17,8 @@ import { adminGuard } from './Guards/admin.guard';
 import { FavItemsComponent } from './Components/favourites/fav-items/fav-items.component';
 import { ProductRateComponent } from './Components/Product/product-rate/product-rate.component';
 import { TransactionSuccessComponent } from './Components/transaction-success/transaction-success.component';
+import { OrderitemsComponent } from './Components/Orders/orderitems/orderitems.component';
+import { TestComponent } from './Components/transaction-success/test/test.component';
 
 export const routes: Routes = [
     {path: '', redirectTo: 'welcome', pathMatch: 'full'},
@@ -33,7 +35,9 @@ export const routes: Routes = [
     {path: "feedbacks",component:FeedbacksComponent},
     {path: "favourites",canActivate:[userGuard],component:FavItemsComponent},
     {path: "rate",component:ProductRateComponent},
-    {path: "success",component:TransactionSuccessComponent},
+    {path: "success2",component:TransactionSuccessComponent},
+    {path: "success",component:TestComponent},
+    {path: "orders",component:OrderitemsComponent},
     {path: "**", component:ErrorComponent},
 ];
 

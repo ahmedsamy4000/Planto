@@ -20,23 +20,18 @@ export class TransactionSuccessComponent {
   success: any;
   user: any;
   totalPrice: any = 0;
-  constructor(activated: ActivatedRoute, receiptService: ReceiptService, userService: UserService) {
+  constructor(receiptService: ReceiptService, userService: UserService) {
     userService.GetUser().subscribe({
       next: (data: any) => {
         this.user = data.data;
         console.log(this.user)
         userService.GetCart().subscribe({
           next: (data2: any) => {
-            console.log(activated.snapshot.queryParams['success']);
             console.log(data2)
             for (var c of data2.data) {
               this.totalPrice += c.quantity * c.product.price;
               this.cart.push({ name: c.product.name, quantity: c.quantity, price: c.product.price,  images: c.product.images })
             }
-            this.success = activated.snapshot.queryParams['success'];
-            console.log(this.success)
-            console.log(this.cart)
-            if (this.success) {
               receiptService.AddReceipt({ user: this.user.email, product: this.cart, totalPrice: this.totalPrice }).subscribe({
                 next: (data3) => {
                   console.log(data3);
@@ -55,7 +50,7 @@ export class TransactionSuccessComponent {
                   console.log(err);
                 }
               })
-            }
+
           },
           error: (err)=>{
             console.log(err);
