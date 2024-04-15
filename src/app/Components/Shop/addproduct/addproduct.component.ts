@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ProductsService } from '../../../Services/productsService';
-import { FormBuilder, FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 
@@ -20,18 +20,17 @@ export class AddproductComponent {
 
   constructor(private http: ProductsService, private fb: FormBuilder) { }
 
-   Form = this.fb.group({
-      name: new FormControl('', [Validators.pattern("^[a-zA-Z ]*$"), Validators.required]),
-      price: new FormControl('', [Validators.pattern("^[0-9]*$"), Validators.required]), 
-      description: new FormControl('', Validators.required), 
-      stock: new FormControl('', [Validators.pattern("^[0-9]*$"), Validators.required]), 
-      category: new FormControl('', [Validators.pattern("^(indoor|outdoor|both)$"), Validators.required]), 
-      img1: new FormControl('', Validators.required), // 
-      img2: new FormControl('', Validators.required),
-    });
-  
+   Form =new FormGroup({
+    name: new FormControl('', [Validators.pattern("^[a-zA-Z ]*$"), Validators.required]),
+    price: new FormControl('', [Validators.pattern("^[0-9]*$"), Validators.required]), 
+    description: new FormControl('', Validators.required), 
+    stock: new FormControl('', [Validators.pattern("^[0-9]*$"), Validators.required]), 
+    category: new FormControl('', [Validators.pattern("^(indoor|outdoor|both)$"), Validators.required]), 
+    img1: new FormControl('', Validators.required), // 
+    img2: new FormControl('', Validators.required),
+  });
     
-
+  
   get NameValid() {
     return this.Form.controls["name"].valid;
 
@@ -106,10 +105,28 @@ export class AddproductComponent {
     });
   }
 
-  AddProduct(name: string,price: string,description: string, stock: string, category: string,img1: any,img2: any){
-    
+  async AddProduct(name: any, price: string, description: any, stock: string, category: any, img1: any, img2: any) {
+    await this.uploadImage1(img1);
+    await this.uploadImage2(img2);
+    this.http.addProduct({
+      name: name,
+      price: price,
+      description: description,
+      images: [this.imageurl1, this.imageurl2],
+      stock: +stock,
+      category: category,
+      count: 0,
+      rate: 0,
+      numberOfRates: 0
+    }).subscribe({
+      next: (value) => {
+        this.closeForm();
+      },
+      error: (error) => { console.log(error); }
+    });
   }
-  closeForm(){
-
+  closeForm() {
+    this.form.style.display = "none";
   }
+  
 }

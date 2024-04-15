@@ -3,6 +3,7 @@
         opacity: 0;
         transform: translateY(-20px);
     }
+
     100% {
         opacity: 1;
         transform: translateY(0);
@@ -13,17 +14,21 @@
     font-size: 3em;
     animation: fadeInAnimation ease 2s;
 }
-.con{
+
+.con {
     box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
     margin-top: 10%;
-    min-height:350px;
+    min-height: 350px;
     background-color: #E1CCBE;
+
 }
-.con2{
+
+.con2 {
     box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
     background-color: #E1CCBE;
-    min-height:350px;
+    height: 490px;
 }
+
 .add-product-list {
     height: 60vh;
     width: 20vh;
@@ -39,5 +44,9 @@
     background-color: #f2f2f2;
     padding: 20px;
     animation: fadeIn 0.5s ease forwards;
-  }
-  
+}
+
+.f{
+    box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
+    background-color: #E1CCBE;
+}

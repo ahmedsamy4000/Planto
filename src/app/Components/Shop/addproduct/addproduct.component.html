@@ -1,4 +1,4 @@
-<div class="row w-100 text-white">
+<div class="row w-100 text-white form justify-content-evenly">
   <form [formGroup]="Form" class="row col-6 p-3">
     <div class="form-group">
       <h3>ProductName </h3> 
@@ -32,6 +32,6 @@
     <p>Image2: </p><input formControlName="img2" #img2 type="file" class="form-control-file">
   </div>
 
-  <button type="button" (click)="AddProduct(name.value, price.value,description.value,stock.value,category.value,img1.value, img2.value)" class="btn btn-dark text-white mb-3 m-auto md-w-25 w-50" style="height: 40px;">Add</button>
-  <button type="button" (click)="closeForm()" class="btn btn-dark text-white mb-3 m-auto md-w-25 w-50" style="height: 40px;">Cancel</button>
+  <button type="button" (click)="AddProduct(name.value, price.value,description.value,stock.value,category.value,img1.value, img2.value)" class="btn btn-dark text-white mb-3 m-auto md-w-25 w-25 mx-5" style="height: 40px;">Add</button>
+  <button type="button" (click)="closeForm()" class="btn btn-dark text-white mb-3 m-auto md-w-25 w-25 mx-5" style="height: 40px;">Cancel</button>
 </div>
